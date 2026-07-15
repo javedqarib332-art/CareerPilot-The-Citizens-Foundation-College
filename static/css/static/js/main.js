@@ -133,6 +133,19 @@ function renderReport(result) {
   document.getElementById("report-name").innerHTML = `Directions worth exploring, <em>${escapeHtml(studentName)}</em>`;
   const grid = document.getElementById("fields-grid");
   grid.innerHTML = "";
+
+  if (result.valid_response === false) {
+    document.getElementById("report-name").innerHTML = `A note for you, <em>${escapeHtml(studentName)}</em>`;
+    const el = document.createElement("div");
+    el.className = "field-pill";
+    el.style.borderLeftColor = "#8B8378";
+    el.textContent = "No confident suggestion — see below";
+    grid.appendChild(el);
+    document.getElementById("report-reason").textContent = result.student_report.split("\n\n")[1] || "";
+    showScreen("report");
+    return;
+  }
+
   result.suggested_fields.forEach(f => {
     const el = document.createElement("div");
     el.className = "field-pill";
