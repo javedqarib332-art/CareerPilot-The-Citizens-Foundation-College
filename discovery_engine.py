@@ -201,6 +201,36 @@ def bottom_riasec_categories(riasec_scores: Dict[str, int], n: int = 2) -> List[
 
 
 # ---------------------------------------------------------------------------
+# 3b. RESPONSE VALIDITY CHECK
+# ---------------------------------------------------------------------------
+
+def check_response_validity(riasec_scores: Dict[str, int]) -> Dict:
+    """
+    Detects 'straight-lining' — when a student answers every question the same way,
+    which makes the RIASEC scores flat and any top-2 selection meaningless (just
+    dictionary/tie order, not a genuine signal).
+
+    Returns a dict with 'valid' (bool) and 'reason' (str, only if invalid).
+    """
+    values = list(riasec_scores.values())
+    spread = max(values) - min(values)
+
+    # If every category scored within a very narrow band, there's no real signal.
+    # Max possible spread is 30-6=24. A spread below 6 means answers barely varied at all.
+    if spread < 6:
+        return {
+            "valid": False,
+            "reason": (
+                "Your answers were very similar across all the questions, so the categories "
+                "scored almost the same. This usually means either every scenario genuinely felt "
+                "the same to you right now, or the questions were answered quickly without much "
+                "thought. Either way, a confident field suggestion wouldn't be honest here."
+            ),
+        }
+    return {"valid": True, "reason": ""}
+
+
+# ---------------------------------------------------------------------------
 # 4. CONTRADICTION DETECTION (fixed rule table — not free-form AI judgment)
 # ---------------------------------------------------------------------------
 
@@ -476,6 +506,34 @@ def parse_submission(payload: Dict) -> StudentResponse:
 def run_discovery_assessment(student: StudentResponse) -> Dict:
     riasec_scores = score_riasec(student.riasec_answers)
     big_five_scores = score_big_five(student.big_five_answers)
+
+    validity = check_response_validity(riasec_scores)
+
+    if not validity["valid"]:
+        # Don't fabricate a confident suggestion from flat/meaningless scores.
+        student_report = (
+            f"Hi {student.student_name},\n\n"
+            f"{validity['reason']}\n\n"
+            "Rather than guess, it's better to either retake this thinking through each scenario "
+            "individually, or talk this through directly with your counsellor."
+        )
+        counsellor_report = (
+            f"COUNSELLOR REPORT — {student.student_name}\n" + "=" * 50 +
+            f"\n\nVALIDITY FLAG: Straight-lined / flat response pattern detected.\n"
+            f"RIASEC scores: {riasec_scores}\n"
+            "No reliable field suggestion could be generated from this response set. "
+            "Recommend a retake or a direct conversation to establish genuine interests."
+        )
+        return {
+            "riasec_scores": riasec_scores,
+            "big_five_scores": big_five_scores,
+            "contradiction_flags": [],
+            "suggested_fields": [],
+            "valid_response": False,
+            "student_report": student_report,
+            "counsellor_report": counsellor_report,
+        }
+
     flags = detect_contradictions(riasec_scores, big_five_scores, student.skills_ratings)
     fields = suggest_fields(riasec_scores)
 
@@ -487,6 +545,7 @@ def run_discovery_assessment(student: StudentResponse) -> Dict:
         "big_five_scores": big_five_scores,
         "contradiction_flags": [f.__dict__ for f in flags],
         "suggested_fields": fields,
+        "valid_response": True,
         "student_report": student_report,
         "counsellor_report": counsellor_report,
     }
