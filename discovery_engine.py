@@ -120,31 +120,31 @@ SKILLS = [
 # Comprehensive mapping — all 15 possible RIASEC top-2 combinations (6 choose 2).
 # Based on standard Holland Code career-cluster associations.
 FIELD_MAPPING_BY_PAIR = {
-    frozenset(("R", "I")): ["Engineering", "Computer Science", "Applied Physics"],
+    frozenset(("R", "I")): ["Engineering", "Computer Science", "Chemical Engineering", "Textile Engineering", "Environmental Science", "Applied Physics"],
     frozenset(("R", "A")): ["Architecture", "Industrial/Product Design"],
-    frozenset(("R", "S")): ["Sports Science/Coaching", "Paramedic/Emergency Services"],
-    frozenset(("R", "E")): ["Construction Management", "Technical Entrepreneurship"],
-    frozenset(("R", "C")): ["Mechanical/Electrical Engineering", "Technical & Trades fields", "Quality Control"],
+    frozenset(("R", "S")): ["Sports Science/Coaching", "Paramedic/Emergency Services", "Veterinary Sciences"],
+    frozenset(("R", "E")): ["Construction Management", "Technical Entrepreneurship", "Aviation"],
+    frozenset(("R", "C")): ["Mechanical/Electrical Engineering", "Technical & Trades fields", "Quality Control", "Agriculture Sciences"],
     frozenset(("I", "A")): ["Architecture", "Research Science", "UX/Design Research"],
-    frozenset(("I", "S")): ["Psychology", "Medicine", "Public Health"],
-    frozenset(("I", "E")): ["Data Science", "Actuarial Science", "Biotech/Health-tech Entrepreneurship"],
-    frozenset(("I", "C")): ["Computer Science", "Data Science", "Accounting/Finance", "Actuarial Science"],
-    frozenset(("A", "S")): ["Psychology", "Teaching", "Media/Communications", "Counseling"],
-    frozenset(("A", "E")): ["Marketing", "Advertising", "Media Production"],
+    frozenset(("I", "S")): ["Medicine (MBBS)", "Dentistry", "Pharmacy", "Psychology", "Public Health", "Veterinary Sciences"],
+    frozenset(("I", "E")): ["Data Science", "Economics", "Actuarial Science", "Biotech/Health-tech Entrepreneurship"],
+    frozenset(("I", "C")): ["Computer Science", "Data Science", "Accounting/Finance", "Chartered Accountancy (CA/ACCA)", "Actuarial Science", "Statistics"],
+    frozenset(("A", "S")): ["Psychology", "Teaching", "Mass Communication/Journalism", "Media/Communications", "Counseling"],
+    frozenset(("A", "E")): ["Marketing", "Advertising", "Mass Communication/Journalism", "Media Production"],
     frozenset(("A", "C")): ["Graphic/Structured Design", "Publishing & Editing", "Fashion Merchandising"],
-    frozenset(("S", "E")): ["Business/Management", "Marketing", "Human Resources", "Education"],
+    frozenset(("S", "E")): ["Business/Management", "Marketing", "Human Resources", "Education", "Hotel Management", "Law"],
     frozenset(("S", "C")): ["Human Resources", "Nursing/Healthcare Administration", "Social Work Administration"],
-    frozenset(("E", "C")): ["Business Administration", "Law", "Finance", "Accounting"],
+    frozenset(("E", "C")): ["Business Administration", "Law", "Finance", "Accounting", "Chartered Accountancy (CA/ACCA)"],
 }
 
 # Single-category fallback (used only if a clean top-2 pair isn't found)
 FIELD_MAPPING_SINGLE = {
-    "R": ["Engineering", "Technical/Trades fields"],
-    "I": ["Computer Science", "Research Science", "Data Science"],
+    "R": ["Engineering", "Technical/Trades fields", "Agriculture Sciences"],
+    "I": ["Computer Science", "Research Science", "Data Science", "Economics"],
     "A": ["Design", "Media/Communications", "Architecture"],
     "S": ["Psychology", "Teaching", "Human Resources"],
     "E": ["Business Administration", "Marketing", "Entrepreneurship"],
-    "C": ["Accounting/Finance", "Business Administration"],
+    "C": ["Accounting/Finance", "Business Administration", "Chartered Accountancy (CA/ACCA)"],
 }
 
 
@@ -360,7 +360,7 @@ def suggest_fields(riasec_scores: Dict[str, int]) -> List[str]:
         if f not in seen:
             seen.add(f)
             deduped.append(f)
-    return deduped[:4]  # cap at 4 suggestions
+    return deduped[:5]  # cap at 5 suggestions
 
 
 # ---------------------------------------------------------------------------
