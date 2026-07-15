@@ -530,6 +530,7 @@ def run_discovery_assessment(student: StudentResponse) -> Dict:
             "contradiction_flags": [],
             "suggested_fields": [],
             "valid_response": False,
+            "reason": validity["reason"],
             "student_report": student_report,
             "counsellor_report": counsellor_report,
         }
