@@ -117,14 +117,35 @@ SKILLS = [
     "IndependentWork",
 ]
 
-FIELD_MAPPING = [
-    (("I", "C"), ["Computer Science", "Data Science", "Engineering", "Accounting/Finance"]),
-    (("I", "A"), ["Architecture", "Research", "Design Engineering"]),
-    (("S", "E"), ["Business/Management", "Marketing", "Human Resources", "Education"]),
-    (("S", "A"), ["Psychology", "Teaching", "Media/Communications"]),
-    (("R", "C"), ["Engineering (Mechanical/Electrical)", "Technical/Trades fields"]),
-    (("E", "C"), ["Business Administration", "Law", "Finance"]),
-]
+# Comprehensive mapping — all 15 possible RIASEC top-2 combinations (6 choose 2).
+# Based on standard Holland Code career-cluster associations.
+FIELD_MAPPING_BY_PAIR = {
+    frozenset(("R", "I")): ["Engineering", "Computer Science", "Applied Physics"],
+    frozenset(("R", "A")): ["Architecture", "Industrial/Product Design"],
+    frozenset(("R", "S")): ["Sports Science/Coaching", "Paramedic/Emergency Services"],
+    frozenset(("R", "E")): ["Construction Management", "Technical Entrepreneurship"],
+    frozenset(("R", "C")): ["Mechanical/Electrical Engineering", "Technical & Trades fields", "Quality Control"],
+    frozenset(("I", "A")): ["Architecture", "Research Science", "UX/Design Research"],
+    frozenset(("I", "S")): ["Psychology", "Medicine", "Public Health"],
+    frozenset(("I", "E")): ["Data Science", "Actuarial Science", "Biotech/Health-tech Entrepreneurship"],
+    frozenset(("I", "C")): ["Computer Science", "Data Science", "Accounting/Finance", "Actuarial Science"],
+    frozenset(("A", "S")): ["Psychology", "Teaching", "Media/Communications", "Counseling"],
+    frozenset(("A", "E")): ["Marketing", "Advertising", "Media Production"],
+    frozenset(("A", "C")): ["Graphic/Structured Design", "Publishing & Editing", "Fashion Merchandising"],
+    frozenset(("S", "E")): ["Business/Management", "Marketing", "Human Resources", "Education"],
+    frozenset(("S", "C")): ["Human Resources", "Nursing/Healthcare Administration", "Social Work Administration"],
+    frozenset(("E", "C")): ["Business Administration", "Law", "Finance", "Accounting"],
+}
+
+# Single-category fallback (used only if a clean top-2 pair isn't found)
+FIELD_MAPPING_SINGLE = {
+    "R": ["Engineering", "Technical/Trades fields"],
+    "I": ["Computer Science", "Research Science", "Data Science"],
+    "A": ["Design", "Media/Communications", "Architecture"],
+    "S": ["Psychology", "Teaching", "Human Resources"],
+    "E": ["Business Administration", "Marketing", "Entrepreneurship"],
+    "C": ["Accounting/Finance", "Business Administration"],
+}
 
 
 # ---------------------------------------------------------------------------
@@ -254,6 +275,66 @@ def detect_contradictions(
             ),
         ))
 
+    # Rule 6: High Investigative interest but low Logical Reasoning self-rating
+    logic_rating = skills_ratings.get("LogicalReasoning", (3, ""))[0]
+    if "I" in top2 and logic_rating <= 2:
+        flags.append(ContradictionFlag(
+            rule_id=6,
+            description="High Investigative interest but low Logical Reasoning self-rating.",
+            follow_up_question=(
+                "You're drawn to research/analytical scenarios, but rated your logical reasoning "
+                "low. Is that about confidence, or about a specific type of problem you find hard?"
+            ),
+        ))
+
+    # Rule 7: High Artistic interest but low Creativity self-rating
+    creativity_rating = skills_ratings.get("Creativity", (3, ""))[0]
+    if "A" in top2 and creativity_rating <= 2:
+        flags.append(ContradictionFlag(
+            rule_id=7,
+            description="High Artistic interest but low Creativity self-rating.",
+            follow_up_question=(
+                "You leaned toward original/creative scenarios, but rated your own creativity low. "
+                "Do you enjoy creative work but doubt your output, or is it something else?"
+            ),
+        ))
+
+    # Rule 8: High Enterprising interest but low Leadership self-rating
+    leadership_rating = skills_ratings.get("Leadership", (3, ""))[0]
+    if "E" in top2 and leadership_rating <= 2:
+        flags.append(ContradictionFlag(
+            rule_id=8,
+            description="High Enterprising interest but low Leadership self-rating.",
+            follow_up_question=(
+                "You're drawn to leadership/enterprising scenarios, but rated your leadership low. "
+                "Have you had a chance to actually lead something, or is this untested so far?"
+            ),
+        ))
+
+    # Rule 9: High Conventional interest but low Attention-to-Detail self-rating (inverse of Rule 4)
+    if "C" in top2 and detail_rating <= 2:
+        flags.append(ContradictionFlag(
+            rule_id=9,
+            description="High Conventional interest but low Attention-to-Detail self-rating.",
+            follow_up_question=(
+                "You leaned toward structured, organized scenarios, but rated your attention to "
+                "detail low. Do you enjoy the structure more than the precision itself?"
+            ),
+        ))
+
+    # Rule 10: High Social interest but low Verbal Communication self-rating
+    verbal_rating = skills_ratings.get("VerbalCommunication", (3, ""))[0]
+    if "S" in top2 and verbal_rating <= 2:
+        flags.append(ContradictionFlag(
+            rule_id=10,
+            description="High Social interest but low Verbal Communication self-rating.",
+            follow_up_question=(
+                "You're drawn to people-facing/helping scenarios, but rated your verbal "
+                "communication low. Is that about speaking to groups specifically, or communication "
+                "in general?"
+            ),
+        ))
+
     return flags
 
 
@@ -262,17 +343,16 @@ def detect_contradictions(
 # ---------------------------------------------------------------------------
 
 def suggest_fields(riasec_scores: Dict[str, int]) -> List[str]:
-    top2 = set(top_riasec_categories(riasec_scores, 2))
-    suggestions = []
-    for combo, fields in FIELD_MAPPING:
-        if set(combo).issubset(top2) or set(combo) & top2 == set(combo):
-            suggestions.extend(fields)
-    # Fallback if no exact combo matched: use top-1 category alone
+    top2 = top_riasec_categories(riasec_scores, 2)
+    pair_key = frozenset(top2)
+
+    suggestions = list(FIELD_MAPPING_BY_PAIR.get(pair_key, []))
+
+    # Fallback: top-1 category alone, if the pair isn't in the table for some reason
     if not suggestions:
-        top1 = top_riasec_categories(riasec_scores, 1)[0]
-        for combo, fields in FIELD_MAPPING:
-            if top1 in combo:
-                suggestions.extend(fields)
+        top1 = top2[0]
+        suggestions = list(FIELD_MAPPING_SINGLE.get(top1, []))
+
     # De-duplicate while preserving order
     seen = set()
     deduped = []
