@@ -30,6 +30,15 @@
 
   <!-- SCREEN: Welcome -->
   <section id="screen-welcome" class="screen active">
+    <svg class="hero-watermark" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <line x1="16" y1="16" x2="16" y2="2" stroke="#16233F" stroke-width="0.6"/>
+      <line x1="16" y1="16" x2="28" y2="9" stroke="#16233F" stroke-width="0.6"/>
+      <line x1="16" y1="16" x2="28" y2="23" stroke="#16233F" stroke-width="0.6"/>
+      <line x1="16" y1="16" x2="16" y2="30" stroke="#16233F" stroke-width="0.6"/>
+      <line x1="16" y1="16" x2="4" y2="23" stroke="#16233F" stroke-width="0.6"/>
+      <line x1="16" y1="16" x2="4" y2="9" stroke="#16233F" stroke-width="0.6"/>
+      <polygon points="16,2 28,9 28,23 16,30 4,23 4,9" fill="none" stroke="#16233F" stroke-width="0.5"/>
+    </svg>
     <div class="eyebrow">TCF Career Guidance &middot; Stage 1</div>
     <h1>Before we talk about fields,<br>let's talk about <em>you</em>.</h1>
     <p class="lede">This isn't a quiz with right or wrong answers. It's a short, honest conversation with yourself — about how you think, what you enjoy, and where your strengths actually lie. Takes about 15-20 minutes.</p>
@@ -52,7 +61,12 @@
 
   <!-- SCREEN: Question flow -->
   <section id="screen-questions" class="screen">
-    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="progress-track">
+      <div class="seg"><div class="seg-fill" data-seg="0"></div></div>
+      <div class="seg"><div class="seg-fill" data-seg="1"></div></div>
+      <div class="seg"><div class="seg-fill" data-seg="2"></div></div>
+      <div class="seg"><div class="seg-fill" data-seg="3"></div></div>
+    </div>
     <div class="q-meta" id="q-meta">Section 1 of 4 — Interests</div>
     <div class="q-card">
       <p class="q-text" id="q-text">Loading...</p>
@@ -68,7 +82,12 @@
 
   <!-- SCREEN: Skills (rating + reason) -->
   <section id="screen-skills" class="screen">
-    <div class="progress-track"><div class="progress-fill" id="progress-fill-skills"></div></div>
+    <div class="progress-track">
+      <div class="seg"><div class="seg-fill" data-seg="0"></div></div>
+      <div class="seg"><div class="seg-fill" data-seg="1"></div></div>
+      <div class="seg"><div class="seg-fill" data-seg="2"></div></div>
+      <div class="seg"><div class="seg-fill" data-seg="3"></div></div>
+    </div>
     <div class="q-meta">Section 3 of 4 — Skills</div>
     <div class="q-card">
       <p class="q-text" id="skill-text">Loading...</p>
@@ -86,7 +105,12 @@
 
   <!-- SCREEN: Academic Subjects -->
   <section id="screen-academic" class="screen">
-    <div class="progress-track"><div class="progress-fill" id="progress-fill-academic"></div></div>
+    <div class="progress-track">
+      <div class="seg"><div class="seg-fill" data-seg="0"></div></div>
+      <div class="seg"><div class="seg-fill" data-seg="1"></div></div>
+      <div class="seg"><div class="seg-fill" data-seg="2"></div></div>
+      <div class="seg"><div class="seg-fill" data-seg="3"></div></div>
+    </div>
     <div class="q-meta">Section 4 of 4 — Academic Performance</div>
     <div class="q-card">
       <p class="q-text" id="academic-text">Loading...</p>
@@ -124,6 +148,8 @@
   TCF College &middot; Career Guidance &mdash; Discovery Agent<br>
   <span class="credit">Developed by Qarib Javed</span>
 </footer>
+
+<div class="corner-credit">Developed by <span>Qarib Javed</span></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
