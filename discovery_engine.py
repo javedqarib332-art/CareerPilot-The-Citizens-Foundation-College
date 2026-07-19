@@ -488,6 +488,38 @@ MEDICAL_TRACK_SUBSPLIT = {
 }
 
 
+def assess_confidence(riasec_scores: Dict[str, int]) -> Dict:
+    """
+    Determines how clearly differentiated the top RIASEC categories are.
+    A student whose top 2-3 categories are close together has a genuinely
+    more balanced profile — the suggestions shouldn't be presented with the
+    same confidence as a student with one or two categories clearly ahead.
+    """
+    ranked = sorted(riasec_scores.values(), reverse=True)
+    if len(ranked) < 3:
+        return {"level": "strong", "note": ""}
+
+    top_score = ranked[0]
+    third_score = ranked[2]
+    margin = top_score - third_score  # gap between #1 and #3
+
+    if margin >= 8:
+        return {
+            "level": "strong",
+            "note": "",
+        }
+    elif margin >= 4:
+        return {
+            "level": "moderate",
+            "note": "Your interests lean in a fairly clear direction, though a few other areas scored close behind — worth keeping an open mind about them too.",
+        }
+    else:
+        return {
+            "level": "mixed",
+            "note": "Your interests came out fairly balanced across several areas rather than pointing strongly in one direction. That's not a bad thing — it just means this is a good topic to explore further with your counsellor rather than treat as settled.",
+        }
+
+
 def suggest_fields(riasec_scores: Dict[str, int]) -> List[str]:
     top3 = top_riasec_categories(riasec_scores, 3)
     top2 = top3[:2]
@@ -531,12 +563,15 @@ def generate_student_report(name: str, fields: List[str], riasec_scores: Dict[st
         "E": "leadership/business-driven work", "C": "structured/organized work",
     }
     reasons = ", ".join(category_names[c] for c in top2)
+    confidence = assess_confidence(riasec_scores)
 
     report = f"Hi {name},\n\n"
     report += "Based on your answers, here are directions that seem to genuinely fit how you think and work:\n\n"
     for f in fields:
         report += f"  • {f}\n"
     report += f"\nWhy: your answers show a strong lean toward {reasons}.\n"
+    if confidence["note"]:
+        report += f"\n{confidence['note']}\n"
     report += "\nThis isn't a final decision — it's a starting point for your counselling session."
     return report
 
@@ -574,6 +609,10 @@ def generate_counsellor_report(
                 lines.append(f"    Student's answer: \"{f.student_response}\"")
 
     lines.append(f"\nSuggested Field Directions: {', '.join(fields)}")
+    confidence = assess_confidence(riasec_scores)
+    lines.append(f"Confidence level: {confidence['level'].upper()}")
+    if confidence["note"]:
+        lines.append(f"  Note: {confidence['note']}")
     lines.append("\nCounsellor prompt suggestions:")
     if flags:
         for f in flags:
@@ -677,6 +716,7 @@ def run_discovery_assessment(student: StudentResponse) -> Dict:
         "contradiction_flags": [f.__dict__ for f in flags],
         "suggested_fields": fields,
         "valid_response": True,
+        "confidence": assess_confidence(riasec_scores),
         "student_report": student_report,
         "counsellor_report": counsellor_report,
     }
