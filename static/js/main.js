@@ -349,10 +349,21 @@ function renderReport(result) {
   }
 
   document.getElementById("report-name").innerHTML = `Directions worth exploring, <em>${escapeHtml(studentName)}</em>`;
-  result.suggested_fields.forEach(f => {
-    const el = document.createElement("div");
+  const fieldDetails = result.suggested_fields_detail || result.suggested_fields.map(f => ({ name: f, slug: null, available: false }));
+  fieldDetails.forEach(fd => {
+    const el = document.createElement("a");
     el.className = "field-pill";
-    el.textContent = f;
+    el.textContent = fd.name + (fd.available ? " →" : "");
+    el.style.textDecoration = "none";
+    el.style.display = "block";
+    if (fd.available && fd.slug) {
+      el.href = `/field/${fd.slug}`;
+    } else {
+      el.href = "javascript:void(0)";
+      el.style.opacity = "0.7";
+      el.style.cursor = "default";
+      el.title = "Detailed guide coming soon";
+    }
     grid.appendChild(el);
   });
   document.getElementById("report-reason").textContent =
