@@ -12,16 +12,14 @@
 
 <div class="wrap">
 
-  <button class="lang-toggle" id="lang-toggle" type="button">اردو</button>
-
   <!-- SCREEN: Welcome -->
   <section id="screen-welcome" class="screen active">
-    <div class="eyebrow" id="t-eyebrow">TCF Career Guidance &middot; Stage 1</div>
-    <h1 id="t-heading">Before we talk about fields,<br>let's talk about <em>you</em>.</h1>
-    <p class="lede" id="t-lede">This isn't a quiz with right or wrong answers. It's a short, honest conversation with yourself — about how you think, what you enjoy, and where your strengths actually lie. Takes about 10 minutes.</p>
+    <div class="eyebrow">TCF Career Guidance &middot; Stage 1</div>
+    <h1>Before we talk about fields,<br>let's talk about <em>you</em>.</h1>
+    <p class="lede">This isn't a quiz with right or wrong answers. It's a short, honest conversation with yourself — about how you think, what you enjoy, and where your strengths actually lie. Takes about 10 minutes.</p>
 
     <div id="resume-banner" class="resume-banner" style="display:none;">
-      <p id="t-resume-text">Looks like you have an assessment in progress.</p>
+      <p>Looks like you have an assessment in progress.</p>
       <div style="display:flex; gap:10px;">
         <button class="btn-primary" id="btn-resume" style="flex:1;">Resume</button>
         <button class="btn-secondary-outline" id="btn-restart" style="flex:1; margin-top:0;">Start Over</button>
@@ -51,7 +49,7 @@
   <!-- SCREEN: Skills (rating + reason) -->
   <section id="screen-skills" class="screen">
     <div class="progress-track"><div class="progress-fill" id="progress-fill-skills"></div></div>
-    <div class="q-meta" id="t-skills-section">Section 3 of 3 — Skills</div>
+    <div class="q-meta">Section 3 of 3 — Skills</div>
     <div class="q-card">
       <p class="q-text" id="skill-text">Loading...</p>
       <div class="scale skill-scale" id="skill-scale">
@@ -69,17 +67,17 @@
   <!-- SCREEN: Processing -->
   <section id="screen-loading" class="screen">
     <div class="loader"></div>
-    <p class="lede" id="t-loading">Reading through your answers...</p>
+    <p class="lede">Reading through your answers...</p>
   </section>
 
   <!-- SCREEN: Report -->
   <section id="screen-report" class="screen">
-    <div class="eyebrow" id="t-results-eyebrow">Your Results</div>
+    <div class="eyebrow">Your Results</div>
     <h1 id="report-name">Directions worth exploring</h1>
     <div id="radar-container" style="margin-bottom: 24px;"></div>
     <div class="fields-grid" id="fields-grid"></div>
     <p class="lede" id="report-reason"></p>
-    <p class="disclaimer" id="t-disclaimer">This isn't a final decision — it's a starting point for your counselling session. A TCF counsellor will go through this with you.</p>
+    <p class="disclaimer">This isn't a final decision — it's a starting point for your counselling session. A TCF counsellor will go through this with you.</p>
     <button class="btn-secondary" id="btn-download-pdf">Download PDF</button>
   </section>
 
