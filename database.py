@@ -28,14 +28,16 @@ def get_connection():
 def init_db():
     """
     Creates the submissions table if it doesn't already exist, and migrates
-    older deployed databases that predate the academic_ratings column.
-    Safe to call every startup.
+    older deployed databases that predate the academic_ratings, roll_number,
+    or student_class columns. Safe to call every startup.
     """
     with get_connection() as conn:
         conn.execute("""
             CREATE TABLE IF NOT EXISTS submissions (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 student_name TEXT NOT NULL,
+                roll_number TEXT NOT NULL DEFAULT '',
+                student_class TEXT NOT NULL DEFAULT '',
                 created_at TEXT NOT NULL,
                 riasec_scores TEXT NOT NULL,
                 big_five_scores TEXT NOT NULL,
@@ -48,24 +50,34 @@ def init_db():
                 counsellor_report TEXT NOT NULL
             )
         """)
-        # Migration for databases created before academic_ratings existed
-        try:
-            conn.execute("ALTER TABLE submissions ADD COLUMN academic_ratings TEXT NOT NULL DEFAULT '{}'")
-        except sqlite3.OperationalError:
-            pass  # column already exists — nothing to do
+        # Migrations for databases created before these columns existed
+        for migration in [
+            "ALTER TABLE submissions ADD COLUMN academic_ratings TEXT NOT NULL DEFAULT '{}'",
+            "ALTER TABLE submissions ADD COLUMN roll_number TEXT NOT NULL DEFAULT ''",
+            "ALTER TABLE submissions ADD COLUMN student_class TEXT NOT NULL DEFAULT ''",
+        ]:
+            try:
+                conn.execute(migration)
+            except sqlite3.OperationalError:
+                pass  # column already exists — nothing to do
 
 
-def save_submission(student_name: str, skills_ratings: dict, result: dict, academic_ratings: dict = None) -> int:
+def save_submission(
+    student_name: str, skills_ratings: dict, result: dict,
+    academic_ratings: dict = None, roll_number: str = "", student_class: str = "",
+) -> int:
     """Saves one completed assessment. Returns the new row's id."""
     with get_connection() as conn:
         cursor = conn.execute("""
             INSERT INTO submissions (
-                student_name, created_at, riasec_scores, big_five_scores,
+                student_name, roll_number, student_class, created_at, riasec_scores, big_five_scores,
                 skills_ratings, academic_ratings, contradiction_flags, suggested_fields,
                 valid_response, student_report, counsellor_report
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             student_name,
+            roll_number,
+            student_class,
             datetime.utcnow().isoformat(),
             json.dumps(result.get("riasec_scores", {})),
             json.dumps(result.get("big_five_scores", {})),
@@ -84,13 +96,15 @@ def get_all_submissions() -> list:
     """Returns all submissions, most recent first (summary fields only, for the list view)."""
     with get_connection() as conn:
         rows = conn.execute("""
-            SELECT id, student_name, created_at, suggested_fields, valid_response
+            SELECT id, student_name, roll_number, student_class, created_at, suggested_fields, valid_response
             FROM submissions ORDER BY created_at DESC
         """).fetchall()
         return [
             {
                 "id": r["id"],
                 "student_name": r["student_name"],
+                "roll_number": r["roll_number"] or "",
+                "student_class": r["student_class"] or "",
                 "created_at": r["created_at"],
                 "suggested_fields": json.loads(r["suggested_fields"]),
                 "valid_response": bool(r["valid_response"]),
@@ -108,6 +122,8 @@ def get_submission_by_id(submission_id: int):
         return {
             "id": row["id"],
             "student_name": row["student_name"],
+            "roll_number": row["roll_number"] or "",
+            "student_class": row["student_class"] or "",
             "created_at": row["created_at"],
             "riasec_scores": json.loads(row["riasec_scores"]),
             "big_five_scores": json.loads(row["big_five_scores"]),
