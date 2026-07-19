@@ -547,7 +547,7 @@ document.getElementById("btn-download-pdf").addEventListener("click", () => {
       y = pdfSectionHeading(doc, "Academic Subject Self-Ratings", margin, y);
       const subjectLabels = {
         Biology: "Biology", Chemistry: "Chemistry", Physics: "Physics", Mathematics: "Mathematics",
-        ComputerScience: "Computer Science", EconomicsAccounting: "Economics/Accounting/Business",
+        ComputerScience: "Computer Science",
         EnglishLanguage: "English/Language & Writing",
       };
       Object.entries(lastResult.academic_ratings).forEach(([subject, rating]) => {
