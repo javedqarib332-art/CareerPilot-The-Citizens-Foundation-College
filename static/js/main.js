@@ -112,13 +112,31 @@ document.getElementById("btn-start").addEventListener("click", async () => {
   renderQuestion();
 });
 
+function setProgress(sectionIndex, fraction) {
+  document.querySelectorAll(".progress-track").forEach(track => {
+    track.querySelectorAll(".seg-fill").forEach(seg => {
+      const idx = parseInt(seg.dataset.seg, 10);
+      let width;
+      if (idx < sectionIndex) width = 100;
+      else if (idx === sectionIndex) width = Math.round(fraction * 100);
+      else width = 0;
+      seg.style.width = width + "%";
+    });
+  });
+}
+
 function renderQuestion() {
   const q = flatQuestions[currentIndex];
   document.getElementById("q-text").textContent = q.question;
   const section = q.type === "riasec" ? "Section 1 of 4 — Interests" : "Section 2 of 4 — Personality";
   document.getElementById("q-meta").textContent = section;
-  const pct = (currentIndex / flatQuestions.length) * 55;
-  document.getElementById("progress-fill").style.width = pct + "%";
+
+  const riasecLen = QUESTIONS.riasec.length;
+  if (q.type === "riasec") {
+    setProgress(0, currentIndex / riasecLen);
+  } else {
+    setProgress(1, (currentIndex - riasecLen) / QUESTIONS.big_five.length);
+  }
 
   const labels = q.type === "riasec" ? RIASEC_SCALE_LABELS : AGREE_SCALE_LABELS;
   document.querySelectorAll("#q-scale button").forEach((btn, i) => {
@@ -169,8 +187,7 @@ function renderSkill() {
   document.getElementById("skill-text").textContent = `Rate your ${humanizeSkill(skill)} (1 = weak, 5 = strong)`;
   document.getElementById("skill-reason").value = "";
   document.querySelectorAll("#skill-scale button").forEach(b => b.classList.remove("selected"));
-  const pct = 55 + ((currentSkillIndex / QUESTIONS.skills.length) * 20);
-  document.getElementById("progress-fill-skills").style.width = pct + "%";
+  setProgress(2, currentSkillIndex / QUESTIONS.skills.length);
 }
 
 document.getElementById("skill-scale").addEventListener("click", (e) => {
@@ -207,8 +224,7 @@ function renderAcademic() {
   const label = QUESTIONS.academic_subjects_labels[subject] || subject;
   document.getElementById("academic-text").textContent = `Rate your performance in ${label}`;
   document.querySelectorAll("#academic-scale button").forEach(b => b.classList.remove("selected"));
-  const pct = 75 + ((currentAcademicIndex / QUESTIONS.academic_subjects.length) * 25);
-  document.getElementById("progress-fill-academic").style.width = pct + "%";
+  setProgress(3, currentAcademicIndex / QUESTIONS.academic_subjects.length);
 }
 
 document.getElementById("academic-scale").addEventListener("click", async (e) => {
