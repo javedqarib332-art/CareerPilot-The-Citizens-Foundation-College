@@ -8,13 +8,14 @@ let currentIndex = 0;
 let currentSkillIndex = 0;
 let lastResult = null;
 
-const answers = { riasec: [], big_five: [], skills: [] };
+const answers = { riasec: [], big_five: [], skills: [], academic: [] };
 const STORAGE_KEY = "tcf_discovery_progress_v1";
 
 const screens = {
   welcome: document.getElementById("screen-welcome"),
   questions: document.getElementById("screen-questions"),
   skills: document.getElementById("screen-skills"),
+  academic: document.getElementById("screen-academic"),
   loading: document.getElementById("screen-loading"),
   report: document.getElementById("screen-report"),
 };
@@ -33,8 +34,9 @@ const AGREE_SCALE_LABELS = ["Strongly disagree", "Disagree", "Neutral", "Agree",
 
 function saveProgress() {
   const state = {
-    studentName, currentIndex, currentSkillIndex, answers,
-    stage: screens.skills.classList.contains("active") ? "skills" : "questions",
+    studentName, currentIndex, currentSkillIndex, currentAcademicIndex, answers,
+    stage: screens.academic.classList.contains("active") ? "academic"
+      : screens.skills.classList.contains("active") ? "skills" : "questions",
     savedAt: Date.now(),
   };
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { /* ignore quota errors */ }
@@ -58,10 +60,15 @@ function checkForSavedProgress() {
       answers.riasec = state.answers.riasec;
       answers.big_five = state.answers.big_five;
       answers.skills = state.answers.skills;
+      answers.academic = state.answers.academic || [];
       currentIndex = state.currentIndex;
       currentSkillIndex = state.currentSkillIndex;
+      currentAcademicIndex = state.currentAcademicIndex || 0;
       if (!QUESTIONS) await loadQuestions();
-      if (state.stage === "skills") {
+      if (state.stage === "academic") {
+        showScreen("academic");
+        renderAcademic();
+      } else if (state.stage === "skills") {
         showScreen("skills");
         renderSkill();
       } else {
@@ -102,9 +109,9 @@ document.getElementById("btn-start").addEventListener("click", async () => {
 function renderQuestion() {
   const q = flatQuestions[currentIndex];
   document.getElementById("q-text").textContent = q.question;
-  const section = q.type === "riasec" ? "Section 1 of 3 — Interests" : "Section 2 of 3 — Personality";
+  const section = q.type === "riasec" ? "Section 1 of 4 — Interests" : "Section 2 of 4 — Personality";
   document.getElementById("q-meta").textContent = section;
-  const pct = (currentIndex / flatQuestions.length) * 66;
+  const pct = (currentIndex / flatQuestions.length) * 55;
   document.getElementById("progress-fill").style.width = pct + "%";
 
   const labels = q.type === "riasec" ? RIASEC_SCALE_LABELS : AGREE_SCALE_LABELS;
@@ -143,6 +150,8 @@ document.getElementById("q-scale").addEventListener("click", (e) => {
 });
 
 let selectedSkillVal = null;
+let currentAcademicIndex = 0;
+let selectedAcademicVal = null;
 
 function humanizeSkill(skill) {
   return skill.replace(/([A-Z])/g, " $1").trim();
@@ -154,7 +163,7 @@ function renderSkill() {
   document.getElementById("skill-text").textContent = `Rate your ${humanizeSkill(skill)} (1 = weak, 5 = strong)`;
   document.getElementById("skill-reason").value = "";
   document.querySelectorAll("#skill-scale button").forEach(b => b.classList.remove("selected"));
-  const pct = 66 + ((currentSkillIndex / QUESTIONS.skills.length) * 34);
+  const pct = 55 + ((currentSkillIndex / QUESTIONS.skills.length) * 20);
   document.getElementById("progress-fill-skills").style.width = pct + "%";
 }
 
@@ -180,8 +189,41 @@ document.getElementById("btn-skill-next").addEventListener("click", async () => 
   if (currentSkillIndex < QUESTIONS.skills.length) {
     renderSkill();
   } else {
-    await submitAssessment();
+    currentAcademicIndex = 0;
+    showScreen("academic");
+    renderAcademic();
   }
+});
+
+function renderAcademic() {
+  selectedAcademicVal = null;
+  const subject = QUESTIONS.academic_subjects[currentAcademicIndex];
+  const label = QUESTIONS.academic_subjects_labels[subject] || subject;
+  document.getElementById("academic-text").textContent = `Rate your performance in ${label}`;
+  document.querySelectorAll("#academic-scale button").forEach(b => b.classList.remove("selected"));
+  const pct = 75 + ((currentAcademicIndex / QUESTIONS.academic_subjects.length) * 25);
+  document.getElementById("progress-fill-academic").style.width = pct + "%";
+}
+
+document.getElementById("academic-scale").addEventListener("click", async (e) => {
+  const btn = e.target.closest("button");
+  if (!btn) return;
+  selectedAcademicVal = parseInt(btn.dataset.val, 10);
+  document.querySelectorAll("#academic-scale button").forEach(b => b.classList.remove("selected"));
+  btn.classList.add("selected");
+
+  const subject = QUESTIONS.academic_subjects[currentAcademicIndex];
+  answers.academic.push([subject, selectedAcademicVal]);
+  saveProgress();
+
+  setTimeout(async () => {
+    currentAcademicIndex++;
+    if (currentAcademicIndex < QUESTIONS.academic_subjects.length) {
+      renderAcademic();
+    } else {
+      await submitAssessment();
+    }
+  }, 180);
 });
 
 async function submitAssessment() {
@@ -498,6 +540,26 @@ document.getElementById("btn-download-pdf").addEventListener("click", () => {
       y += 7;
     });
     y += 8;
+
+    // --- Academic subject self-ratings ---
+    if (lastResult.academic_ratings && Object.keys(lastResult.academic_ratings).length) {
+      y = pdfCheckPageBreak(doc, y, 40, pageHeight, margin);
+      y = pdfSectionHeading(doc, "Academic Subject Self-Ratings", margin, y);
+      const subjectLabels = {
+        Biology: "Biology", Chemistry: "Chemistry", Physics: "Physics", Mathematics: "Mathematics",
+        ComputerScience: "Computer Science", EconomicsAccounting: "Economics/Accounting/Business",
+        EnglishLanguage: "English/Language & Writing",
+      };
+      Object.entries(lastResult.academic_ratings).forEach(([subject, rating]) => {
+        y = pdfCheckPageBreak(doc, y, 8, pageHeight, margin);
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(9.5);
+        doc.setTextColor(...PDF_COLORS.navy);
+        doc.text(`${subjectLabels[subject] || subject}: ${rating}/5`, margin, y + 4);
+        y += 7;
+      });
+      y += 8;
+    }
 
     // --- Contradiction flags ---
     y = pdfCheckPageBreak(doc, y, 30, pageHeight, margin);
