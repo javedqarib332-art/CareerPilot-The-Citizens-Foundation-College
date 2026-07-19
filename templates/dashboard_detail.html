@@ -5,20 +5,47 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ s.student_name }} — Counsellor Report</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,500;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 <style>
   .wrap { max-width: 760px; padding-top: 48px; justify-content: flex-start; }
-  .back-link { font-size: 13px; color: var(--grey); text-decoration: none; margin-bottom: 24px; display: inline-block; }
+  .back-link { font-size: 13px; color: var(--grey); text-decoration: none; margin-bottom: 24px; display: inline-block; transition: color 0.15s ease; }
   .back-link:hover { color: var(--navy); }
-  .card { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 32px; margin-bottom: 20px; }
-  .card h3 { font-family: 'Lora', serif; color: var(--navy); margin-top: 0; font-size: 18px; }
-  .score-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .card {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 32px; margin-bottom: 20px; box-shadow: var(--shadow-md);
+  }
+  .card h3 {
+    font-family: 'Lora', serif; color: var(--navy); margin-top: 0; font-size: 17px;
+    padding-bottom: 12px; border-bottom: 1px solid var(--border); margin-bottom: 18px;
+  }
+  .bar-row { margin-bottom: 14px; }
+  .bar-row:last-child { margin-bottom: 0; }
+  .bar-row .bar-label { display: flex; justify-content: space-between; font-size: 13.5px; color: var(--navy); font-weight: 600; margin-bottom: 6px; }
+  .bar-row .bar-label span:last-child { color: var(--grey); font-weight: 500; }
+  .bar-track { height: 8px; background: var(--cream); border-radius: 4px; overflow: hidden; }
+  .bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold-soft), var(--gold)); border-radius: 4px; }
+  .bar-fill.navy-fill { background: linear-gradient(90deg, var(--navy-deep), var(--navy)); }
+
+  .score-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
   .score-row:last-child { border-bottom: none; }
-  .flag-box { background: #FBF3EC; border-left: 4px solid #B45747; padding: 14px 18px; border-radius: 4px; margin-bottom: 12px; font-size: 14px; }
+
+  .flag-box {
+    background: #FBF3EC; border-left: 4px solid #B45747; padding: 16px 18px;
+    border-radius: 6px; margin-bottom: 12px; font-size: 14px; box-shadow: var(--shadow-sm);
+  }
+  .flag-box:last-child { margin-bottom: 0; }
   .flag-box strong { color: #B45747; }
-  .field-tag { display: inline-block; background: var(--cream); border: 1px solid var(--gold); color: var(--navy); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin: 4px 6px 4px 0; }
-  pre { white-space: pre-wrap; font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.6; }
+
+  .field-tag {
+    display: inline-block; background: var(--cream); border: 1px solid var(--gold); color: var(--navy);
+    padding: 7px 15px; border-radius: 20px; font-size: 13px; font-weight: 600; margin: 4px 6px 4px 0;
+  }
+
+  .validity-card { background: #FBF3EC; border-color: #E8B4A5; }
+  .validity-card h3 { color: #B45747; border-bottom-color: #E8B4A5; }
+
+  pre { white-space: pre-wrap; font-family: 'Inter', sans-serif; font-size: 13.5px; line-height: 1.65; color: var(--ink); }
 </style>
 </head>
 <body>
@@ -40,13 +67,13 @@
 <div class="wrap">
   <a class="back-link" href="/dashboard">&larr; Back to all submissions</a>
   <div class="eyebrow">Counsellor Report</div>
-  <h1 style="font-size:28px;">{{ s.student_name }}</h1>
+  <h1 style="font-size:30px;">{{ s.student_name }}</h1>
   <p class="lede">Roll: {{ s.roll_number or '—' }} &middot; Class: {{ s.student_class or '—' }} &middot; Submitted: {{ s.created_at[:16].replace('T', ' ') }}</p>
 
   {% if not s.valid_response %}
-  <div class="card">
-    <h3>⚠ Validity Flag</h3>
-    <p>This student's answers didn't show enough variation to produce a reliable field suggestion. Recommend a retake or a direct conversation.</p>
+  <div class="card validity-card">
+    <h3>&#9888; Validity Flag</h3>
+    <p style="margin:0;">This student's answers didn't show enough variation to produce a reliable field suggestion. Recommend a retake or a direct conversation.</p>
   </div>
   {% endif %}
 
@@ -58,16 +85,23 @@
   {% endif %}
 
   <div class="card">
-    <h3>RIASEC Scores (max 30 each)</h3>
+    <h3>Interest Profile — RIASEC (max 30 each)</h3>
+    {% set riasec_labels = {'R': 'Realistic', 'I': 'Investigative', 'A': 'Artistic', 'S': 'Social', 'E': 'Enterprising', 'C': 'Conventional'} %}
     {% for cat, val in s.riasec_scores.items() %}
-    <div class="score-row"><span>{{ cat }}</span><span>{{ val }}</span></div>
+    <div class="bar-row">
+      <div class="bar-label"><span>{{ riasec_labels.get(cat, cat) }}</span><span>{{ val }}/30</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:{{ (val / 30 * 100) | round(1) }}%;"></div></div>
+    </div>
     {% endfor %}
   </div>
 
   <div class="card">
-    <h3>Big Five Snapshot (1–5)</h3>
+    <h3>Personality Snapshot — Big Five (1&ndash;5)</h3>
     {% for trait, val in s.big_five_scores.items() %}
-    <div class="score-row"><span>{{ trait }}</span><span>{{ val }}</span></div>
+    <div class="bar-row">
+      <div class="bar-label"><span>{{ trait }}</span><span>{{ val }}/5</span></div>
+      <div class="bar-track"><div class="bar-fill navy-fill" style="width:{{ (val / 5 * 100) | round(1) }}%;"></div></div>
+    </div>
     {% endfor %}
   </div>
 
