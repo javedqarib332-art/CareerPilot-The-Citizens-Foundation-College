@@ -211,7 +211,8 @@ async function submitAssessment() {
 function renderRadarChart(riasecScores) {
   const categories = ["R", "I", "A", "S", "E", "C"];
   const labels = { R: "Realistic", I: "Investigative", A: "Artistic", S: "Social", E: "Enterprising", C: "Conventional" };
-  const size = 280, center = size / 2, maxScore = 30, radius = 100;
+  const size = 420, center = size / 2, maxScore = 30, radius = 100;
+  const labelDist = 155;
   const angleStep = (Math.PI * 2) / categories.length;
 
   const points = categories.map((cat, i) => {
@@ -221,9 +222,10 @@ function renderRadarChart(riasecScores) {
     return {
       x: center + r * Math.cos(angle),
       y: center + r * Math.sin(angle),
-      labelX: center + (radius + 26) * Math.cos(angle),
-      labelY: center + (radius + 26) * Math.sin(angle),
+      labelX: center + labelDist * Math.cos(angle),
+      labelY: center + labelDist * Math.sin(angle),
       label: labels[cat],
+      value,
     };
   });
 
@@ -247,18 +249,20 @@ function renderRadarChart(riasecScores) {
     axisLines += `<line x1="${center}" y1="${center}" x2="${x}" y2="${y}" stroke="#E3DFD5" stroke-width="1"/>`;
   });
 
-  const labelTexts = points.map(p =>
-    `<text x="${p.labelX}" y="${p.labelY}" text-anchor="middle" dominant-baseline="middle" font-size="12" font-family="Inter, sans-serif" fill="#6B7280">${p.label}</text>`
-  ).join("");
+  const labelTexts = points.map(p => `
+    <text x="${p.labelX}" y="${p.labelY - 6}" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="600" font-family="Inter, sans-serif" fill="#16233F">${p.label}</text>
+    <text x="${p.labelX}" y="${p.labelY + 10}" text-anchor="middle" dominant-baseline="middle" font-size="11" font-family="Inter, sans-serif" fill="#6B7280">${p.value}/30</text>
+  `).join("");
 
   return `
-    <svg viewBox="0 0 ${size} ${size + 20}" width="100%" style="max-width:320px; display:block; margin: 0 auto;">
+    <svg viewBox="0 0 ${size} ${size}" width="100%" style="max-width:440px; display:block; margin: 0 auto;">
       ${gridRings}
       ${axisLines}
       <polygon points="${polygonPoints}" fill="#C9A15A" fill-opacity="0.35" stroke="#C9A15A" stroke-width="2"/>
       ${points.map(p => `<circle cx="${p.x}" cy="${p.y}" r="3.5" fill="#16233F"/>`).join("")}
       ${labelTexts}
     </svg>
+    <p style="text-align:center; font-size:12px; color:#6B7280; margin-top:8px;">Each point shows how strongly your answers leaned toward that category (out of 30).</p>
   `;
 }
 
