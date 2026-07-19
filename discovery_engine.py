@@ -246,7 +246,7 @@ FIELD_MAPPING_BY_PAIR = {
 
 # Single-category fallback (used only if a clean top-2 pair isn't found)
 FIELD_MAPPING_SINGLE = {
-    "R": ["Engineering", "Technical/Trades fields", "Agriculture Sciences"],
+    "R": ["Engineering", "Technical & Trades fields", "Agriculture Sciences"],
     "I": ["Computer Science", "Research Science", "Data Science", "Economics"],
     "A": ["Design", "Media/Communications", "Architecture"],
     "S": ["Psychology", "Teaching", "Human Resources"],
