@@ -84,7 +84,11 @@ def api_submit():
 @require_dashboard_auth
 def dashboard():
     submissions = database.get_all_submissions()
-    return render_template("dashboard.html", submissions=submissions)
+    total = len(submissions)
+    valid_count = sum(1 for s in submissions if s["valid_response"])
+    flagged_count = total - valid_count
+    stats = {"total": total, "valid": valid_count, "flagged": flagged_count}
+    return render_template("dashboard.html", submissions=submissions, stats=stats)
 
 
 @app.route("/dashboard/export")
