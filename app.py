@@ -19,6 +19,7 @@ from discovery_engine import (
     run_discovery_assessment,
 )
 import database
+import field_data
 
 app = Flask(__name__)
 database.init_db()
@@ -74,6 +75,15 @@ def api_submit():
             [k, v[0], v[1]] for k, v in student.skills_ratings.items()
         ]
         result["academic_ratings"] = student.academic_ratings
+
+        result["suggested_fields_detail"] = [
+            {
+                "name": name,
+                "slug": field_data.get_slug_for_field_name(name),
+                "available": field_data.has_profile(name),
+            }
+            for name in result.get("suggested_fields", [])
+        ]
 
         return jsonify({"ok": True, "result": result})
     except Exception as e:
@@ -152,6 +162,14 @@ def dashboard_detail(submission_id):
     if submission is None:
         return "Submission not found.", 404
     return render_template("dashboard_detail.html", s=submission)
+
+
+@app.route("/field/<slug>")
+def field_detail(slug):
+    profile = field_data.get_profile_by_slug(slug)
+    if profile is None:
+        return render_template("field_not_ready.html"), 404
+    return render_template("field_detail.html", f=profile)
 
 
 @app.route("/health")
