@@ -65,3 +65,70 @@ def has_profile(field_name: str) -> bool:
 def all_available_field_names():
     """Returns every field name that currently has a researched Stage 2 profile."""
     return sorted(FIELD_PROFILES.keys())
+
+
+# ---------------------------------------------------------------------------
+# Categorization — used by the "Browse All Fields" directory page
+# ---------------------------------------------------------------------------
+
+FIELD_CATEGORIES = {
+    "Engineering & Technical": [
+        "Engineering", "Mechanical/Electrical Engineering", "Chemical Engineering",
+        "Textile Engineering", "Applied Physics", "Environmental Science",
+        "Construction Management", "Aviation", "Quality Control",
+        "Technical & Trades fields", "Technical/Trades fields", "Technical Entrepreneurship",
+    ],
+    "Computer, Data & Analytics": [
+        "Computer Science", "Data Science", "Actuarial Science", "Statistics", "UX/Design Research",
+    ],
+    "Medical & Health Sciences": [
+        "Medicine (MBBS)", "Dentistry", "Pharmacy", "Veterinary Sciences",
+        "Medical Laboratory Sciences", "Public Health", "Public Health Administration",
+        "Nursing/Healthcare Administration", "Paramedic/Emergency Services",
+        "Healthcare Management", "Medical Humanities", "Biotechnology",
+        "Biotech/Health-tech Entrepreneurship", "Agriculture Sciences", "Sports Science/Coaching",
+    ],
+    "Business, Finance & Commerce": [
+        "Business Administration", "Business/Management", "Accounting", "Accounting/Finance",
+        "Finance", "Chartered Accountancy (CA/ACCA)", "Economics", "Marketing",
+        "Human Resources", "Entrepreneurship", "Hotel Management",
+    ],
+    "Arts, Design & Media": [
+        "Design", "Graphic/Structured Design", "Industrial/Product Design", "Fashion Merchandising",
+        "Architecture", "Advertising", "Media Production", "Media/Communications",
+        "Mass Communication/Journalism", "Publishing & Editing",
+    ],
+    "Social Sciences & Humanities": [
+        "Psychology", "Counseling", "Education", "Teaching", "Law",
+        "Social Work Administration", "Research Science",
+    ],
+}
+
+# Reverse lookup: field_name -> category
+FIELD_TO_CATEGORY = {}
+for category, names in FIELD_CATEGORIES.items():
+    for name in names:
+        FIELD_TO_CATEGORY[name] = category
+
+
+def get_category_for_field(field_name: str) -> str:
+    return FIELD_TO_CATEGORY.get(field_name, "Other")
+
+
+def get_directory_data():
+    """
+    Returns all available field profiles grouped by category, for the
+    Browse All Fields directory page. Each entry includes name, slug, and
+    a short overview snippet.
+    """
+    grouped = {}
+    for name, profile in FIELD_PROFILES.items():
+        category = get_category_for_field(name)
+        grouped.setdefault(category, []).append({
+            "name": name,
+            "slug": slugify(name),
+            "overview": profile.get("overview", ""),
+        })
+    for category in grouped:
+        grouped[category].sort(key=lambda x: x["name"])
+    return grouped
