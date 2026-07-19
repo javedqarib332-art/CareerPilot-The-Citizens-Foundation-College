@@ -3,6 +3,8 @@ console.log("TCF Discovery Agent JS — v3 loaded (radar chart + PDF export + re
 
 let QUESTIONS = null;
 let studentName = "";
+let studentRoll = "";
+let studentClass = "";
 let flatQuestions = [];
 let currentIndex = 0;
 let currentSkillIndex = 0;
@@ -34,7 +36,7 @@ const AGREE_SCALE_LABELS = ["Strongly disagree", "Disagree", "Neutral", "Agree",
 
 function saveProgress() {
   const state = {
-    studentName, currentIndex, currentSkillIndex, currentAcademicIndex, answers,
+    studentName, studentRoll, studentClass, currentIndex, currentSkillIndex, currentAcademicIndex, answers,
     stage: screens.academic.classList.contains("active") ? "academic"
       : screens.skills.classList.contains("active") ? "skills" : "questions",
     savedAt: Date.now(),
@@ -57,6 +59,8 @@ function checkForSavedProgress() {
 
     document.getElementById("btn-resume").onclick = async () => {
       studentName = state.studentName;
+      studentRoll = state.studentRoll || "";
+      studentClass = state.studentClass || "";
       answers.riasec = state.answers.riasec;
       answers.big_five = state.answers.big_five;
       answers.skills = state.answers.skills;
@@ -100,6 +104,8 @@ async function loadQuestions() {
 
 document.getElementById("btn-start").addEventListener("click", async () => {
   studentName = document.getElementById("student-name").value.trim() || "Student";
+  studentRoll = document.getElementById("student-roll").value.trim();
+  studentClass = document.getElementById("student-class").value.trim();
   if (!QUESTIONS) await loadQuestions();
   currentIndex = 0;
   showScreen("questions");
@@ -228,7 +234,7 @@ document.getElementById("academic-scale").addEventListener("click", async (e) =>
 
 async function submitAssessment() {
   showScreen("loading");
-  const payload = { student_name: studentName, ...answers };
+  const payload = { student_name: studentName, student_roll: studentRoll, student_class: studentClass, ...answers };
 
   const res = await fetch("/api/submit", {
     method: "POST",
@@ -429,8 +435,11 @@ document.getElementById("btn-download-pdf").addEventListener("click", () => {
 
     doc.setFontSize(10);
     doc.setTextColor(...PDF_COLORS.white);
-    doc.text(`Student: ${studentName}`, pageWidth - margin, 16, { align: "right" });
-    doc.text(`Date: ${new Date().toLocaleDateString()}`, pageWidth - margin, 23, { align: "right" });
+    doc.text(`Student: ${studentName}`, pageWidth - margin, 14, { align: "right" });
+    if (studentRoll || studentClass) {
+      doc.text(`Roll: ${studentRoll || "—"}  |  Class: ${studentClass || "—"}`, pageWidth - margin, 20, { align: "right" });
+    }
+    doc.text(`Date: ${new Date().toLocaleDateString()}`, pageWidth - margin, studentRoll || studentClass ? 26 : 21, { align: "right" });
 
     y = 50;
 
