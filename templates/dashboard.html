@@ -28,15 +28,20 @@
   <p class="lede">All Discovery Agent submissions, most recent first.</p>
 
   {% if submissions %}
+  <a href="/dashboard/export" class="btn-primary" style="display:inline-block; text-decoration:none; margin-bottom:20px; padding:12px 24px;">Export All to Excel</a>
+  {% endif %}
+
+  {% if submissions %}
   <table>
     <thead>
-      <tr><th>Student</th><th>Roll / Class</th><th>Submitted</th><th>Suggested Fields</th><th>Status</th></tr>
+      <tr><th>Student</th><th>Roll Number</th><th>Class</th><th>Submitted</th><th>Suggested Fields</th><th>Status</th></tr>
     </thead>
     <tbody>
       {% for s in submissions %}
       <tr>
         <td><a class="row-link" href="/dashboard/{{ s.id }}">{{ s.student_name }}</a></td>
-        <td>{{ s.roll_number or '—' }} / {{ s.student_class or '—' }}</td>
+        <td>{{ s.roll_number or '—' }}</td>
+        <td>{{ s.student_class or '—' }}</td>
         <td>{{ s.created_at[:16].replace('T', ' ') }}</td>
         <td>{{ s.suggested_fields | join(', ') if s.suggested_fields else '—' }}</td>
         <td>
