@@ -235,6 +235,66 @@ h1 em {
   margin-top: 12px;
 }
 
+.lang-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--navy);
+  cursor: pointer;
+  z-index: 10;
+  transition: border-color 0.15s ease;
+}
+.lang-toggle:hover { border-color: var(--gold); }
+
+body[dir="rtl"] .lang-toggle { right: auto; left: 20px; }
+body[dir="rtl"] { font-family: 'Noto Nastaliq Urdu', 'Inter', sans-serif; }
+body[dir="rtl"] .q-text, body[dir="rtl"] h1, body[dir="rtl"] .lede,
+body[dir="rtl"] .name-input, body[dir="rtl"] textarea, body[dir="rtl"] .disclaimer,
+body[dir="rtl"] .eyebrow, body[dir="rtl"] .q-meta { text-align: right; }
+body[dir="rtl"] .scale small { direction: rtl; }
+
+.resume-banner {
+  background: #FBF7EE;
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.resume-banner p { margin: 0 0 14px; font-size: 14px; color: var(--navy); font-weight: 500; }
+
+.btn-secondary-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--navy);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 15px 32px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+.btn-secondary-outline:hover { border-color: var(--navy); }
+
+#btn-download-pdf {
+  margin-top: 16px;
+  width: auto;
+  padding: 12px 28px;
+}
+
+.scale button.selected {
+  border-color: var(--gold) !important;
+  background: #FBF7EE !important;
+  transform: scale(1.03);
+}
+
 @media (max-width: 480px) {
   h1 { font-size: 28px; }
   .q-card { padding: 28px 22px; }
