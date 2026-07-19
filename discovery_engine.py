@@ -457,6 +457,19 @@ def detect_contradictions(
             ),
         ))
 
+    # Rule 11: I+S profile (medical-track territory) but low Emotional Stability —
+    # clinical/medical fields often involve high-pressure, high-stakes situations.
+    if "I" in top2 and "S" in top2 and big_five_scores.get("EmotionalStability", 3) <= 2:
+        flags.append(ContradictionFlag(
+            rule_id=11,
+            description="Medical/healthcare-leaning interest profile but low Emotional Stability.",
+            follow_up_question=(
+                "Your interests point toward medical or healthcare-related fields, which often "
+                "involve high-pressure, high-stakes situations. How do you currently handle stress "
+                "in demanding situations, and is that something you'd want support with?"
+            ),
+        ))
+
     return flags
 
 
@@ -464,11 +477,32 @@ def detect_contradictions(
 # 5. FIELD SUGGESTION
 # ---------------------------------------------------------------------------
 
+# The Investigative+Social pair is unusually crowded — it covers everything from
+# surgery to public health to psychology, which have very different day-to-day
+# realities. We use the THIRD-highest RIASEC category to narrow this down.
+MEDICAL_TRACK_SUBSPLIT = {
+    "R": ["Medicine (MBBS)", "Dentistry", "Veterinary Sciences"],           # hands-on, clinical
+    "C": ["Pharmacy", "Public Health", "Medical Laboratory Sciences"],       # structured, precision, lab-based
+    "A": ["Psychology", "Counseling", "Medical Humanities"],                 # expressive, human-focused
+    "E": ["Healthcare Management", "Public Health Administration", "Medicine (MBBS)"],  # leadership-facing
+}
+
+
 def suggest_fields(riasec_scores: Dict[str, int]) -> List[str]:
-    top2 = top_riasec_categories(riasec_scores, 2)
+    top3 = top_riasec_categories(riasec_scores, 3)
+    top2 = top3[:2]
     pair_key = frozenset(top2)
 
-    suggestions = list(FIELD_MAPPING_BY_PAIR.get(pair_key, []))
+    # Special case: I+S is too broad on its own — use the 3rd category to differentiate
+    # between hands-on medical fields, structured/lab fields, people-focused fields, etc.
+    if pair_key == frozenset(("I", "S")) and len(top3) == 3:
+        third = top3[2]
+        suggestions = list(MEDICAL_TRACK_SUBSPLIT.get(third, []))
+        if not suggestions:
+            # No strong 3rd-category signal — fall back to the broad I+S list
+            suggestions = list(FIELD_MAPPING_BY_PAIR.get(pair_key, []))
+    else:
+        suggestions = list(FIELD_MAPPING_BY_PAIR.get(pair_key, []))
 
     # Fallback: top-1 category alone, if the pair isn't in the table for some reason
     if not suggestions:
