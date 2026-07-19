@@ -235,31 +235,6 @@ h1 em {
   margin-top: 12px;
 }
 
-.lang-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 8px 18px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 13px;
-  color: var(--navy);
-  cursor: pointer;
-  z-index: 10;
-  transition: border-color 0.15s ease;
-}
-.lang-toggle:hover { border-color: var(--gold); }
-
-body[dir="rtl"] .lang-toggle { right: auto; left: 20px; }
-body[dir="rtl"] { font-family: 'Noto Nastaliq Urdu', 'Inter', sans-serif; }
-body[dir="rtl"] .q-text, body[dir="rtl"] h1, body[dir="rtl"] .lede,
-body[dir="rtl"] .name-input, body[dir="rtl"] textarea, body[dir="rtl"] .disclaimer,
-body[dir="rtl"] .eyebrow, body[dir="rtl"] .q-meta { text-align: right; }
-body[dir="rtl"] .scale small { direction: rtl; }
-
 .resume-banner {
   background: #FBF7EE;
   border: 1px solid var(--gold);
