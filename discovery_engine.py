@@ -174,6 +174,59 @@ SKILLS_LABELS_UR = {
     "IndependentWork": "خودمختار کام",
 }
 
+# Academic subject self-rating — a direct cross-check against RIASEC-based
+# field suggestions. Interest and personality can point toward a field, but
+# if a student is genuinely weak in a subject that field actually requires,
+# that's a real, practical mismatch worth surfacing — independent of how
+# "into" the field they feel.
+ACADEMIC_SUBJECTS = [
+    "Biology",
+    "Chemistry",
+    "Physics",
+    "Mathematics",
+    "ComputerScience",
+    "EconomicsAccounting",
+    "EnglishLanguage",
+]
+
+ACADEMIC_SUBJECTS_LABELS = {
+    "Biology": "Biology",
+    "Chemistry": "Chemistry",
+    "Physics": "Physics",
+    "Mathematics": "Mathematics",
+    "ComputerScience": "Computer Science",
+    "EconomicsAccounting": "Economics / Accounting / Business Studies",
+    "EnglishLanguage": "English / Language & Writing",
+}
+
+# Which subjects genuinely matter for each suggested field. Only fields with
+# a clear, well-known subject dependency are listed — no entry means no
+# subject-based check is applied for that field.
+FIELD_SUBJECT_REQUIREMENTS = {
+    "Medicine (MBBS)": ["Biology", "Chemistry"],
+    "Dentistry": ["Biology", "Chemistry"],
+    "Pharmacy": ["Biology", "Chemistry"],
+    "Veterinary Sciences": ["Biology", "Chemistry"],
+    "Medical Laboratory Sciences": ["Biology", "Chemistry"],
+    "Public Health": ["Biology"],
+    "Engineering": ["Physics", "Mathematics"],
+    "Mechanical/Electrical Engineering": ["Physics", "Mathematics"],
+    "Chemical Engineering": ["Chemistry", "Mathematics"],
+    "Textile Engineering": ["Chemistry", "Mathematics"],
+    "Applied Physics": ["Physics", "Mathematics"],
+    "Environmental Science": ["Biology", "Chemistry"],
+    "Computer Science": ["Mathematics", "ComputerScience"],
+    "Data Science": ["Mathematics", "ComputerScience"],
+    "Actuarial Science": ["Mathematics"],
+    "Statistics": ["Mathematics"],
+    "Economics": ["Mathematics", "EconomicsAccounting"],
+    "Accounting/Finance": ["Mathematics", "EconomicsAccounting"],
+    "Chartered Accountancy (CA/ACCA)": ["Mathematics", "EconomicsAccounting"],
+    "Finance": ["Mathematics", "EconomicsAccounting"],
+    "Business Administration": ["EconomicsAccounting"],
+    "Law": ["EnglishLanguage"],
+}
+
 # Comprehensive mapping — all 15 possible RIASEC top-2 combinations (6 choose 2).
 # Based on standard Holland Code career-cluster associations.
 FIELD_MAPPING_BY_PAIR = {
@@ -215,6 +268,11 @@ class StudentResponse:
     riasec_answers: Dict[str, List[int]]          # e.g. {"R": [3,4,2,5,1,3], ...} 1-5 scale
     big_five_answers: Dict[str, List[int]]        # e.g. {"Openness": [4,5,3], ...}
     skills_ratings: Dict[str, Tuple[int, str]]     # e.g. {"Mathematics": (2, "I find algebra hard")}
+    academic_ratings: Dict[str, int] = None        # e.g. {"Biology": 4, "Chemistry": 2}
+
+    def __post_init__(self):
+        if self.academic_ratings is None:
+            self.academic_ratings = {}
 
 
 @dataclass
@@ -520,6 +578,48 @@ def assess_confidence(riasec_scores: Dict[str, int]) -> Dict:
         }
 
 
+def check_subject_alignment(
+    suggested_fields: List[str], academic_ratings: Dict[str, int]
+) -> List["ContradictionFlag"]:
+    """
+    Cross-checks suggested fields against the student's own subject-performance
+    self-ratings. Interest and personality can point toward a field, but if a
+    student is genuinely weak in a subject that field actually depends on
+    (e.g., Biology for Medicine, Physics/Maths for Engineering), that's a
+    concrete, practical mismatch worth a counsellor's attention — independent
+    of how interested the student feels.
+    """
+    flags = []
+    rule_id = 12  # continues on from the 11 RIASEC/Big-Five-based rules
+
+    already_flagged_fields = set()
+    for field in suggested_fields:
+        required = FIELD_SUBJECT_REQUIREMENTS.get(field)
+        if not required or field in already_flagged_fields:
+            continue
+
+        weak_subjects = [
+            s for s in required
+            if academic_ratings.get(s) is not None and academic_ratings[s] <= 2
+        ]
+        if weak_subjects:
+            subject_names = ", ".join(ACADEMIC_SUBJECTS_LABELS.get(s, s) for s in weak_subjects)
+            flags.append(ContradictionFlag(
+                rule_id=rule_id,
+                description=f"Suggested field '{field}' depends on {subject_names}, which the student rated as weak.",
+                follow_up_question=(
+                    f"Your interests point toward {field}, which usually depends heavily on "
+                    f"{subject_names}. You rated yourself as weak there — is that about how it's "
+                    f"taught, or a genuine difficulty with the subject? This is worth discussing "
+                    f"honestly before committing to this direction."
+                ),
+            ))
+            already_flagged_fields.add(field)
+            rule_id += 1
+
+    return flags
+
+
 def suggest_fields(riasec_scores: Dict[str, int]) -> List[str]:
     top3 = top_riasec_categories(riasec_scores, 3)
     top2 = top3[:2]
@@ -598,6 +698,12 @@ def generate_counsellor_report(
     for skill, (rating, reason) in student.skills_ratings.items():
         lines.append(f"  {skill}: {rating}/5 — \"{reason}\"")
 
+    if student.academic_ratings:
+        lines.append("\nAcademic Subject Self-Ratings:")
+        for subject, rating in student.academic_ratings.items():
+            label = ACADEMIC_SUBJECTS_LABELS.get(subject, subject)
+            lines.append(f"  {label}: {rating}/5")
+
     lines.append(f"\nFlagged Contradictions ({len(flags)}):")
     if not flags:
         lines.append("  None triggered.")
@@ -643,6 +749,8 @@ def get_all_questions() -> Dict:
         ],
         "skills": SKILLS,
         "skills_labels_ur": SKILLS_LABELS_UR,
+        "academic_subjects": ACADEMIC_SUBJECTS,
+        "academic_subjects_labels": ACADEMIC_SUBJECTS_LABELS,
     }
 
 
@@ -660,11 +768,16 @@ def parse_submission(payload: Dict) -> StudentResponse:
     for skill, rating, reason in payload["skills"]:
         skills_ratings[skill] = (int(rating), reason)
 
+    academic_ratings: Dict[str, int] = {}
+    for subject, rating in payload.get("academic", []):
+        academic_ratings[subject] = int(rating)
+
     return StudentResponse(
         student_name=payload.get("student_name", "Student"),
         riasec_answers=riasec_answers,
         big_five_answers=big_five_answers,
         skills_ratings=skills_ratings,
+        academic_ratings=academic_ratings,
     )
 
 
@@ -706,6 +819,7 @@ def run_discovery_assessment(student: StudentResponse) -> Dict:
 
     flags = detect_contradictions(riasec_scores, big_five_scores, student.skills_ratings)
     fields = suggest_fields(riasec_scores)
+    flags += check_subject_alignment(fields, student.academic_ratings)
 
     student_report = generate_student_report(student.student_name, fields, riasec_scores)
     counsellor_report = generate_counsellor_report(student, riasec_scores, big_five_scores, flags, fields)
