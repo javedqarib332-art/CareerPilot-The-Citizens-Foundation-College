@@ -67,13 +67,18 @@ body {
 
 .site-header .header-credit {
   font-family: 'Inter', sans-serif;
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 600;
-  color: var(--grey);
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: var(--navy);
   white-space: nowrap;
   flex-shrink: 0;
+  padding: 7px 14px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
 }
-.site-header .header-credit span { color: var(--navy); }
+.site-header .header-credit span { color: var(--gold-soft); }
 
 .site-header .wordmark {
   font-family: 'Lora', serif;
@@ -427,7 +432,7 @@ h1 em {
   .site-header .wordmark { font-size: 13.5px; }
   .site-header .wordmark small { font-size: 9.5px; }
   .site-header .brand-mark { width: 22px; height: 22px; }
-  .site-header .header-credit { font-size: 9.5px; }
+  .site-header .header-credit { font-size: 9.5px; padding: 5px 10px; }
 
   .wrap { padding: 36px 18px 60px; }
 
