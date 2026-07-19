@@ -266,6 +266,8 @@ class StudentResponse:
     big_five_answers: Dict[str, List[int]]        # e.g. {"Openness": [4,5,3], ...}
     skills_ratings: Dict[str, Tuple[int, str]]     # e.g. {"Mathematics": (2, "I find algebra hard")}
     academic_ratings: Dict[str, int] = None        # e.g. {"Biology": 4, "Chemistry": 2}
+    roll_number: str = ""
+    student_class: str = ""
 
     def __post_init__(self):
         if self.academic_ratings is None:
@@ -682,6 +684,8 @@ def generate_counsellor_report(
 ) -> str:
     lines = []
     lines.append(f"COUNSELLOR REPORT — {student.student_name}")
+    if student.roll_number or student.student_class:
+        lines.append(f"Roll Number: {student.roll_number or '—'}  |  Class: {student.student_class or '—'}")
     lines.append("=" * 50)
     lines.append("\nRIASEC Scores (max 30 each):")
     for cat, val in sorted(riasec_scores.items(), key=lambda x: x[1], reverse=True):
@@ -771,6 +775,8 @@ def parse_submission(payload: Dict) -> StudentResponse:
 
     return StudentResponse(
         student_name=payload.get("student_name", "Student"),
+        roll_number=payload.get("student_roll", ""),
+        student_class=payload.get("student_class", ""),
         riasec_answers=riasec_answers,
         big_five_answers=big_five_answers,
         skills_ratings=skills_ratings,
