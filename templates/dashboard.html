@@ -3,22 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Counsellor Dashboard — TCF Discovery Agent</title>
+<title>Counsellor Dashboard — TCF Career Guidance</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,500;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 <style>
-  .wrap { max-width: 900px; padding-top: 48px; justify-content: flex-start; }
-  table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  .wrap { max-width: 960px; padding-top: 48px; justify-content: flex-start; }
+
+  .stats-row { display: flex; gap: 16px; margin-bottom: 28px; }
+  .stat-card {
+    flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px 22px; box-shadow: var(--shadow-sm);
+  }
+  .stat-card .stat-num { font-family: 'Lora', serif; font-weight: 600; font-size: 30px; color: var(--navy); line-height: 1; }
+  .stat-card .stat-label { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--grey); margin-top: 8px; }
+  .stat-card.accent-gold .stat-num { color: var(--gold); }
+  .stat-card.accent-red .stat-num { color: #B45747; }
+
+  .table-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    box-shadow: var(--shadow-md); overflow: hidden; margin-bottom: 8px;
+  }
+  table { width: 100%; border-collapse: collapse; }
   th, td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--border); font-size: 14px; }
-  th { background: var(--navy); color: #fff; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.06em; }
+  th {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: #fff; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.06em;
+  }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: #FBF7EE; }
-  a.row-link { color: var(--navy); text-decoration: none; font-weight: 600; }
+  a.row-link { color: var(--navy); text-decoration: none; font-weight: 600; transition: color 0.15s ease; }
   a.row-link:hover { color: var(--gold); }
   .flag-invalid { color: #B45747; font-weight: 600; }
   .flag-valid { color: #4A7A5E; font-weight: 600; }
-  .empty-state { color: var(--grey); padding: 40px 0; text-align: center; }
+  .empty-state { color: var(--grey); padding: 48px 0; text-align: center; font-size: 15px; }
+
+  @media (max-width: 640px) {
+    .stats-row { flex-direction: column; }
+    table, thead, tbody, th, td, tr { display: block; }
+    thead { display: none; }
+    tr { border-bottom: 1px solid var(--border); padding: 12px 16px; }
+    td { border-bottom: none; padding: 4px 0; }
+    td:first-child { font-family: 'Lora', serif; font-size: 15px; }
+  }
 </style>
 </head>
 <body>
@@ -39,39 +66,56 @@
 </header>
 <div class="wrap">
   <div class="eyebrow">TCF Career Guidance</div>
-  <h1 style="font-size:28px;">Counsellor Dashboard</h1>
+  <h1 style="font-size:30px;">Counsellor Dashboard</h1>
   <p class="lede">All Discovery Agent submissions, most recent first.</p>
 
   {% if submissions %}
-  <a href="/dashboard/export" class="btn-primary" style="display:inline-block; text-decoration:none; margin-bottom:20px; padding:12px 24px;">Export All to Excel</a>
-  {% endif %}
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-num">{{ stats.total }}</div>
+      <div class="stat-label">Total Submissions</div>
+    </div>
+    <div class="stat-card accent-gold">
+      <div class="stat-num">{{ stats.valid }}</div>
+      <div class="stat-label">Valid Results</div>
+    </div>
+    <div class="stat-card accent-red">
+      <div class="stat-num">{{ stats.flagged }}</div>
+      <div class="stat-label">Flagged / Retake Needed</div>
+    </div>
+  </div>
 
-  {% if submissions %}
-  <table>
-    <thead>
-      <tr><th>Student</th><th>Roll Number</th><th>Class</th><th>Submitted</th><th>Suggested Fields</th><th>Status</th></tr>
-    </thead>
-    <tbody>
-      {% for s in submissions %}
-      <tr>
-        <td><a class="row-link" href="/dashboard/{{ s.id }}">{{ s.student_name }}</a></td>
-        <td>{{ s.roll_number or '—' }}</td>
-        <td>{{ s.student_class or '—' }}</td>
-        <td>{{ s.created_at[:16].replace('T', ' ') }}</td>
-        <td>{{ s.suggested_fields | join(', ') if s.suggested_fields else '—' }}</td>
-        <td>
-          {% if s.valid_response %}
-            <span class="flag-valid">Valid</span>
-          {% else %}
-            <span class="flag-invalid">Flagged</span>
-          {% endif %}
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+  <a href="/dashboard/export" class="btn-primary" style="display:inline-block; text-decoration:none; margin-bottom:24px; padding:13px 26px;">Export All to Excel</a>
+
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr><th>Student</th><th>Roll Number</th><th>Class</th><th>Submitted</th><th>Suggested Fields</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        {% for s in submissions %}
+        <tr>
+          <td><a class="row-link" href="/dashboard/{{ s.id }}">{{ s.student_name }}</a></td>
+          <td>{{ s.roll_number or '—' }}</td>
+          <td>{{ s.student_class or '—' }}</td>
+          <td>{{ s.created_at[:16].replace('T', ' ') }}</td>
+          <td>{{ s.suggested_fields | join(', ') if s.suggested_fields else '—' }}</td>
+          <td>
+            {% if s.valid_response %}
+              <span class="flag-valid">Valid</span>
+            {% else %}
+              <span class="flag-invalid">Flagged</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
   {% else %}
-  <div class="empty-state">No submissions yet.</div>
+  <div class="table-card">
+    <div class="empty-state">No submissions yet. Once students complete the Discovery Agent, their results will appear here.</div>
+  </div>
   {% endif %}
 </div>
 <footer class="site-footer">
