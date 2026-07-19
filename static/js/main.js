@@ -305,8 +305,50 @@ function escapeHtml(str) {
 }
 
 // ---------------------------------------------------------------------------
-// PDF EXPORT
+// PDF EXPORT — full colored, detailed report
 // ---------------------------------------------------------------------------
+
+const PDF_COLORS = {
+  navy: [22, 35, 63],
+  gold: [201, 161, 90],
+  cream: [246, 243, 237],
+  grey: [107, 114, 128],
+  green: [74, 122, 94],
+  red: [180, 87, 71],
+  white: [255, 255, 255],
+};
+
+const RIASEC_LABELS_FULL = { R: "Realistic", I: "Investigative", A: "Artistic", S: "Social", E: "Enterprising", C: "Conventional" };
+
+function pdfCheckPageBreak(doc, y, needed, pageHeight, margin) {
+  if (y + needed > pageHeight - margin) {
+    doc.addPage();
+    drawPdfFooter(doc);
+    return margin + 5;
+  }
+  return y;
+}
+
+function drawPdfFooter(doc) {
+  const pageHeight = doc.internal.pageSize.getHeight();
+  const pageWidth = doc.internal.pageSize.getWidth();
+  doc.setFontSize(8);
+  doc.setTextColor(...PDF_COLORS.grey);
+  doc.setFont("helvetica", "normal");
+  doc.text("TCF Career Guidance — Discovery Agent", 15, pageHeight - 10);
+  doc.text(`Page ${doc.internal.getNumberOfPages()}`, pageWidth - 25, pageHeight - 10);
+}
+
+function pdfSectionHeading(doc, text, x, y) {
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(13);
+  doc.setTextColor(...PDF_COLORS.navy);
+  doc.text(text, x, y);
+  doc.setDrawColor(...PDF_COLORS.gold);
+  doc.setLineWidth(0.8);
+  doc.line(x, y + 2, x + 40, y + 2);
+  return y + 10;
+}
 
 document.getElementById("btn-download-pdf").addEventListener("click", () => {
   if (!lastResult) {
@@ -322,58 +364,168 @@ document.getElementById("btn-download-pdf").addEventListener("click", () => {
   try {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
-    const marginLeft = 20;
-    let y = 24;
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+    const margin = 15;
+    let y = 0;
+
+    // --- Header banner ---
+    doc.setFillColor(...PDF_COLORS.navy);
+    doc.rect(0, 0, pageWidth, 38, "F");
+    doc.setFillColor(...PDF_COLORS.gold);
+    doc.rect(0, 38, pageWidth, 2, "F");
 
     doc.setFont("helvetica", "bold");
-    doc.setFontSize(18);
-    doc.text("TCF Discovery Agent — Results", marginLeft, y);
-    y += 10;
+    doc.setFontSize(20);
+    doc.setTextColor(...PDF_COLORS.white);
+    doc.text("Discovery Report", margin, 18);
 
-    doc.setFontSize(11);
     doc.setFont("helvetica", "normal");
-    doc.text(`Student: ${studentName}`, marginLeft, y);
-    y += 6;
-    doc.text(`Date: ${new Date().toLocaleDateString()}`, marginLeft, y);
-    y += 12;
+    doc.setFontSize(10);
+    doc.setTextColor(...PDF_COLORS.gold);
+    doc.text("TCF Career Guidance — Stage 1", margin, 26);
 
+    doc.setFontSize(10);
+    doc.setTextColor(...PDF_COLORS.white);
+    doc.text(`Student: ${studentName}`, pageWidth - margin, 16, { align: "right" });
+    doc.text(`Date: ${new Date().toLocaleDateString()}`, pageWidth - margin, 23, { align: "right" });
+
+    y = 50;
+
+    // --- Invalid response case ---
     if (lastResult.valid_response === false) {
+      doc.setFillColor(251, 243, 236);
+      doc.setDrawColor(...PDF_COLORS.red);
+      doc.roundedRect(margin, y, pageWidth - margin * 2, 40, 2, 2, "FD");
       doc.setFont("helvetica", "bold");
-      doc.text("A note for you:", marginLeft, y);
-      y += 8;
+      doc.setFontSize(11);
+      doc.setTextColor(...PDF_COLORS.red);
+      doc.text("A note for you:", margin + 6, y + 10);
       doc.setFont("helvetica", "normal");
-      const lines = doc.splitTextToSize(lastResult.reason || "", 170);
-      doc.text(lines, marginLeft, y);
-    } else {
-      doc.setFont("helvetica", "bold");
-      doc.text("Suggested Field Directions:", marginLeft, y);
-      y += 8;
-      doc.setFont("helvetica", "normal");
-      (lastResult.suggested_fields || []).forEach(f => {
-        doc.text(`- ${f}`, marginLeft, y);
-        y += 7;
-      });
-      y += 5;
+      doc.setFontSize(10);
+      doc.setTextColor(...PDF_COLORS.navy);
+      const lines = doc.splitTextToSize(lastResult.reason || "", pageWidth - margin * 2 - 12);
+      doc.text(lines, margin + 6, y + 18);
+      drawPdfFooter(doc);
+      doc.save(`TCF_Discovery_${studentName.replace(/\s+/g, "_")}.pdf`);
+      return;
+    }
 
+    // --- Suggested Fields (colored pills) ---
+    y = pdfSectionHeading(doc, "Suggested Field Directions", margin, y);
+    let pillX = margin;
+    (lastResult.suggested_fields || []).forEach(f => {
       doc.setFont("helvetica", "bold");
-      doc.text("RIASEC Scores (max 30 each):", marginLeft, y);
-      y += 8;
+      doc.setFontSize(9.5);
+      const textWidth = doc.getTextWidth(f);
+      const pillWidth = textWidth + 10;
+      if (pillX + pillWidth > pageWidth - margin) {
+        pillX = margin;
+        y += 11;
+      }
+      doc.setFillColor(...PDF_COLORS.cream);
+      doc.setDrawColor(...PDF_COLORS.gold);
+      doc.roundedRect(pillX, y, pillWidth, 8, 4, 4, "FD");
+      doc.setTextColor(...PDF_COLORS.navy);
+      doc.text(f, pillX + 5, y + 5.5);
+      pillX += pillWidth + 5;
+    });
+    y += 16;
+
+    // --- RIASEC bar chart ---
+    y = pdfCheckPageBreak(doc, y, 60, pageHeight, margin);
+    y = pdfSectionHeading(doc, "Interest Profile (RIASEC)", margin, y);
+    const barMaxWidth = pageWidth - margin * 2 - 55;
+    Object.entries(lastResult.riasec_scores || {}).forEach(([cat, val]) => {
       doc.setFont("helvetica", "normal");
-      Object.entries(lastResult.riasec_scores || {}).forEach(([cat, val]) => {
-        doc.text(`${cat}: ${val}`, marginLeft, y);
-        y += 6;
+      doc.setFontSize(9.5);
+      doc.setTextColor(...PDF_COLORS.navy);
+      doc.text(RIASEC_LABELS_FULL[cat] || cat, margin, y + 4);
+
+      doc.setFillColor(230, 226, 216);
+      doc.rect(margin + 45, y, barMaxWidth, 5, "F");
+      doc.setFillColor(...PDF_COLORS.gold);
+      doc.rect(margin + 45, y, (val / 30) * barMaxWidth, 5, "F");
+
+      doc.setFontSize(8.5);
+      doc.setTextColor(...PDF_COLORS.grey);
+      doc.text(`${val}/30`, margin + 45 + barMaxWidth + 4, y + 4);
+      y += 9;
+    });
+    y += 8;
+
+    // --- Big Five bar chart ---
+    y = pdfCheckPageBreak(doc, y, 55, pageHeight, margin);
+    y = pdfSectionHeading(doc, "Personality Snapshot (Big Five)", margin, y);
+    Object.entries(lastResult.big_five_scores || {}).forEach(([trait, val]) => {
+      const label = trait.replace(/([A-Z])/g, " $1").trim();
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(9.5);
+      doc.setTextColor(...PDF_COLORS.navy);
+      doc.text(label, margin, y + 4);
+
+      doc.setFillColor(230, 226, 216);
+      doc.rect(margin + 45, y, barMaxWidth, 5, "F");
+      doc.setFillColor(...PDF_COLORS.navy);
+      doc.rect(margin + 45, y, (val / 5) * barMaxWidth, 5, "F");
+
+      doc.setFontSize(8.5);
+      doc.setTextColor(...PDF_COLORS.grey);
+      doc.text(`${val}/5`, margin + 45 + barMaxWidth + 4, y + 4);
+      y += 9;
+    });
+    y += 8;
+
+    // --- Skills self-ratings ---
+    y = pdfCheckPageBreak(doc, y, 40, pageHeight, margin);
+    y = pdfSectionHeading(doc, "Skills Self-Ratings", margin, y);
+    const skillLabels = {
+      Mathematics: "Mathematics", LogicalReasoning: "Logical Reasoning",
+      WrittenCommunication: "Written Communication", VerbalCommunication: "Verbal Communication",
+      Creativity: "Creativity", Leadership: "Leadership",
+      AttentionToDetail: "Attention to Detail", IndependentWork: "Independent Work",
+    };
+    (lastResult.skills_ratings || []).forEach(([skill, rating, reason]) => {
+      y = pdfCheckPageBreak(doc, y, 10, pageHeight, margin);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(9.5);
+      doc.setTextColor(...PDF_COLORS.navy);
+      doc.text(`${skillLabels[skill] || skill}: ${rating}/5`, margin, y + 4);
+      doc.setFont("helvetica", "italic");
+      doc.setFontSize(8.5);
+      doc.setTextColor(...PDF_COLORS.grey);
+      doc.text(`"${reason}"`, margin + 65, y + 4);
+      y += 7;
+    });
+    y += 8;
+
+    // --- Contradiction flags ---
+    y = pdfCheckPageBreak(doc, y, 30, pageHeight, margin);
+    y = pdfSectionHeading(doc, "Points Worth Discussing", margin, y);
+    const flags = lastResult.contradiction_flags || [];
+    if (flags.length === 0) {
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(9.5);
+      doc.setTextColor(...PDF_COLORS.grey);
+      doc.text("No contradictions were flagged in your answers.", margin, y + 4);
+      y += 10;
+    } else {
+      flags.forEach(f => {
+        const wrapped = doc.splitTextToSize(f.follow_up_question, pageWidth - margin * 2 - 12);
+        const boxHeight = 10 + wrapped.length * 5;
+        y = pdfCheckPageBreak(doc, y, boxHeight + 4, pageHeight, margin);
+        doc.setFillColor(251, 243, 236);
+        doc.setDrawColor(...PDF_COLORS.red);
+        doc.roundedRect(margin, y, pageWidth - margin * 2, boxHeight, 2, 2, "FD");
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(9);
+        doc.setTextColor(...PDF_COLORS.navy);
+        doc.text(wrapped, margin + 5, y + 7);
+        y += boxHeight + 6;
       });
     }
 
-    y += 10;
-    doc.setFontSize(9);
-    doc.setTextColor(120, 120, 120);
-    const disclaimerLines = doc.splitTextToSize(
-      "This isn't a final decision - it's a starting point for your counselling session. A TCF counsellor will go through this with you.",
-      170
-    );
-    doc.text(disclaimerLines, marginLeft, y);
-
+    drawPdfFooter(doc);
     doc.save(`TCF_Discovery_${studentName.replace(/\s+/g, "_")}.pdf`);
   } catch (err) {
     console.error("PDF generation failed:", err);
