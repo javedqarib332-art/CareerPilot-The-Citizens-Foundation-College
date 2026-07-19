@@ -204,29 +204,55 @@ def bottom_riasec_categories(riasec_scores: Dict[str, int], n: int = 2) -> List[
 # 3b. RESPONSE VALIDITY CHECK
 # ---------------------------------------------------------------------------
 
-def check_response_validity(riasec_scores: Dict[str, int]) -> Dict:
+import statistics
+
+def check_response_validity(riasec_answers: Dict[str, List[int]]) -> Dict:
     """
-    Detects 'straight-lining' — when a student answers every question the same way,
-    which makes the RIASEC scores flat and any top-2 selection meaningless (just
-    dictionary/tie order, not a genuine signal).
+    Detects genuine 'straight-lining' — when a student picks the same value
+    over and over regardless of what the question actually says.
+
+    Important: this checks variation in the RAW individual answers (all 36
+    of them), NOT the final category totals. Category totals can legitimately
+    end up close together for a thoughtful student (people naturally cluster
+    around middle values) — that is not the same thing as not having read
+    the questions. Only near-zero variation in the raw answers themselves
+    is a real red flag.
 
     Returns a dict with 'valid' (bool) and 'reason' (str, only if invalid).
     """
-    values = list(riasec_scores.values())
-    spread = max(values) - min(values)
+    all_answers = [v for values in riasec_answers.values() for v in values]
 
-    # If every category scored within a very narrow band, there's no real signal.
-    # Max possible spread is 30-6=24. A spread below 6 means answers barely varied at all.
-    if spread < 6:
+    if not all_answers:
+        return {"valid": True, "reason": ""}
+
+    unique_values_used = len(set(all_answers))
+
+    # Every single one of the 36 questions got the exact same value —
+    # this is the clearest possible sign the questions weren't read.
+    if unique_values_used == 1:
         return {
             "valid": False,
             "reason": (
-                "Your answers were very similar across all the questions, so the categories "
-                "scored almost the same. This usually means either every scenario genuinely felt "
-                "the same to you right now, or the questions were answered quickly without much "
-                "thought. Either way, a confident field suggestion wouldn't be honest here."
+                "Every question got the exact same rating, which makes it impossible to tell "
+                "what you actually enjoy versus don't. Please retake this thinking through each "
+                "scenario individually — they're each asking about something different."
             ),
         }
+
+    # Beyond exact repetition, check for near-zero variation using standard deviation.
+    # A genuinely varied (even if narrow) response pattern will have some spread;
+    # true carelessness clusters almost entirely on one or two values.
+    stdev = statistics.pstdev(all_answers)
+    if stdev < 0.4:
+        return {
+            "valid": False,
+            "reason": (
+                "Your answers barely varied across the questions, which makes it hard to tell "
+                "what genuinely interests you. Please retake this thinking through each scenario "
+                "individually rather than picking the same rating each time."
+            ),
+        }
+
     return {"valid": True, "reason": ""}
 
 
@@ -507,7 +533,7 @@ def run_discovery_assessment(student: StudentResponse) -> Dict:
     riasec_scores = score_riasec(student.riasec_answers)
     big_five_scores = score_big_five(student.big_five_answers)
 
-    validity = check_response_validity(riasec_scores)
+    validity = check_response_validity(student.riasec_answers)
 
     if not validity["valid"]:
         # Don't fabricate a confident suggestion from flat/meaningless scores.
