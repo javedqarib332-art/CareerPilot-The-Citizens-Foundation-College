@@ -1,110 +1,325 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Discovery — TCF Career Guidance</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
+:root {
+  --navy: #16233F;
+  --navy-deep: #0D1626;
+  --gold: #C9A15A;
+  --cream: #F6F3ED;
+  --ink: #1C1C1C;
+  --grey: #6B7280;
+  --border: #E3DFD5;
+}
 
-<div class="wrap">
+* { box-sizing: border-box; }
 
-  <!-- SCREEN: Welcome -->
-  <section id="screen-welcome" class="screen active">
-    <div class="eyebrow">TCF Career Guidance &middot; Stage 1</div>
-    <h1>Before we talk about fields,<br>let's talk about <em>you</em>.</h1>
-    <p class="lede">This isn't a quiz with right or wrong answers. It's a short, honest conversation with yourself — about how you think, what you enjoy, and where your strengths actually lie. Takes about 15-20 minutes.</p>
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-    <div id="resume-banner" class="resume-banner" style="display:none;">
-      <p>Looks like you have an assessment in progress.</p>
-      <div style="display:flex; gap:10px;">
-        <button class="btn-primary" id="btn-resume" style="flex:1;">Resume</button>
-        <button class="btn-secondary-outline" id="btn-restart" style="flex:1; margin-top:0;">Start Over</button>
-      </div>
-    </div>
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 28px;
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+}
 
-    <input type="text" id="student-name" placeholder="Your full name" class="name-input">
-    <div style="display:flex; gap:12px;">
-      <input type="text" id="student-roll" placeholder="Roll number" class="name-input" style="flex:1;">
-      <input type="text" id="student-class" placeholder="Class / Section" class="name-input" style="flex:1;">
-    </div>
-    <button class="btn-primary" id="btn-start">Begin</button>
-  </section>
+.site-header .brand-mark { flex-shrink: 0; }
 
-  <!-- SCREEN: Question flow -->
-  <section id="screen-questions" class="screen">
-    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
-    <div class="q-meta" id="q-meta">Section 1 of 4 — Interests</div>
-    <div class="q-card">
-      <p class="q-text" id="q-text">Loading...</p>
-      <div class="scale" id="q-scale">
-        <button data-val="1"><span>1</span><small>Strongly dislike</small></button>
-        <button data-val="2"><span>2</span><small>Dislike</small></button>
-        <button data-val="3"><span>3</span><small>Neutral</small></button>
-        <button data-val="4"><span>4</span><small>Enjoy</small></button>
-        <button data-val="5"><span>5</span><small>Strongly enjoy</small></button>
-      </div>
-    </div>
-  </section>
+.site-header .wordmark {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+}
 
-  <!-- SCREEN: Skills (rating + reason) -->
-  <section id="screen-skills" class="screen">
-    <div class="progress-track"><div class="progress-fill" id="progress-fill-skills"></div></div>
-    <div class="q-meta">Section 3 of 4 — Skills</div>
-    <div class="q-card">
-      <p class="q-text" id="skill-text">Loading...</p>
-      <div class="scale skill-scale" id="skill-scale">
-        <button data-val="1">1</button>
-        <button data-val="2">2</button>
-        <button data-val="3">3</button>
-        <button data-val="4">4</button>
-        <button data-val="5">5</button>
-      </div>
-      <textarea id="skill-reason" placeholder="In one line — why did you give yourself that rating?"></textarea>
-      <button class="btn-secondary" id="btn-skill-next">Continue</button>
-    </div>
-  </section>
+.site-header .wordmark small {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 1px;
+}
 
-  <!-- SCREEN: Academic Subjects -->
-  <section id="screen-academic" class="screen">
-    <div class="progress-track"><div class="progress-fill" id="progress-fill-academic"></div></div>
-    <div class="q-meta">Section 4 of 4 — Academic Performance</div>
-    <div class="q-card">
-      <p class="q-text" id="academic-text">Loading...</p>
-      <p style="font-size:13px; color:var(--grey); margin-top:-20px; margin-bottom:24px;">1 = weak, 5 = strong — based on your typical grades/performance, not just interest.</p>
-      <div class="scale skill-scale" id="academic-scale">
-        <button data-val="1">1</button>
-        <button data-val="2">2</button>
-        <button data-val="3">3</button>
-        <button data-val="4">4</button>
-        <button data-val="5">5</button>
-      </div>
-    </div>
-  </section>
+.site-footer {
+  padding: 16px 28px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--grey);
+  border-top: 1px solid var(--border);
+  background: #fff;
+}
 
-  <!-- SCREEN: Processing -->
-  <section id="screen-loading" class="screen">
-    <div class="loader"></div>
-    <p class="lede">Reading through your answers...</p>
-  </section>
+.site-footer .credit {
+  font-weight: 600;
+  color: var(--navy);
+}
 
-  <!-- SCREEN: Report -->
-  <section id="screen-report" class="screen">
-    <div class="eyebrow">Your Results</div>
-    <h1 id="report-name">Directions worth exploring</h1>
-    <div id="radar-container" style="margin-bottom: 24px;"></div>
-    <div class="fields-grid" id="fields-grid"></div>
-    <p class="lede" id="report-reason"></p>
-    <p class="disclaimer">This isn't a final decision — it's a starting point for your counselling session. A TCF counsellor will go through this with you.</p>
-    <button class="btn-secondary" id="btn-download-pdf">Download PDF</button>
-  </section>
+.wrap {
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-</div>
+.screen { display: none; }
+.screen.active { display: block; animation: fadein 0.35s ease; }
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</body>
-</html>
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+
+h1 {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: 38px;
+  line-height: 1.22;
+  color: var(--navy);
+  margin: 0 0 20px;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.lede {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--grey);
+  margin: 0 0 32px;
+  max-width: 480px;
+}
+
+.name-input {
+  width: 100%;
+  padding: 16px 18px;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+.name-input:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+
+.btn-primary, .btn-secondary {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 15px 32px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--navy);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--navy-deep); transform: translateY(-1px); }
+
+.btn-secondary {
+  background: var(--gold);
+  color: var(--navy-deep);
+  margin-top: 20px;
+  width: 100%;
+}
+.btn-secondary:hover { transform: translateY(-1px); }
+
+.progress-track {
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.q-meta {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 16px;
+}
+
+.q-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 40px 36px;
+}
+
+.q-text {
+  font-family: 'Lora', serif;
+  font-size: 22px;
+  line-height: 1.45;
+  color: var(--navy);
+  margin: 0 0 32px;
+}
+
+.scale {
+  display: flex;
+  gap: 8px;
+}
+
+.scale button {
+  flex: 1;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 14px 6px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.scale button:hover {
+  border-color: var(--gold);
+  background: #FBF7EE;
+}
+
+.scale button span {
+  display: block;
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--navy);
+}
+
+.scale button small {
+  display: block;
+  font-size: 10px;
+  color: var(--grey);
+  margin-top: 4px;
+  line-height: 1.2;
+}
+
+.skill-scale button {
+  padding: 12px 0;
+}
+
+#skill-reason {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  resize: none;
+  height: 60px;
+}
+
+.loader {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+#screen-loading { text-align: center; }
+
+.fields-grid {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.field-pill {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  border-radius: 4px;
+  padding: 16px 20px;
+  font-family: 'Lora', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.disclaimer {
+  font-size: 13px;
+  color: var(--grey);
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  margin-top: 12px;
+}
+
+.resume-banner {
+  background: #FBF7EE;
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.resume-banner p { margin: 0 0 14px; font-size: 14px; color: var(--navy); font-weight: 500; }
+
+.btn-secondary-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--navy);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 15px 32px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+.btn-secondary-outline:hover { border-color: var(--navy); }
+
+#btn-download-pdf {
+  margin-top: 16px;
+  width: auto;
+  padding: 12px 28px;
+}
+
+.scale button.selected {
+  border-color: var(--gold) !important;
+  background: #FBF7EE !important;
+  transform: scale(1.03);
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 28px; }
+  .q-card { padding: 28px 22px; }
+  .scale { flex-wrap: wrap; }
+  .scale button { flex: 1 1 30%; }
+}
