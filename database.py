@@ -26,7 +26,11 @@ def get_connection():
 
 
 def init_db():
-    """Creates the submissions table if it doesn't already exist. Safe to call every startup."""
+    """
+    Creates the submissions table if it doesn't already exist, and migrates
+    older deployed databases that predate the academic_ratings column.
+    Safe to call every startup.
+    """
     with get_connection() as conn:
         conn.execute("""
             CREATE TABLE IF NOT EXISTS submissions (
@@ -36,6 +40,7 @@ def init_db():
                 riasec_scores TEXT NOT NULL,
                 big_five_scores TEXT NOT NULL,
                 skills_ratings TEXT NOT NULL,
+                academic_ratings TEXT NOT NULL DEFAULT '{}',
                 contradiction_flags TEXT NOT NULL,
                 suggested_fields TEXT NOT NULL,
                 valid_response INTEGER NOT NULL,
@@ -43,23 +48,29 @@ def init_db():
                 counsellor_report TEXT NOT NULL
             )
         """)
+        # Migration for databases created before academic_ratings existed
+        try:
+            conn.execute("ALTER TABLE submissions ADD COLUMN academic_ratings TEXT NOT NULL DEFAULT '{}'")
+        except sqlite3.OperationalError:
+            pass  # column already exists — nothing to do
 
 
-def save_submission(student_name: str, skills_ratings: dict, result: dict) -> int:
+def save_submission(student_name: str, skills_ratings: dict, result: dict, academic_ratings: dict = None) -> int:
     """Saves one completed assessment. Returns the new row's id."""
     with get_connection() as conn:
         cursor = conn.execute("""
             INSERT INTO submissions (
                 student_name, created_at, riasec_scores, big_five_scores,
-                skills_ratings, contradiction_flags, suggested_fields,
+                skills_ratings, academic_ratings, contradiction_flags, suggested_fields,
                 valid_response, student_report, counsellor_report
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             student_name,
             datetime.utcnow().isoformat(),
             json.dumps(result.get("riasec_scores", {})),
             json.dumps(result.get("big_five_scores", {})),
             json.dumps(skills_ratings),
+            json.dumps(academic_ratings or {}),
             json.dumps(result.get("contradiction_flags", [])),
             json.dumps(result.get("suggested_fields", [])),
             1 if result.get("valid_response", True) else 0,
@@ -101,6 +112,7 @@ def get_submission_by_id(submission_id: int):
             "riasec_scores": json.loads(row["riasec_scores"]),
             "big_five_scores": json.loads(row["big_five_scores"]),
             "skills_ratings": json.loads(row["skills_ratings"]),
+            "academic_ratings": json.loads(row["academic_ratings"]) if row["academic_ratings"] else {},
             "contradiction_flags": json.loads(row["contradiction_flags"]),
             "suggested_fields": json.loads(row["suggested_fields"]),
             "valid_response": bool(row["valid_response"]),
