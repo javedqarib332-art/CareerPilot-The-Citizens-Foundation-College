@@ -61,11 +61,13 @@ def api_submit():
             student_name=student.student_name,
             skills_ratings=skills_ratings_serializable,
             result=result,
+            academic_ratings=student.academic_ratings,
         )
         result["submission_id"] = submission_id
         result["skills_ratings"] = [
             [k, v[0], v[1]] for k, v in student.skills_ratings.items()
         ]
+        result["academic_ratings"] = student.academic_ratings
 
         return jsonify({"ok": True, "result": result})
     except Exception as e:
