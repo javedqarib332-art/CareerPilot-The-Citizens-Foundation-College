@@ -185,7 +185,6 @@ ACADEMIC_SUBJECTS = [
     "Physics",
     "Mathematics",
     "ComputerScience",
-    "EconomicsAccounting",
     "EnglishLanguage",
 ]
 
@@ -195,7 +194,6 @@ ACADEMIC_SUBJECTS_LABELS = {
     "Physics": "Physics",
     "Mathematics": "Mathematics",
     "ComputerScience": "Computer Science",
-    "EconomicsAccounting": "Economics / Accounting / Business Studies",
     "EnglishLanguage": "English / Language & Writing",
 }
 
@@ -219,11 +217,10 @@ FIELD_SUBJECT_REQUIREMENTS = {
     "Data Science": ["Mathematics", "ComputerScience"],
     "Actuarial Science": ["Mathematics"],
     "Statistics": ["Mathematics"],
-    "Economics": ["Mathematics", "EconomicsAccounting"],
-    "Accounting/Finance": ["Mathematics", "EconomicsAccounting"],
-    "Chartered Accountancy (CA/ACCA)": ["Mathematics", "EconomicsAccounting"],
-    "Finance": ["Mathematics", "EconomicsAccounting"],
-    "Business Administration": ["EconomicsAccounting"],
+    "Economics": ["Mathematics"],
+    "Accounting/Finance": ["Mathematics"],
+    "Chartered Accountancy (CA/ACCA)": ["Mathematics"],
+    "Finance": ["Mathematics"],
     "Law": ["EnglishLanguage"],
 }
 
