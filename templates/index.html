@@ -33,7 +33,7 @@
   <!-- SCREEN: Question flow -->
   <section id="screen-questions" class="screen">
     <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
-    <div class="q-meta" id="q-meta">Section 1 of 3 — Interests</div>
+    <div class="q-meta" id="q-meta">Section 1 of 4 — Interests</div>
     <div class="q-card">
       <p class="q-text" id="q-text">Loading...</p>
       <div class="scale" id="q-scale">
@@ -49,7 +49,7 @@
   <!-- SCREEN: Skills (rating + reason) -->
   <section id="screen-skills" class="screen">
     <div class="progress-track"><div class="progress-fill" id="progress-fill-skills"></div></div>
-    <div class="q-meta">Section 3 of 3 — Skills</div>
+    <div class="q-meta">Section 3 of 4 — Skills</div>
     <div class="q-card">
       <p class="q-text" id="skill-text">Loading...</p>
       <div class="scale skill-scale" id="skill-scale">
@@ -61,6 +61,23 @@
       </div>
       <textarea id="skill-reason" placeholder="In one line — why did you give yourself that rating?"></textarea>
       <button class="btn-secondary" id="btn-skill-next">Continue</button>
+    </div>
+  </section>
+
+  <!-- SCREEN: Academic Subjects -->
+  <section id="screen-academic" class="screen">
+    <div class="progress-track"><div class="progress-fill" id="progress-fill-academic"></div></div>
+    <div class="q-meta">Section 4 of 4 — Academic Performance</div>
+    <div class="q-card">
+      <p class="q-text" id="academic-text">Loading...</p>
+      <p style="font-size:13px; color:var(--grey); margin-top:-20px; margin-bottom:24px;">1 = weak, 5 = strong — based on your typical grades/performance, not just interest.</p>
+      <div class="scale skill-scale" id="academic-scale">
+        <button data-val="1">1</button>
+        <button data-val="2">2</button>
+        <button data-val="3">3</button>
+        <button data-val="4">4</button>
+        <button data-val="5">5</button>
+      </div>
     </div>
   </section>
 
