@@ -41,6 +41,7 @@ body {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
   padding: 18px 32px;
   background: #fff;
@@ -57,6 +58,22 @@ body {
 }
 
 .site-header .brand-mark { flex-shrink: 0; }
+
+.site-header .brand-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.site-header .header-credit {
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--grey);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.site-header .header-credit span { color: var(--navy); }
 
 .site-header .wordmark {
   font-family: 'Lora', serif;
@@ -90,25 +107,6 @@ body {
   font-weight: 600;
   color: var(--navy);
 }
-
-/* Always-visible credit, pinned to the corner — no scrolling required */
-.corner-credit {
-  position: fixed;
-  bottom: 14px;
-  right: 14px;
-  background: var(--navy);
-  color: #fff;
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  padding: 7px 14px;
-  border-radius: 20px;
-  box-shadow: var(--shadow-md);
-  z-index: 50;
-  opacity: 0.94;
-}
-.corner-credit span { color: var(--gold-soft); }
 
 /* ---------- Layout ---------- */
 
@@ -429,6 +427,7 @@ h1 em {
   .site-header .wordmark { font-size: 13.5px; }
   .site-header .wordmark small { font-size: 9.5px; }
   .site-header .brand-mark { width: 22px; height: 22px; }
+  .site-header .header-credit { font-size: 9.5px; }
 
   .wrap { padding: 36px 18px 60px; }
 
@@ -446,7 +445,6 @@ h1 em {
   .scale { flex-wrap: wrap; }
   .scale button { flex: 1 1 30%; }
   .hero-watermark { width: 200px; height: 200px; top: -20px; right: -50px; }
-  .corner-credit { font-size: 9.5px; padding: 6px 10px; bottom: 10px; right: 10px; }
   .lede { font-size: 14.5px; }
   .eyebrow { font-size: 11px; }
 }
