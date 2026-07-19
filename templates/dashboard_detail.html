@@ -63,6 +63,15 @@
     {% endfor %}
   </div>
 
+  {% if s.academic_ratings %}
+  <div class="card">
+    <h3>Academic Subject Self-Ratings</h3>
+    {% for subject, rating in s.academic_ratings.items() %}
+    <div class="score-row"><span>{{ subject }}</span><span>{{ rating }}/5</span></div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
   {% if s.contradiction_flags %}
   <div class="card">
     <h3>Flagged Contradictions ({{ s.contradiction_flags | length }})</h3>
