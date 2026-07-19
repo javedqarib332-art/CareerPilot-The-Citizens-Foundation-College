@@ -27,82 +27,128 @@ RIASEC_CATEGORIES = ["R", "I", "A", "S", "E", "C"]
 
 RIASEC_QUESTIONS = {
     "R": [
-        "Fixing something broken (a bike, a gadget, furniture) using tools.",
-        "Working outdoors on a physical project (construction, farming, sports).",
-        "Assembling or building something from parts (a model, a machine, a circuit).",
-        "Operating or repairing equipment/machinery.",
-        "Working with your hands rather than at a desk all day.",
-        "Learning a physical/technical trade over a purely theoretical subject.",
+        {"en": "Fixing something broken (a bike, a gadget, furniture) using tools.",
+         "ur": "ٹولز استعمال کر کے کوئی خراب چیز ٹھیک کرنا (سائیکل، گیجٹ، فرنیچر)۔"},
+        {"en": "Working outdoors on a physical project (construction, farming, sports).",
+         "ur": "کسی جسمانی کام کے لیے باہر کام کرنا (تعمیرات، کھیتی باڑی، کھیل)۔"},
+        {"en": "Assembling or building something from parts (a model, a machine, a circuit).",
+         "ur": "پرزوں سے کوئی چیز بنانا یا جوڑنا (ماڈل، مشین، سرکٹ)۔"},
+        {"en": "Operating or repairing equipment/machinery.",
+         "ur": "مشینری چلانا یا اس کی مرمت کرنا۔"},
+        {"en": "Working with your hands rather than at a desk all day.",
+         "ur": "دن بھر ڈیسک پر بیٹھنے کے بجائے ہاتھوں سے کام کرنا۔"},
+        {"en": "Learning a physical/technical trade over a purely theoretical subject.",
+         "ur": "خالص نظریاتی مضمون کی بجائے کوئی تکنیکی ہنر سیکھنا۔"},
     ],
     "I": [
-        "Solving a difficult logic or math puzzle just for fun.",
-        "Researching why something happens rather than just accepting it.",
-        "Running an experiment to test an idea, even if it might fail.",
-        "Reading about a scientific discovery in detail out of curiosity.",
-        "Debugging a problem step-by-step until you find the root cause.",
-        "Choosing a subject because it makes you think harder, not because it's easy.",
+        {"en": "Solving a difficult logic or math puzzle just for fun.",
+         "ur": "صرف تفریح کے لیے کوئی مشکل منطقی یا ریاضی کی پہیلی حل کرنا۔"},
+        {"en": "Researching why something happens rather than just accepting it.",
+         "ur": "کسی بات کو مان لینے کے بجائے یہ تحقیق کرنا کہ ایسا کیوں ہوتا ہے۔"},
+        {"en": "Running an experiment to test an idea, even if it might fail.",
+         "ur": "کسی خیال کو جانچنے کے لیے تجربہ کرنا، چاہے وہ ناکام ہو جائے۔"},
+        {"en": "Reading about a scientific discovery in detail out of curiosity.",
+         "ur": "تجسس کی وجہ سے کسی سائنسی دریافت کے بارے میں تفصیل سے پڑھنا۔"},
+        {"en": "Debugging a problem step-by-step until you find the root cause.",
+         "ur": "کسی مسئلے کو قدم بہ قدم حل کرنا جب تک اصل وجہ نہ مل جائے۔"},
+        {"en": "Choosing a subject because it makes you think harder, not because it's easy.",
+         "ur": "کوئی مضمون اس لیے چننا کہ وہ سوچنے پر مجبور کرے، آسان ہونے کی وجہ سے نہیں۔"},
     ],
     "A": [
-        "Coming up with an original idea rather than following a template.",
-        "Designing something (visual, written, or musical) from scratch.",
-        "Expressing an opinion through writing, art, or performance.",
-        "Being given an open-ended task with no fixed 'right answer.'",
-        "Noticing and caring about how something looks or sounds, not just how it works.",
-        "Choosing originality over following an established method.",
+        {"en": "Coming up with an original idea rather than following a template.",
+         "ur": "کسی سانچے کی پیروی کرنے کے بجائے اپنا اصل خیال پیش کرنا۔"},
+        {"en": "Designing something (visual, written, or musical) from scratch.",
+         "ur": "کوئی چیز شروع سے ڈیزائن کرنا (بصری، تحریری، یا موسیقی)۔"},
+        {"en": "Expressing an opinion through writing, art, or performance.",
+         "ur": "تحریر، فن، یا پرفارمنس کے ذریعے اپنی رائے کا اظہار کرنا۔"},
+        {"en": "Being given an open-ended task with no fixed 'right answer.'",
+         "ur": "ایسا کام جس کا کوئی مقررہ 'صحیح جواب' نہ ہو۔"},
+        {"en": "Noticing and caring about how something looks or sounds, not just how it works.",
+         "ur": "یہ خیال رکھنا کہ کوئی چیز کیسی نظر آتی یا سنائی دیتی ہے، نہ صرف یہ کہ کیسے کام کرتی ہے۔"},
+        {"en": "Choosing originality over following an established method.",
+         "ur": "رائج طریقے کی پیروی کے بجائے اصلیت کو ترجیح دینا۔"},
     ],
     "S": [
-        "Explaining a difficult topic to a friend who's stuck.",
-        "Being the person others come to for advice.",
-        "Working in a group project where you naturally take the 'people' role.",
-        "Volunteering or helping in your community.",
-        "Noticing when someone is upset even if they haven't said anything.",
-        "Choosing a task that involves people over one that involves working alone.",
+        {"en": "Explaining a difficult topic to a friend who's stuck.",
+         "ur": "کسی دوست کو مشکل موضوع سمجھانا جو الجھن میں ہو۔"},
+        {"en": "Being the person others come to for advice.",
+         "ur": "وہ شخص ہونا جس کے پاس لوگ مشورے کے لیے آتے ہیں۔"},
+        {"en": "Working in a group project where you naturally take the 'people' role.",
+         "ur": "گروپ پراجیکٹ میں فطری طور پر 'لوگوں' والا کردار نبھانا۔"},
+        {"en": "Volunteering or helping in your community.",
+         "ur": "اپنی کمیونٹی میں رضاکارانہ کام یا مدد کرنا۔"},
+        {"en": "Noticing when someone is upset even if they haven't said anything.",
+         "ur": "کسی کے پریشان ہونے کو محسوس کرنا چاہے اس نے کچھ نہ کہا ہو۔"},
+        {"en": "Choosing a task that involves people over one that involves working alone.",
+         "ur": "اکیلے کام کرنے کے بجائے لوگوں کے ساتھ کام کرنے کو ترجیح دینا۔"},
     ],
     "E": [
-        "Convincing a group to go along with your plan or idea.",
-        "Taking charge when a group project has no clear leader.",
-        "Starting something of your own (a small project, page, business idea).",
-        "Negotiating for something you want (a better grade, a deal, a decision).",
-        "Taking a risk for a bigger potential reward.",
-        "Choosing a competitive environment over a stable, predictable one.",
+        {"en": "Convincing a group to go along with your plan or idea.",
+         "ur": "کسی گروپ کو اپنے منصوبے یا خیال پر راضی کرنا۔"},
+        {"en": "Taking charge when a group project has no clear leader.",
+         "ur": "جب گروپ پراجیکٹ کا کوئی واضح رہنما نہ ہو تو ذمہ داری سنبھالنا۔"},
+        {"en": "Starting something of your own (a small project, page, business idea).",
+         "ur": "اپنا کچھ شروع کرنا (چھوٹا پراجیکٹ، پیج، بزنس آئیڈیا)۔"},
+        {"en": "Negotiating for something you want (a better grade, a deal, a decision).",
+         "ur": "کسی چیز کے لیے بات چیت کرنا جو آپ چاہتے ہیں (بہتر گریڈ، ڈیل، فیصلہ)۔"},
+        {"en": "Taking a risk for a bigger potential reward.",
+         "ur": "بڑے ممکنہ فائدے کے لیے خطرہ مول لینا۔"},
+        {"en": "Choosing a competitive environment over a stable, predictable one.",
+         "ur": "مستحکم اور متوقع ماحول کے بجائے مسابقتی ماحول کو ترجیح دینا۔"},
     ],
     "C": [
-        "Organizing a messy set of files, notes, or a schedule.",
-        "Following a clear step-by-step process rather than improvising.",
-        "Double-checking details (numbers, spelling, data) before submitting work.",
-        "Keeping track of a budget, schedule, or checklist without being told to.",
-        "Working within clear rules and structure rather than ambiguity.",
-        "Choosing accuracy and consistency over speed.",
+        {"en": "Organizing a messy set of files, notes, or a schedule.",
+         "ur": "بکھری ہوئی فائلوں، نوٹس، یا شیڈول کو ترتیب دینا۔"},
+        {"en": "Following a clear step-by-step process rather than improvising.",
+         "ur": "فی البدیہہ کام کرنے کے بجائے واضح مرحلہ وار طریقہ اپنانا۔"},
+        {"en": "Double-checking details (numbers, spelling, data) before submitting work.",
+         "ur": "کام جمع کرانے سے پہلے تفصیلات دوبارہ چیک کرنا (نمبرز، ہجے، ڈیٹا)۔"},
+        {"en": "Keeping track of a budget, schedule, or checklist without being told to.",
+         "ur": "بغیر کہے بجٹ، شیڈول، یا چیک لسٹ کا خیال رکھنا۔"},
+        {"en": "Working within clear rules and structure rather than ambiguity.",
+         "ur": "غیر واضح صورتحال کے بجائے واضح اصولوں اور ڈھانچے میں کام کرنا۔"},
+        {"en": "Choosing accuracy and consistency over speed.",
+         "ur": "رفتار کے بجائے درستگی اور تسلسل کو ترجیح دینا۔"},
     ],
 }
 
 BIG_FIVE_TRAITS = ["Openness", "Conscientiousness", "Extraversion", "Agreeableness", "EmotionalStability"]
 
+# Adapted from the IPIP (International Personality Item Pool, Goldberg 1992) —
+# a public-domain, research-validated item set. Each trait includes at least
+# one reverse-keyed item so genuine variation can be distinguished from
+# simple agreement bias. "reverse": True means a HIGH rating on this item
+# actually indicates a LOW level of the trait, and must be inverted when scored.
 BIG_FIVE_QUESTIONS = {
     "Openness": [
-        "I enjoy exploring new subjects even outside what I'm required to study.",
-        "I get bored doing the same type of task repeatedly.",
-        "I prefer questions with multiple possible answers over ones with a single fixed answer.",
+        {"text": "I have a vivid imagination.", "text_ur": "میری تخیل بہت زرخیز ہے۔", "reverse": False},
+        {"text": "I enjoy thinking about abstract or theoretical ideas.", "text_ur": "مجھے تجریدی یا نظریاتی خیالات پر سوچنا اچھا لگتا ہے۔", "reverse": False},
+        {"text": "I am not very interested in abstract ideas.", "text_ur": "مجھے تجریدی خیالات میں زیادہ دلچسپی نہیں۔", "reverse": True},
+        {"text": "I prefer familiar routines over new experiences.", "text_ur": "میں نئے تجربات کی بجائے جانی پہچانی روٹین کو ترجیح دیتا/دیتی ہوں۔", "reverse": True},
     ],
     "Conscientiousness": [
-        "I plan my work ahead of time rather than doing it last minute.",
-        "I finish tasks I start, even when they get boring.",
-        "I notice and fix small mistakes in my own work before submitting it.",
+        {"text": "I am always prepared before I need to be.", "text_ur": "میں ضرورت سے پہلے ہی تیار رہتا/رہتی ہوں۔", "reverse": False},
+        {"text": "I pay close attention to details in my work.", "text_ur": "میں اپنے کام کی باریکیوں پر خاص توجہ دیتا/دیتی ہوں۔", "reverse": False},
+        {"text": "I often leave things until the last minute.", "text_ur": "میں اکثر کام آخری وقت کے لیے چھوڑ دیتا/دیتی ہوں۔", "reverse": True},
+        {"text": "I have a hard time following through once something gets boring.", "text_ur": "جب کوئی کام بورنگ ہو جائے تو اسے مکمل کرنا میرے لیے مشکل ہوتا ہے۔", "reverse": True},
     ],
     "Extraversion": [
-        "I feel energized after spending time with a group of people.",
-        "I'd rather present in front of a class than write a report alone.",
-        "I speak up quickly in group discussions rather than waiting to be asked.",
+        {"text": "I feel comfortable around people I don't know well.", "text_ur": "میں ان لوگوں کے ساتھ بھی سہولت محسوس کرتا/کرتی ہوں جنہیں اچھی طرح نہیں جانتا/جانتی۔", "reverse": False},
+        {"text": "I start conversations rather than waiting for others to.", "text_ur": "میں دوسروں کا انتظار کرنے کے بجائے خود بات چیت شروع کرتا/کرتی ہوں۔", "reverse": False},
+        {"text": "I prefer to stay in the background in group settings.", "text_ur": "گروپ میں مَیں پیچھے رہنا پسند کرتا/کرتی ہوں۔", "reverse": True},
+        {"text": "I find it draining to be around large groups for long.", "text_ur": "بڑے گروہوں میں زیادہ دیر رہنا مجھے تھکا دیتا ہے۔", "reverse": True},
     ],
     "Agreeableness": [
-        "I try to keep group harmony even if it means compromising my own view.",
-        "I find it easy to see things from someone else's perspective.",
-        "I prioritize others' needs over winning an argument.",
+        {"text": "I sympathize with others' feelings easily.", "text_ur": "میں دوسروں کے جذبات کو آسانی سے سمجھ لیتا/لیتی ہوں۔", "reverse": False},
+        {"text": "I take time out for others even when it's inconvenient.", "text_ur": "میں مشکل وقت میں بھی دوسروں کے لیے وقت نکالتا/نکالتی ہوں۔", "reverse": False},
+        {"text": "I am not very interested in other people's problems.", "text_ur": "مجھے دوسروں کے مسائل میں زیادہ دلچسپی نہیں۔", "reverse": True},
+        {"text": "I find it hard to compromise when I disagree with someone.", "text_ur": "جب کسی سے اختلاف ہو تو سمجھوتہ کرنا میرے لیے مشکل ہوتا ہے۔", "reverse": True},
     ],
     "EmotionalStability": [
-        "I stay calm under exam or deadline pressure.",
-        "Setbacks don't affect my mood or motivation for long.",
-        "I can make decisions without over-worrying about the outcome.",
+        {"text": "I remain calm under pressure or deadlines.", "text_ur": "دباؤ یا ڈیڈ لائن میں بھی میں پرسکون رہتا/رہتی ہوں۔", "reverse": False},
+        {"text": "Setbacks don't affect my mood for long.", "text_ur": "ناکامیاں میرے موڈ کو زیادہ دیر متاثر نہیں کرتیں۔", "reverse": False},
+        {"text": "I get stressed out easily.", "text_ur": "میں آسانی سے تناؤ کا شکار ہو جاتا/جاتی ہوں۔", "reverse": True},
+        {"text": "I worry about things more than most people seem to.", "text_ur": "میں دوسروں کی نسبت زیادہ فکر مند رہتا/رہتی ہوں۔", "reverse": True},
     ],
 }
 
@@ -116,6 +162,17 @@ SKILLS = [
     "AttentionToDetail",
     "IndependentWork",
 ]
+
+SKILLS_LABELS_UR = {
+    "Mathematics": "ریاضی",
+    "LogicalReasoning": "منطقی استدلال",
+    "WrittenCommunication": "تحریری ابلاغ",
+    "VerbalCommunication": "زبانی ابلاغ",
+    "Creativity": "تخلیقی صلاحیت",
+    "Leadership": "قیادت",
+    "AttentionToDetail": "باریک بینی",
+    "IndependentWork": "خودمختار کام",
+}
 
 # Comprehensive mapping — all 15 possible RIASEC top-2 combinations (6 choose 2).
 # Based on standard Holland Code career-cluster associations.
@@ -182,11 +239,20 @@ def score_riasec(answers: Dict[str, List[int]]) -> Dict[str, int]:
 
 
 def score_big_five(answers: Dict[str, List[int]]) -> Dict[str, float]:
-    """Average each Big Five trait's 3 answers. Range 1-5."""
+    """
+    Average each Big Five trait's answers (1-5 scale). Reverse-keyed items
+    (see BIG_FIVE_QUESTIONS) are inverted (6 - value) before averaging, so a
+    high rating on a reverse item correctly pulls the trait score down.
+    """
     scores = {}
     for trait in BIG_FIVE_TRAITS:
-        vals = answers.get(trait, [])
-        scores[trait] = round(sum(vals) / len(vals), 2) if vals else 0.0
+        raw_vals = answers.get(trait, [])
+        item_defs = BIG_FIVE_QUESTIONS[trait]
+        adjusted_vals = []
+        for i, val in enumerate(raw_vals):
+            is_reverse = item_defs[i]["reverse"] if i < len(item_defs) else False
+            adjusted_vals.append((6 - val) if is_reverse else val)
+        scores[trait] = round(sum(adjusted_vals) / len(adjusted_vals), 2) if adjusted_vals else 0.0
     return scores
 
 
@@ -489,17 +555,21 @@ def generate_counsellor_report(
 # ---------------------------------------------------------------------------
 
 def get_all_questions() -> Dict:
-    """Returns the full question bank in a frontend-friendly structure."""
+    """Returns the full question bank in a frontend-friendly structure, with Urdu translations."""
     return {
         "riasec": [
-            {"category": cat, "question": q}
-            for cat, qs in RIASEC_QUESTIONS.items() for q in qs
+            {"category": cat, "question": item["en"], "question_ur": item["ur"]}
+            for cat, items in RIASEC_QUESTIONS.items() for item in items
         ],
         "big_five": [
-            {"trait": trait, "question": q}
-            for trait, qs in BIG_FIVE_QUESTIONS.items() for q in qs
+            {
+                "trait": trait, "question": item["text"], "question_ur": item["text_ur"],
+                "reverse": item["reverse"],
+            }
+            for trait, items in BIG_FIVE_QUESTIONS.items() for item in items
         ],
         "skills": SKILLS,
+        "skills_labels_ur": SKILLS_LABELS_UR,
     }
 
 
@@ -594,11 +664,11 @@ if __name__ == "__main__":
             "C": [4, 5, 4, 5, 4, 5],
         },
         big_five_answers={
-            "Openness": [4, 4, 5],
-            "Conscientiousness": [5, 4, 5],
-            "Extraversion": [2, 2, 1],
-            "Agreeableness": [3, 3, 3],
-            "EmotionalStability": [3, 4, 3],
+            "Openness": [4, 4, 2, 2],
+            "Conscientiousness": [5, 4, 2, 2],
+            "Extraversion": [2, 2, 4, 4],
+            "Agreeableness": [3, 3, 3, 3],
+            "EmotionalStability": [3, 4, 2, 2],
         },
         skills_ratings={
             "Mathematics": (2, "I struggle with timed algebra tests"),
