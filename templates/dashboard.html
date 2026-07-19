@@ -30,12 +30,13 @@
   {% if submissions %}
   <table>
     <thead>
-      <tr><th>Student</th><th>Submitted</th><th>Suggested Fields</th><th>Status</th></tr>
+      <tr><th>Student</th><th>Roll / Class</th><th>Submitted</th><th>Suggested Fields</th><th>Status</th></tr>
     </thead>
     <tbody>
       {% for s in submissions %}
       <tr>
         <td><a class="row-link" href="/dashboard/{{ s.id }}">{{ s.student_name }}</a></td>
+        <td>{{ s.roll_number or '—' }} / {{ s.student_class or '—' }}</td>
         <td>{{ s.created_at[:16].replace('T', ' ') }}</td>
         <td>{{ s.suggested_fields | join(', ') if s.suggested_fields else '—' }}</td>
         <td>
