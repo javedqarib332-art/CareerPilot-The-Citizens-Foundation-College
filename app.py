@@ -164,6 +164,13 @@ def dashboard_detail(submission_id):
     return render_template("dashboard_detail.html", s=submission)
 
 
+@app.route("/fields")
+def fields_directory():
+    grouped = field_data.get_directory_data()
+    total_count = sum(len(v) for v in grouped.values())
+    return render_template("fields_directory.html", grouped=grouped, total_count=total_count)
+
+
 @app.route("/field/<slug>")
 def field_detail(slug):
     profile = field_data.get_profile_by_slug(slug)
