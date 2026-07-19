@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browse All Fields — TCF Career Guidance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,500;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<style>
+  .wrap { max-width: 980px; padding-top: 48px; justify-content: flex-start; }
+
+  .search-box {
+    width: 100%; padding: 16px 20px; font-size: 16px; font-family: 'Inter', sans-serif;
+    border: 1px solid var(--border); border-radius: 8px; background: #fff;
+    margin-bottom: 20px; box-shadow: var(--shadow-sm); transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .search-box:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,161,90,0.18); }
+
+  .category-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .category-tab {
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: var(--navy);
+    background: #fff; border: 1px solid var(--border); padding: 9px 16px; border-radius: 20px;
+    cursor: pointer; transition: all 0.15s ease;
+  }
+  .category-tab:hover { border-color: var(--gold); }
+  .category-tab.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+  .category-section { margin-bottom: 32px; }
+  .category-section h2 {
+    font-family: 'Lora', serif; font-size: 18px; color: var(--navy); font-weight: 600;
+    margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid var(--gold);
+    display: inline-block;
+  }
+
+  .field-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .field-card {
+    background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--gold);
+    border-radius: 8px; padding: 18px 20px; text-decoration: none; display: block;
+    box-shadow: var(--shadow-sm); transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .field-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .field-card .fc-name { font-family: 'Lora', serif; font-weight: 600; font-size: 16px; color: var(--navy); margin-bottom: 6px; }
+  .field-card .fc-overview { font-size: 12.5px; color: var(--grey); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+  .no-results { text-align: center; color: var(--grey); padding: 48px 0; font-size: 15px; display: none; }
+
+  @media (max-width: 600px) {
+    .wrap { padding: 32px 18px 60px; }
+    .field-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand-group">
+    <svg class="brand-mark" width="26" height="26" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <line x1="16" y1="16" x2="16" y2="2" stroke="#C9A15A" stroke-width="1.5"/>
+      <line x1="16" y1="16" x2="28" y2="9" stroke="#C9A15A" stroke-width="1.5"/>
+      <line x1="16" y1="16" x2="28" y2="23" stroke="#C9A15A" stroke-width="1.5"/>
+      <line x1="16" y1="16" x2="16" y2="30" stroke="#C9A15A" stroke-width="1.5"/>
+      <line x1="16" y1="16" x2="4" y2="23" stroke="#C9A15A" stroke-width="1.5"/>
+      <line x1="16" y1="16" x2="4" y2="9" stroke="#C9A15A" stroke-width="1.5"/>
+      <circle cx="16" cy="2" r="2" fill="#16233F"/><circle cx="28" cy="9" r="2" fill="#16233F"/>
+      <circle cx="28" cy="23" r="2" fill="#16233F"/><circle cx="16" cy="30" r="2" fill="#16233F"/>
+      <circle cx="4" cy="23" r="2" fill="#16233F"/><circle cx="4" cy="9" r="2" fill="#16233F"/>
+      <circle cx="16" cy="16" r="3" fill="#C9A15A"/>
+    </svg>
+    <div class="wordmark">TCF College Career Guidance<small>Browse Fields &middot; Stage 2</small></div>
+  </div>
+  <div class="header-credit">Developed by <span>Qarib Javed</span></div>
+</header>
+
+<div class="wrap">
+  <div class="eyebrow">Explore On Your Own</div>
+  <h1 style="font-size:30px;">Browse All Fields</h1>
+  <p class="lede">{{ total_count }} fields researched so far &mdash; search or filter by category to explore any of them, whether or not you've taken the Discovery assessment yet.</p>
+
+  <input type="text" id="search-input" class="search-box" placeholder="Search fields (e.g. 'Computer Science', 'Law', 'Design')...">
+
+  <div class="category-tabs" id="category-tabs">
+    <button class="category-tab active" data-category="all">All</button>
+    {% for category in grouped.keys() %}
+    <button class="category-tab" data-category="{{ category }}">{{ category }}</button>
+    {% endfor %}
+  </div>
+
+  <div id="results-container">
+    {% for category, fields in grouped.items() %}
+    <div class="category-section" data-category="{{ category }}">
+      <h2>{{ category }}</h2>
+      <div class="field-grid">
+        {% for f in fields %}
+        <a class="field-card" href="/field/{{ f.slug }}" data-name="{{ f.name | lower }}">
+          <div class="fc-name">{{ f.name }}</div>
+          <div class="fc-overview">{{ f.overview }}</div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="no-results" id="no-results">No fields match your search. Try a different term.</div>
+</div>
+
+<footer class="site-footer">
+  TCF College &middot; Career Guidance &mdash; Browse Fields<br>
+  <span class="credit">Developed by Qarib Javed</span>
+</footer>
+
+<script>
+  const searchInput = document.getElementById("search-input");
+  const tabs = document.querySelectorAll(".category-tab");
+  const sections = document.querySelectorAll(".category-section");
+  const noResults = document.getElementById("no-results");
+  let activeCategory = "all";
+
+  function applyFilters() {
+    const query = searchInput.value.trim().toLowerCase();
+    let anyVisible = false;
+
+    sections.forEach(section => {
+      const sectionCategory = section.dataset.category;
+      const categoryMatches = activeCategory === "all" || activeCategory === sectionCategory;
+      let sectionHasVisibleCard = false;
+
+      section.querySelectorAll(".field-card").forEach(card => {
+        const nameMatches = !query || card.dataset.name.includes(query);
+        const visible = categoryMatches && nameMatches;
+        card.style.display = visible ? "block" : "none";
+        if (visible) sectionHasVisibleCard = true;
+      });
+
+      section.style.display = sectionHasVisibleCard ? "block" : "none";
+      if (sectionHasVisibleCard) anyVisible = true;
+    });
+
+    noResults.style.display = anyVisible ? "none" : "block";
+  }
+
+  searchInput.addEventListener("input", applyFilters);
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      activeCategory = tab.dataset.category;
+      applyFilters();
+    });
+  });
+</script>
+</body>
+</html>
