@@ -113,6 +113,27 @@ def get_all_submissions() -> list:
         ]
 
 
+def get_all_submissions_full() -> list:
+    """Returns full data for every submission (used for the Excel export)."""
+    with get_connection() as conn:
+        rows = conn.execute("SELECT * FROM submissions ORDER BY created_at DESC").fetchall()
+        results = []
+        for row in rows:
+            results.append({
+                "id": row["id"],
+                "student_name": row["student_name"],
+                "roll_number": row["roll_number"] or "",
+                "student_class": row["student_class"] or "",
+                "created_at": row["created_at"],
+                "riasec_scores": json.loads(row["riasec_scores"]),
+                "big_five_scores": json.loads(row["big_five_scores"]),
+                "suggested_fields": json.loads(row["suggested_fields"]),
+                "valid_response": bool(row["valid_response"]),
+                "contradiction_flags": json.loads(row["contradiction_flags"]),
+            })
+        return results
+
+
 def get_submission_by_id(submission_id: int):
     """Returns the full record for one submission, or None if not found."""
     with get_connection() as conn:
