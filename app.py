@@ -62,6 +62,8 @@ def api_submit():
             skills_ratings=skills_ratings_serializable,
             result=result,
             academic_ratings=student.academic_ratings,
+            roll_number=student.roll_number,
+            student_class=student.student_class,
         )
         result["submission_id"] = submission_id
         result["skills_ratings"] = [
