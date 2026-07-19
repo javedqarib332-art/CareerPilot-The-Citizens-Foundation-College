@@ -7,7 +7,11 @@ Developed by Qarib Javed
 
 import os
 from functools import wraps
-from flask import Flask, render_template, request, jsonify, Response
+from datetime import datetime
+from io import BytesIO
+from flask import Flask, render_template, request, jsonify, Response, send_file
+import openpyxl
+from openpyxl.styles import Font, PatternFill
 
 from discovery_engine import (
     get_all_questions,
@@ -81,6 +85,60 @@ def api_submit():
 def dashboard():
     submissions = database.get_all_submissions()
     return render_template("dashboard.html", submissions=submissions)
+
+
+@app.route("/dashboard/export")
+@require_dashboard_auth
+def dashboard_export():
+    submissions = database.get_all_submissions_full()
+
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.title = "Discovery Submissions"
+
+    headers = [
+        "ID", "Student Name", "Roll Number", "Class", "Submitted At",
+        "Realistic", "Investigative", "Artistic", "Social", "Enterprising", "Conventional",
+        "Suggested Fields", "Valid Response", "Contradictions Flagged",
+    ]
+    ws.append(headers)
+
+    header_fill = PatternFill(start_color="16233F", end_color="16233F", fill_type="solid")
+    header_font = Font(color="FFFFFF", bold=True)
+    for cell in ws[1]:
+        cell.fill = header_fill
+        cell.font = header_font
+
+    for s in submissions:
+        r = s["riasec_scores"]
+        ws.append([
+            s["id"],
+            s["student_name"],
+            s["roll_number"],
+            s["student_class"],
+            s["created_at"][:16].replace("T", " "),
+            r.get("R", ""), r.get("I", ""), r.get("A", ""), r.get("S", ""), r.get("E", ""), r.get("C", ""),
+            ", ".join(s["suggested_fields"]),
+            "Yes" if s["valid_response"] else "No",
+            len(s["contradiction_flags"]),
+        ])
+
+    # Auto-fit column widths roughly based on content length
+    for col_cells in ws.columns:
+        length = max((len(str(c.value)) if c.value is not None else 0) for c in col_cells)
+        ws.column_dimensions[col_cells[0].column_letter].width = min(max(length + 2, 10), 45)
+
+    buffer = BytesIO()
+    wb.save(buffer)
+    buffer.seek(0)
+
+    filename = f"TCF_Discovery_Submissions_{datetime.utcnow().strftime('%Y%m%d')}.xlsx"
+    return send_file(
+        buffer,
+        as_attachment=True,
+        download_name=filename,
+        mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    )
 
 
 @app.route("/dashboard/<int:submission_id>")
