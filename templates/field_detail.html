@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ f.field_name }} — TCF Career Guidance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,500;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<style>
+  .wrap { max-width: 760px; padding-top: 48px; justify-content: flex-start; }
+  .back-link { font-size: 13px; color: var(--grey); text-decoration: none; margin-bottom: 20px; display: inline-block; transition: color 0.15s ease; }
+  .back-link:hover { color: var(--navy); }
+
+  .verify-notice {
+    background: #FBF3EC; border: 1px solid #E8B4A5; border-radius: 10px;
+    padding: 18px 20px; margin-bottom: 28px; font-size: 13.5px; color: var(--navy);
+    box-shadow: var(--shadow-sm);
+  }
+  .verify-notice strong { color: #B45747; }
+
+  .card {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 32px; margin-bottom: 20px; box-shadow: var(--shadow-md);
+  }
+  .card h3 {
+    font-family: 'Lora', serif; color: var(--navy); margin-top: 0; font-size: 17px;
+    padding-bottom: 12px; border-bottom: 1px solid var(--border); margin-bottom: 18px;
+  }
+
+  .skill-tag, .career-tag {
+    display: inline-block; background: var(--cream); border: 1px solid var(--gold); color: var(--navy);
+    padding: 7px 15px; border-radius: 20px; font-size: 13px; font-weight: 600; margin: 4px 6px 4px 0;
+  }
+
+  .uni-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .uni-table th { text-align: left; padding: 10px 12px; background: var(--cream); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--grey); }
+  .uni-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  .uni-table tr:last-child td { border-bottom: none; }
+  .sector-tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; }
+  .sector-public { background: #E6F0E9; color: #3D6B4C; }
+  .sector-private { background: #EFE6F0; color: #6B3D6B; }
+
+  .faq-item { margin-bottom: 18px; }
+  .faq-item:last-child { margin-bottom: 0; }
+  .faq-item .q { font-weight: 600; color: var(--navy); margin-bottom: 6px; font-size: 14.5px; }
+  .faq-item .a { color: var(--ink); font-size: 14px; line-height: 1.6; }
+
+  .step-list { margin: 0; padding-left: 0; list-style: none; counter-reset: step; }
+  .step-list li { counter-increment: step; padding-left: 40px; position: relative; margin-bottom: 16px; font-size: 14.5px; line-height: 1.55; }
+  .step-list li:last-child { margin-bottom: 0; }
+  .step-list li::before {
+    content: counter(step); position: absolute; left: 0; top: -2px;
+    width: 26px; height: 26px; background: var(--navy); color: #fff;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; font-family: 'Lora', serif;
+  }
+
+  .salary-box { background: var(--cream); border-radius: 8px; padding: 16px 20px; font-size: 14.5px; color: var(--navy); }
+
+  @media (max-width: 600px) {
+    .wrap { padding: 32px 18px 60px; }
+    .card { padding: 22px; }
+    h1 { font-size: 24px; }
+    .uni-table { font-size: 12px; }
+    .uni-table th, .uni-table td { padding: 8px 6px; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand-group">
+    <svg class="brand-mark" width="26" height="26" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <line x1="16" y1="16" x2="16" y2="2" stroke="#C9A15A" stroke-width="1.5"/>
+      <line x1="16" y1="16" x2="28" y2="9" stroke="#C9A15A" stroke-width="1.5"/>
+      <line x1="16" y1="16" x2="28" y2="23" stroke="#C9A15A" stroke-width="1.5"/>
+      <line x1="16" y1="16" x2="16" y2="30" stroke="#C9A15A" stroke-width="1.5"/>
+      <line x1="16" y1="16" x2="4" y2="23" stroke="#C9A15A" stroke-width="1.5"/>
+      <line x1="16" y1="16" x2="4" y2="9" stroke="#C9A15A" stroke-width="1.5"/>
+      <circle cx="16" cy="2" r="2" fill="#16233F"/><circle cx="28" cy="9" r="2" fill="#16233F"/>
+      <circle cx="28" cy="23" r="2" fill="#16233F"/><circle cx="16" cy="30" r="2" fill="#16233F"/>
+      <circle cx="4" cy="23" r="2" fill="#16233F"/><circle cx="4" cy="9" r="2" fill="#16233F"/>
+      <circle cx="16" cy="16" r="3" fill="#C9A15A"/>
+    </svg>
+    <div class="wordmark">TCF College Career Guidance<small>Field Guide &middot; Stage 2</small></div>
+  </div>
+  <div class="header-credit">Developed by <span>Qarib Javed</span></div>
+</header>
+
+<div class="wrap">
+  <a class="back-link" href="javascript:history.back()">&larr; Back to your results</a>
+  <div class="eyebrow">Field Guide</div>
+  <h1 style="font-size:32px;">{{ f.field_name }}</h1>
+  <p class="lede">{{ f.overview }}</p>
+
+  <div class="verify-notice">
+    <strong>Before you decide:</strong> merit formulas, fees, and entry test details change every year. Always confirm the current numbers directly on each university's official admission page before making a final decision.
+  </div>
+
+  <div class="card">
+    <h3>Required Skills</h3>
+    {% for skill in f.required_skills %}<span class="skill-tag">{{ skill }}</span>{% endfor %}
+  </div>
+
+  <div class="card">
+    <h3>Personality Fit</h3>
+    <p style="margin:0; font-size:14.5px; line-height:1.6;">{{ f.personality_fit }}</p>
+  </div>
+
+  <div class="card">
+    <h3>Academic Stream</h3>
+    <p style="margin:0; font-size:14.5px; line-height:1.6;">{{ f.academic_stream }}</p>
+  </div>
+
+  <div class="card">
+    <h3>Universities Offering This Field</h3>
+    <table class="uni-table">
+      <thead><tr><th>University</th><th>City</th><th>Program</th><th>Sector</th></tr></thead>
+      <tbody>
+        {% for u in f.universities %}
+        <tr>
+          <td>{{ u.name }}</td>
+          <td>{{ u.city }}</td>
+          <td>{{ u.program }}</td>
+          <td><span class="sector-tag {{ 'sector-public' if u.sector == 'Public' else 'sector-private' }}">{{ u.sector }}</span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Admission Requirements</h3>
+    <p style="margin:0 0 14px; font-size:14.5px; line-height:1.6;">{{ f.admission_requirements }}</p>
+    <p style="margin:0; font-size:14.5px; line-height:1.6;"><strong>Entry Tests:</strong> {{ f.entry_tests }}</p>
+  </div>
+
+  <div class="card">
+    <h3>Merit Criteria</h3>
+    <p style="margin:0; font-size:14.5px; line-height:1.6;">{{ f.merit_criteria }}</p>
+  </div>
+
+  <div class="card">
+    <h3>Career Scope</h3>
+    {% for career in f.career_scope %}<span class="career-tag">{{ career }}</span>{% endfor %}
+  </div>
+
+  <div class="card">
+    <h3>Salary Expectations</h3>
+    <div class="salary-box">{{ f.salary_expectations }}</div>
+  </div>
+
+  <div class="card">
+    <h3>Frequently Asked Questions</h3>
+    {% for item in f.faqs %}
+    <div class="faq-item">
+      <div class="q">{{ item.question }}</div>
+      <div class="a">{{ item.answer }}</div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="card">
+    <h3>Step-by-Step Guidance</h3>
+    <ol class="step-list">
+      {% for step in f.step_by_step_guidance %}
+      <li>{{ step }}</li>
+      {% endfor %}
+    </ol>
+  </div>
+</div>
+
+<footer class="site-footer">
+  TCF College &middot; Career Guidance &mdash; Field Guide<br>
+  <span class="credit">Developed by Qarib Javed</span>
+</footer>
+</body>
+</html>
