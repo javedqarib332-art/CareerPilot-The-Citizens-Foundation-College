@@ -334,42 +334,67 @@ function renderRadarChart(riasecScores) {
 // REPORT RENDERING
 // ---------------------------------------------------------------------------
 
+function renderBigFiveBars(bigFiveScores) {
+  const traitLabels = {
+    Openness: "Openness", Conscientiousness: "Conscientiousness", Extraversion: "Extraversion",
+    Agreeableness: "Agreeableness", EmotionalStability: "Emotional Stability",
+  };
+  let html = "";
+  Object.entries(bigFiveScores || {}).forEach(([trait, val]) => {
+    const pct = (val / 5) * 100;
+    html += `
+      <div class="bar-row">
+        <div class="bar-label"><span>${traitLabels[trait] || trait}</span><span>${val}/5</span></div>
+        <div class="bar-track"><div class="bar-fill navy-fill" style="width:${pct}%;"></div></div>
+      </div>`;
+  });
+  return html;
+}
+
 function renderReport(result) {
   lastResult = result;
-  const grid = document.getElementById("fields-grid");
   const radarContainer = document.getElementById("radar-container");
-  grid.innerHTML = "";
   radarContainer.innerHTML = renderRadarChart(result.riasec_scores || {});
+
+  const bigfiveCard = document.getElementById("bigfive-card");
+  const domainCard = document.getElementById("domain-card");
+  const stage2Pointer = document.getElementById("stage2-pointer");
 
   if (result.valid_response === false) {
     document.getElementById("report-name").innerHTML = `A note for you, <em>${escapeHtml(studentName)}</em>`;
-    document.getElementById("report-reason").textContent = result.reason || "We couldn't generate a confident suggestion from these answers.";
+    document.getElementById("personality-overview-text").textContent = "";
+    document.getElementById("report-reason").textContent = result.reason || "We couldn't generate a confident overview from these answers.";
+    bigfiveCard.style.display = "none";
+    domainCard.style.display = "none";
+    stage2Pointer.style.display = "none";
     showScreen("report");
     return;
   }
 
-  document.getElementById("report-name").innerHTML = `Directions worth exploring, <em>${escapeHtml(studentName)}</em>`;
-  const fieldDetails = result.suggested_fields_detail || result.suggested_fields.map(f => ({ name: f, slug: null, available: false }));
-  fieldDetails.forEach(fd => {
-    const el = document.createElement("a");
-    el.className = "field-pill";
-    el.textContent = fd.name + (fd.available ? " →" : "");
-    el.style.textDecoration = "none";
-    el.style.display = "block";
-    if (fd.available && fd.slug) {
-      el.href = `/field/${fd.slug}`;
-    } else {
-      el.href = "javascript:void(0)";
-      el.style.opacity = "0.7";
-      el.style.cursor = "default";
-      el.title = "Detailed guide coming soon";
-    }
-    grid.appendChild(el);
+  bigfiveCard.style.display = "block";
+  domainCard.style.display = "block";
+  stage2Pointer.style.display = "block";
+
+  document.getElementById("report-name").innerHTML = `About How You Think and Work, <em>${escapeHtml(studentName)}</em>`;
+  document.getElementById("personality-overview-text").textContent = result.personality_overview || "";
+
+  document.getElementById("bigfive-bars").innerHTML = renderBigFiveBars(result.big_five_scores);
+
+  const domainGrid = document.getElementById("domain-grid");
+  domainGrid.innerHTML = "";
+  (result.suggested_domains || []).forEach(domain => {
+    const el = document.createElement("div");
+    el.className = "domain-pill";
+    el.textContent = domain;
+    domainGrid.appendChild(el);
   });
-  document.getElementById("report-reason").textContent =
-    result.student_report.split("Why:")[1]?.split("\n")[0]
-      ? "Why: " + result.student_report.split("Why:")[1].split("\n")[0]
-      : "";
+
+  const firstDomain = (result.suggested_domains || [])[0];
+  const exploreLink = document.getElementById("explore-stage2-link");
+  exploreLink.href = firstDomain ? `/fields?category=${encodeURIComponent(firstDomain)}` : "/fields";
+
+  document.getElementById("report-reason").textContent = result.confidence && result.confidence.note ? result.confidence.note : "";
+
   showScreen("report");
 }
 
@@ -489,13 +514,22 @@ document.getElementById("btn-download-pdf").addEventListener("click", () => {
       return;
     }
 
-    // --- Suggested Fields (colored pills) ---
-    y = pdfSectionHeading(doc, "Suggested Field Directions", margin, y);
+    // --- Personality Overview ---
+    y = pdfSectionHeading(doc, "About How You Think and Work", margin, y);
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.setTextColor(...PDF_COLORS.navy);
+    const overviewLines = doc.splitTextToSize(lastResult.personality_overview || "", pageWidth - margin * 2);
+    doc.text(overviewLines, margin, y);
+    y += overviewLines.length * 5 + 10;
+
+    // --- Suggested Domains (colored pills) ---
+    y = pdfSectionHeading(doc, "Domains Worth Exploring", margin, y);
     let pillX = margin;
-    (lastResult.suggested_fields || []).forEach(f => {
+    (lastResult.suggested_domains || []).forEach(d => {
       doc.setFont("helvetica", "bold");
       doc.setFontSize(9.5);
-      const textWidth = doc.getTextWidth(f);
+      const textWidth = doc.getTextWidth(d);
       const pillWidth = textWidth + 10;
       if (pillX + pillWidth > pageWidth - margin) {
         pillX = margin;
@@ -505,10 +539,16 @@ document.getElementById("btn-download-pdf").addEventListener("click", () => {
       doc.setDrawColor(...PDF_COLORS.gold);
       doc.roundedRect(pillX, y, pillWidth, 8, 4, 4, "FD");
       doc.setTextColor(...PDF_COLORS.navy);
-      doc.text(f, pillX + 5, y + 5.5);
+      doc.text(d, pillX + 5, y + 5.5);
       pillX += pillWidth + 5;
     });
     y += 16;
+
+    doc.setFont("helvetica", "italic");
+    doc.setFontSize(9);
+    doc.setTextColor(...PDF_COLORS.grey);
+    doc.text("For specific fields within these domains — universities, admission requirements, career scope — use Stage 2.", margin, y);
+    y += 12;
 
     // --- RIASEC bar chart ---
     y = pdfCheckPageBreak(doc, y, 60, pageHeight, margin);
