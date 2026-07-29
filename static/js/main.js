@@ -252,20 +252,27 @@ async function submitAssessment() {
   showScreen("loading");
   const payload = { student_name: studentName, student_roll: studentRoll, student_class: studentClass, ...answers };
 
-  const res = await fetch("/api/submit", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
-  const data = await res.json();
+  try {
+    const res = await fetch("/api/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json();
 
-  if (!data.ok) {
-    alert("Something went wrong: " + data.error);
-    return;
+    if (!data.ok) {
+      alert("Something went wrong: " + data.error);
+      showScreen("welcome");
+      return;
+    }
+
+    clearProgress();
+    renderReport(data.result);
+  } catch (err) {
+    console.error("submitAssessment failed:", err);
+    alert("Something went wrong while showing your results. Please check the browser console (F12) for details, or try again.");
+    showScreen("welcome");
   }
-
-  clearProgress();
-  renderReport(data.result);
 }
 
 // ---------------------------------------------------------------------------
@@ -334,6 +341,22 @@ function renderRadarChart(riasecScores) {
 // REPORT RENDERING
 // ---------------------------------------------------------------------------
 
+function renderRiasecBars(riasecScores) {
+  const labels = { R: "Realistic", I: "Investigative", A: "Artistic", S: "Social", E: "Enterprising", C: "Conventional" };
+  const order = ["R", "I", "A", "S", "E", "C"];
+  let html = "";
+  order.forEach(cat => {
+    const val = (riasecScores || {})[cat] || 0;
+    const pct = (val / 30) * 100;
+    html += `
+      <div class="bar-row">
+        <div class="bar-label"><span>${labels[cat]}</span><span>${val}/30</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:${pct}%;"></div></div>
+      </div>`;
+  });
+  return html;
+}
+
 function renderBigFiveBars(bigFiveScores) {
   const traitLabels = {
     Openness: "Openness", Conscientiousness: "Conscientiousness", Extraversion: "Extraversion",
@@ -355,15 +378,18 @@ function renderReport(result) {
   lastResult = result;
   const radarContainer = document.getElementById("radar-container");
   radarContainer.innerHTML = renderRadarChart(result.riasec_scores || {});
+  document.getElementById("riasec-bars").innerHTML = renderRiasecBars(result.riasec_scores);
 
   const bigfiveCard = document.getElementById("bigfive-card");
   const domainCard = document.getElementById("domain-card");
   const stage2Pointer = document.getElementById("stage2-pointer");
+  const riasecCard = document.getElementById("riasec-card");
 
   if (result.valid_response === false) {
     document.getElementById("report-name").innerHTML = `A note for you, <em>${escapeHtml(studentName)}</em>`;
     document.getElementById("personality-overview-text").textContent = "";
     document.getElementById("report-reason").textContent = result.reason || "We couldn't generate a confident overview from these answers.";
+    riasecCard.style.display = "none";
     bigfiveCard.style.display = "none";
     domainCard.style.display = "none";
     stage2Pointer.style.display = "none";
@@ -371,6 +397,7 @@ function renderReport(result) {
     return;
   }
 
+  riasecCard.style.display = "block";
   bigfiveCard.style.display = "block";
   domainCard.style.display = "block";
   stage2Pointer.style.display = "block";
