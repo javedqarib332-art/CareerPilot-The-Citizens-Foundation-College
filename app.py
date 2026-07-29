@@ -85,6 +85,16 @@ def api_submit():
             for name in result.get("suggested_fields", [])
         ]
 
+        # Derive domain-level suggestions from the specific candidate fields —
+        # students see the domain, not the specific field; counsellors still
+        # get the specific fields via the counsellor report.
+        seen_domains = []
+        for name in result.get("suggested_fields", []):
+            category = field_data.get_category_for_field(name)
+            if category not in seen_domains:
+                seen_domains.append(category)
+        result["suggested_domains"] = seen_domains
+
         return jsonify({"ok": True, "result": result})
     except Exception as e:
         return jsonify({"ok": False, "error": str(e)}), 400
