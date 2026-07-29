@@ -654,24 +654,78 @@ def suggest_fields(riasec_scores: Dict[str, int]) -> List[str]:
 # 6. REPORT GENERATION
 # ---------------------------------------------------------------------------
 
-def generate_student_report(name: str, fields: List[str], riasec_scores: Dict[str, int]) -> str:
-    top2 = top_riasec_categories(riasec_scores, 2)
-    category_names = {
-        "R": "hands-on/practical work", "I": "analytical/research-driven work",
-        "A": "creative/original work", "S": "people-focused/helping work",
-        "E": "leadership/business-driven work", "C": "structured/organized work",
-    }
-    reasons = ", ".join(category_names[c] for c in top2)
-    confidence = assess_confidence(riasec_scores)
+RIASEC_CATEGORY_DESCRIPTIONS = {
+    "R": "hands-on, practical work",
+    "I": "analytical, research-driven thinking",
+    "A": "creative, original expression",
+    "S": "people-focused, helping work",
+    "E": "leadership and business-driven work",
+    "C": "structured, organized work",
+}
 
-    report = f"Hi {name},\n\n"
-    report += "Based on your answers, here are directions that seem to genuinely fit how you think and work:\n\n"
-    for f in fields:
-        report += f"  • {f}\n"
-    report += f"\nWhy: your answers show a strong lean toward {reasons}.\n"
+BIG_FIVE_TRAIT_DESCRIPTIONS = {
+    "Openness": {
+        "high": "curious and drawn to new ideas and possibilities",
+        "low": "prefers familiar, proven approaches over experimenting",
+    },
+    "Conscientiousness": {
+        "high": "organized, dependable, and detail-oriented",
+        "low": "flexible and spontaneous, sometimes at the cost of structure",
+    },
+    "Extraversion": {
+        "high": "energized by people and social settings",
+        "low": "prefers quieter, more independent settings",
+    },
+    "Agreeableness": {
+        "high": "empathetic and cooperative with others",
+        "low": "direct, and comfortable with disagreement",
+    },
+    "EmotionalStability": {
+        "high": "generally calm and steady under pressure",
+        "low": "feels stress more intensely than most, especially under pressure",
+    },
+}
+
+
+def generate_personality_overview(riasec_scores: Dict[str, int], big_five_scores: Dict[str, float]) -> str:
+    """
+    Produces a short, honest description of the student's interest and
+    personality profile — WITHOUT naming any specific field or career.
+    This is intentional: Stage 1 describes the person, not the destination.
+    """
+    top2 = top_riasec_categories(riasec_scores, 2)
+    riasec_phrase = " and ".join(RIASEC_CATEGORY_DESCRIPTIONS[c] for c in top2)
+
+    notable_traits = []
+    for trait, score in big_five_scores.items():
+        if score >= 4.0:
+            notable_traits.append(BIG_FIVE_TRAIT_DESCRIPTIONS[trait]["high"])
+        elif score <= 2.0:
+            notable_traits.append(BIG_FIVE_TRAIT_DESCRIPTIONS[trait]["low"])
+
+    overview = f"Your answers show a strong lean toward {riasec_phrase}. "
+
+    if notable_traits:
+        if len(notable_traits) == 1:
+            overview += f"You also come across as someone who is {notable_traits[0]}."
+        else:
+            overview += "You also come across as someone who is " + ", ".join(notable_traits[:-1]) + f", and {notable_traits[-1]}."
+    else:
+        overview += "Your personality traits came out fairly balanced overall, without any single trait standing out strongly."
+
+    return overview
+
+
+def generate_student_report(name: str, riasec_scores: Dict[str, int], big_five_scores: Dict[str, float], confidence: Dict) -> str:
+    overview = generate_personality_overview(riasec_scores, big_five_scores)
+
+    report = f"Hi {name},\n\n{overview}\n"
     if confidence["note"]:
         report += f"\n{confidence['note']}\n"
-    report += "\nThis isn't a final decision — it's a starting point for your counselling session."
+    report += (
+        "\nThis is a description of how you think and work — not a final decision. "
+        "Use Stage 2 to explore specific fields within the domain(s) suggested for you."
+    )
     return report
 
 
@@ -823,8 +877,10 @@ def run_discovery_assessment(student: StudentResponse) -> Dict:
     flags = detect_contradictions(riasec_scores, big_five_scores, student.skills_ratings)
     fields = suggest_fields(riasec_scores)
     flags += check_subject_alignment(fields, student.academic_ratings)
+    confidence = assess_confidence(riasec_scores)
+    personality_overview = generate_personality_overview(riasec_scores, big_five_scores)
 
-    student_report = generate_student_report(student.student_name, fields, riasec_scores)
+    student_report = generate_student_report(student.student_name, riasec_scores, big_five_scores, confidence)
     counsellor_report = generate_counsellor_report(student, riasec_scores, big_five_scores, flags, fields)
 
     return {
@@ -833,7 +889,8 @@ def run_discovery_assessment(student: StudentResponse) -> Dict:
         "contradiction_flags": [f.__dict__ for f in flags],
         "suggested_fields": fields,
         "valid_response": True,
-        "confidence": assess_confidence(riasec_scores),
+        "confidence": confidence,
+        "personality_overview": personality_overview,
         "student_report": student_report,
         "counsellor_report": counsellor_report,
     }
