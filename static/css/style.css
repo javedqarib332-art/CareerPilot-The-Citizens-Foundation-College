@@ -427,6 +427,49 @@ h1 em {
 }
 .resume-banner p { margin: 0 0 14px; font-size: 14px; color: var(--navy); font-weight: 500; }
 
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px 26px;
+  box-shadow: var(--shadow-md);
+}
+
+.verify-notice {
+  background: #FBF7EE;
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  padding: 18px 20px;
+  font-size: 13.5px;
+  color: var(--navy);
+  box-shadow: var(--shadow-sm);
+  line-height: 1.5;
+}
+
+.bar-row { margin-bottom: 14px; }
+.bar-row:last-child { margin-bottom: 0; }
+.bar-row .bar-label {
+  display: flex; justify-content: space-between; font-size: 13px;
+  color: var(--navy); font-weight: 600; margin-bottom: 6px;
+}
+.bar-row .bar-label span:last-child { color: var(--grey); font-weight: 500; }
+.bar-track { height: 8px; background: var(--cream); border-radius: 4px; overflow: hidden; }
+.bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold-soft), var(--gold)); border-radius: 4px; }
+.bar-fill.navy-fill { background: linear-gradient(90deg, var(--navy-deep), var(--navy)); }
+
+.domain-pill {
+  background: var(--cream);
+  border: 1px solid var(--gold);
+  border-left: 4px solid var(--gold);
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-family: 'Lora', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  box-shadow: var(--shadow-sm);
+}
+
 @media (max-width: 600px) {
   .site-header { padding: 14px 18px; gap: 8px; }
   .site-header .wordmark { font-size: 13.5px; }
