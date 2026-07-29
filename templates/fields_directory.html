@@ -149,6 +149,20 @@
       applyFilters();
     });
   });
+
+  // Pre-select a category if linked with ?category=... (e.g. from Stage 1 results)
+  const params = new URLSearchParams(window.location.search);
+  const preselected = params.get("category");
+  if (preselected) {
+    const matchingTab = Array.from(tabs).find(t => t.dataset.category === preselected);
+    if (matchingTab) {
+      tabs.forEach(t => t.classList.remove("active"));
+      matchingTab.classList.add("active");
+      activeCategory = preselected;
+      applyFilters();
+      matchingTab.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    }
+  }
 </script>
 </body>
 </html>
