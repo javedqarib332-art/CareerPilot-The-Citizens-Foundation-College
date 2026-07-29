@@ -140,10 +140,29 @@
   <!-- SCREEN: Report -->
   <section id="screen-report" class="screen">
     <div class="eyebrow">Your Results</div>
-    <h1 id="report-name">Directions worth exploring</h1>
+    <h1 id="report-name">About How You Think and Work</h1>
+    <p class="lede" id="personality-overview-text"></p>
+
     <div id="radar-container" style="margin-bottom: 24px;"></div>
-    <div class="fields-grid" id="fields-grid"></div>
+
+    <div class="card" id="bigfive-card" style="margin-bottom: 20px;">
+      <h3 style="font-family:'Lora',serif; font-size:15px; color:var(--navy); margin:0 0 14px; padding-bottom:10px; border-bottom:1px solid var(--border);">Personality Snapshot (Big Five)</h3>
+      <div id="bigfive-bars"></div>
+    </div>
+
+    <div class="card" id="domain-card" style="margin-bottom: 20px;">
+      <h3 style="font-family:'Lora',serif; font-size:15px; color:var(--navy); margin:0 0 14px; padding-bottom:10px; border-bottom:1px solid var(--border);">Domains Worth Exploring</h3>
+      <div class="fields-grid" id="domain-grid"></div>
+    </div>
+
     <p class="lede" id="report-reason"></p>
+
+    <div class="verify-notice" id="stage2-pointer" style="margin-bottom:20px;">
+      Want details on specific fields within these domains — universities, admission requirements, career scope? Use <strong>Stage 2</strong> to explore.
+      <br><br>
+      <a href="/fields" id="explore-stage2-link" class="btn-primary" style="display:inline-block; text-decoration:none; padding:10px 22px; font-size:13px;">Explore Stage 2 &rarr;</a>
+    </div>
+
     <p class="disclaimer">This isn't a final decision — it's a starting point for your counselling session. A TCF counsellor will go through this with you.</p>
     <button class="btn-secondary" id="btn-download-pdf">Download PDF</button>
   </section>
