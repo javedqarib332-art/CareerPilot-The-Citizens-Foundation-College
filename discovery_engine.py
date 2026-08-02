@@ -545,6 +545,64 @@ MEDICAL_TRACK_SUBSPLIT = {
 }
 
 
+# ---------------------------------------------------------------------------
+# TCF's OFFICIAL RIASEC → Discipline Mapping
+# Source: TCF "Tertiary Assessment Process" (7th Nov 2025), Slide 22 —
+# "Personality Assessment (SPI) – RIASEC". This is TCF's own scholarship
+# assessment framework, not an external/invented model — CareerPilot's
+# domain suggestions are aligned to it directly.
+# ---------------------------------------------------------------------------
+
+TCF_DISCIPLINE_GROUPS = [
+    "Engineering",
+    "Computer Studies",
+    "Health Sciences",
+    "Management Sciences",
+    "Natural Sciences",
+    "Social Sciences & Arts",
+    "Agricultural Sciences",
+]
+
+# Ordered by TCF's own best-fit priority per RIASEC letter (slide 22 table)
+TCF_RIASEC_TO_DISCIPLINES = {
+    "R": ["Engineering", "Computer Studies", "Natural Sciences", "Agricultural Sciences"],
+    "I": ["Health Sciences", "Natural Sciences", "Engineering", "Computer Studies"],
+    "A": ["Social Sciences & Arts", "Computer Studies"],
+    "S": ["Health Sciences", "Social Sciences & Arts", "Management Sciences"],
+    "E": ["Management Sciences", "Social Sciences & Arts", "Computer Studies"],
+    "C": ["Management Sciences", "Computer Studies", "Natural Sciences", "Social Sciences & Arts"],
+}
+
+
+def suggest_tcf_domains(riasec_scores: Dict[str, int], max_domains: int = 3) -> List[str]:
+    """
+    Suggests discipline domains using TCF's own official RIASEC-to-discipline
+    table, rather than an independently invented category system. Domains
+    that appear in BOTH of the student's top-2 RIASEC categories are ranked
+    first (strongest fit), followed by domains appearing in only one.
+    """
+    top2 = top_riasec_categories(riasec_scores, 2)
+    if len(top2) < 2:
+        return TCF_RIASEC_TO_DISCIPLINES.get(top2[0], [])[:max_domains] if top2 else []
+
+    cat1, cat2 = top2[0], top2[1]
+    list1 = TCF_RIASEC_TO_DISCIPLINES.get(cat1, [])
+    list2 = TCF_RIASEC_TO_DISCIPLINES.get(cat2, [])
+
+    common = [d for d in list1 if d in list2]
+    only1 = [d for d in list1 if d not in common]
+    only2 = [d for d in list2 if d not in common]
+
+    ordered = common + only1 + only2
+    seen = set()
+    deduped = []
+    for d in ordered:
+        if d not in seen:
+            seen.add(d)
+            deduped.append(d)
+    return deduped[:max_domains]
+
+
 def assess_confidence(riasec_scores: Dict[str, int]) -> Dict:
     """
     Determines how clearly differentiated the top RIASEC categories are.
@@ -577,6 +635,23 @@ def assess_confidence(riasec_scores: Dict[str, int]) -> Dict:
         }
 
 
+# TCF's own subject-score thresholds, validated against 600 real 2025-26
+# admissions (Tertiary Assessment Process, 7th Nov 2025, Slide 19 & 27).
+# Used to cite real, TCF-verified numbers in contradiction follow-ups
+# instead of a generic "you rated yourself weak" statement.
+TCF_VALIDATED_THRESHOLDS = {
+    "Engineering": "TCF's own admissions data shows students placed in top-tier Engineering programs typically have Mathematics and Physics scores of 55-60% or higher.",
+    "Mechanical/Electrical Engineering": "TCF's own admissions data shows students placed in top-tier Engineering programs typically have Mathematics and Physics scores of 55-60% or higher.",
+    "Chemical Engineering": "TCF's own admissions data shows students placed in top-tier Engineering programs typically have Mathematics and Physics scores of 55-60% or higher.",
+    "Computer Science": "TCF's own admissions data shows students placed in top-tier Computer Science programs typically have Mathematics and Physics scores of 55-60% or higher.",
+    "Data Science": "TCF's own admissions data shows students placed in top-tier Computer Science programs typically have Mathematics and Physics scores of 55-60% or higher.",
+    "Medicine (MBBS)": "TCF's minimum threshold for MBBS/BDS is 80% overall intermediate marks, with Biology and Chemistry each at 60% or higher.",
+    "Dentistry": "TCF's minimum threshold for MBBS/BDS is 80% overall intermediate marks, with Biology and Chemistry each at 60% or higher.",
+    "Pharmacy": "TCF's data shows Health Sciences students placed in top-tier programs typically have Biology and Chemistry at 55% or higher.",
+    "Medical Laboratory Sciences": "TCF's data shows Health Sciences students placed in top-tier programs typically have Biology and Chemistry at 55% or higher.",
+}
+
+
 def check_subject_alignment(
     suggested_fields: List[str], academic_ratings: Dict[str, int]
 ) -> List["ContradictionFlag"]:
@@ -603,15 +678,19 @@ def check_subject_alignment(
         ]
         if weak_subjects:
             subject_names = ", ".join(ACADEMIC_SUBJECTS_LABELS.get(s, s) for s in weak_subjects)
+            tcf_note = TCF_VALIDATED_THRESHOLDS.get(field, "")
+            follow_up = (
+                f"Your interests point toward {field}, which usually depends heavily on "
+                f"{subject_names}. You rated yourself as weak there — is that about how it's "
+                f"taught, or a genuine difficulty with the subject? This is worth discussing "
+                f"honestly before committing to this direction."
+            )
+            if tcf_note:
+                follow_up += f" {tcf_note}"
             flags.append(ContradictionFlag(
                 rule_id=rule_id,
                 description=f"Suggested field '{field}' depends on {subject_names}, which the student rated as weak.",
-                follow_up_question=(
-                    f"Your interests point toward {field}, which usually depends heavily on "
-                    f"{subject_names}. You rated yourself as weak there — is that about how it's "
-                    f"taught, or a genuine difficulty with the subject? This is worth discussing "
-                    f"honestly before committing to this direction."
-                ),
+                follow_up_question=follow_up,
             ))
             already_flagged_fields.add(field)
             rule_id += 1
@@ -879,6 +958,7 @@ def run_discovery_assessment(student: StudentResponse) -> Dict:
     flags += check_subject_alignment(fields, student.academic_ratings)
     confidence = assess_confidence(riasec_scores)
     personality_overview = generate_personality_overview(riasec_scores, big_five_scores)
+    tcf_domains = suggest_tcf_domains(riasec_scores)
 
     student_report = generate_student_report(student.student_name, riasec_scores, big_five_scores, confidence)
     counsellor_report = generate_counsellor_report(student, riasec_scores, big_five_scores, flags, fields)
@@ -888,6 +968,7 @@ def run_discovery_assessment(student: StudentResponse) -> Dict:
         "big_five_scores": big_five_scores,
         "contradiction_flags": [f.__dict__ for f in flags],
         "suggested_fields": fields,
+        "suggested_domains": tcf_domains,
         "valid_response": True,
         "confidence": confidence,
         "personality_overview": personality_overview,
