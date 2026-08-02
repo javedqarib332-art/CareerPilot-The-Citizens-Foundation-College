@@ -97,6 +97,12 @@
     <strong>Before you decide:</strong> merit formulas, fees, and entry test details change every year. Always confirm the current numbers directly on each university's official admission page before making a final decision.
   </div>
 
+  {% if f.content_note %}
+  <div class="verify-notice" style="border-color:#B8860B; background:#FDF6E3;">
+    <strong>About this page's content:</strong> {{ f.content_note }}
+  </div>
+  {% endif %}
+
   <div class="card">
     <h3>Required Skills</h3>
     {% for skill in f.required_skills %}<span class="skill-tag">{{ skill }}</span>{% endfor %}
