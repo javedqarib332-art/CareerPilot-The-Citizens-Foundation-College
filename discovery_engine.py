@@ -201,57 +201,56 @@ ACADEMIC_SUBJECTS_LABELS = {
 # a clear, well-known subject dependency are listed — no entry means no
 # subject-based check is applied for that field.
 FIELD_SUBJECT_REQUIREMENTS = {
-    "Medicine (MBBS)": ["Biology", "Chemistry"],
-    "Dentistry": ["Biology", "Chemistry"],
-    "Pharmacy": ["Biology", "Chemistry"],
-    "Veterinary Sciences": ["Biology", "Chemistry"],
-    "Medical Laboratory Sciences": ["Biology", "Chemistry"],
-    "Public Health": ["Biology"],
-    "Engineering": ["Physics", "Mathematics"],
-    "Mechanical/Electrical Engineering": ["Physics", "Mathematics"],
-    "Chemical Engineering": ["Chemistry", "Mathematics"],
-    "Textile Engineering": ["Chemistry", "Mathematics"],
-    "Applied Physics": ["Physics", "Mathematics"],
-    "Environmental Science": ["Biology", "Chemistry"],
+    "Bachelor of Medicine, Bachelor of Surgery (MBBS)": ["Biology", "Chemistry"],
+    "Bachelor of Dental Surgery (BDS)": ["Biology", "Chemistry"],
+    "Pharmaceutical & Nutritional Sciences": ["Biology", "Chemistry"],
+    "Clinical & Medical": ["Biology", "Chemistry"],
+    "Vision Care, Diagnostic & Technical": ["Biology", "Chemistry"],
+    "Political & Social Sciences": ["Biology"],
+    "Aerospace & Aeronautical Engineering": ["Physics", "Mathematics"],
+    "Chemical & Petrochemical Engineering": ["Chemistry", "Mathematics"],
+    "Civil & Environmental Engineering": ["Physics", "Mathematics"],
+    "Electrical & Electronics Engineering": ["Physics", "Mathematics"],
+    "Mechanical Engineering": ["Physics", "Mathematics"],
+    "Materials, Mining & Textile Engineering": ["Chemistry", "Mathematics"],
+    "Chemistry, Physics & Marine Science": ["Physics", "Mathematics"],
     "Computer Science": ["Mathematics", "ComputerScience"],
-    "Data Science": ["Mathematics", "ComputerScience"],
-    "Actuarial Science": ["Mathematics"],
-    "Statistics": ["Mathematics"],
-    "Economics": ["Mathematics"],
-    "Accounting/Finance": ["Mathematics"],
-    "Chartered Accountancy (CA/ACCA)": ["Mathematics"],
-    "Finance": ["Mathematics"],
-    "Law": ["EnglishLanguage"],
+    "Computer Engineering": ["Mathematics", "Physics"],
+    "Software Engineering": ["Mathematics", "ComputerScience"],
+    "Statistics & Mathematics": ["Mathematics"],
+    "Finance & Economics": ["Mathematics"],
+    "Chartered Accountancy (CA)": ["Mathematics"],
+    "Law & Criminal Studies": ["EnglishLanguage"],
 }
 
 # Comprehensive mapping — all 15 possible RIASEC top-2 combinations (6 choose 2).
-# Based on standard Holland Code career-cluster associations.
+# Field names below are TCF's own official TSP Grid subgroup names.
 FIELD_MAPPING_BY_PAIR = {
-    frozenset(("R", "I")): ["Engineering", "Computer Science", "Chemical Engineering", "Textile Engineering", "Environmental Science", "Applied Physics"],
-    frozenset(("R", "A")): ["Architecture", "Industrial/Product Design"],
-    frozenset(("R", "S")): ["Sports Science/Coaching", "Paramedic/Emergency Services", "Veterinary Sciences"],
-    frozenset(("R", "E")): ["Construction Management", "Technical Entrepreneurship", "Aviation"],
-    frozenset(("R", "C")): ["Mechanical/Electrical Engineering", "Technical & Trades fields", "Quality Control", "Agriculture Sciences"],
-    frozenset(("I", "A")): ["Architecture", "Research Science", "UX/Design Research"],
-    frozenset(("I", "S")): ["Medicine (MBBS)", "Dentistry", "Pharmacy", "Psychology", "Public Health", "Veterinary Sciences"],
-    frozenset(("I", "E")): ["Data Science", "Economics", "Actuarial Science", "Biotech/Health-tech Entrepreneurship"],
-    frozenset(("I", "C")): ["Computer Science", "Data Science", "Accounting/Finance", "Chartered Accountancy (CA/ACCA)", "Actuarial Science", "Statistics"],
-    frozenset(("A", "S")): ["Psychology", "Teaching", "Mass Communication/Journalism", "Media/Communications", "Counseling"],
-    frozenset(("A", "E")): ["Marketing", "Advertising", "Mass Communication/Journalism", "Media Production"],
-    frozenset(("A", "C")): ["Graphic/Structured Design", "Publishing & Editing", "Fashion Merchandising"],
-    frozenset(("S", "E")): ["Business/Management", "Marketing", "Human Resources", "Education", "Hotel Management", "Law"],
-    frozenset(("S", "C")): ["Human Resources", "Nursing/Healthcare Administration", "Social Work Administration"],
-    frozenset(("E", "C")): ["Business Administration", "Law", "Finance", "Accounting", "Chartered Accountancy (CA/ACCA)"],
+    frozenset(("R", "I")): ["Civil & Environmental Engineering", "Computer Science", "Chemical & Petrochemical Engineering", "Materials, Mining & Textile Engineering", "Chemistry, Physics & Marine Science"],
+    frozenset(("R", "A")): ["Architecture", "Art & Design"],
+    frozenset(("R", "S")): ["Health & Physical Education", "Allied Health", "Clinical & Medical"],
+    frozenset(("R", "E")): ["Tourism & Hospitality", "Aerospace & Aeronautical Engineering", "Industrial and Manufacturing Engineering"],
+    frozenset(("R", "C")): ["Mechanical Engineering", "Electrical & Electronics Engineering", "Materials, Mining & Textile Engineering", "Agricultural Sciences"],
+    frozenset(("I", "A")): ["Architecture", "Biological Sciences", "Art & Design"],
+    frozenset(("I", "S")): ["Bachelor of Medicine, Bachelor of Surgery (MBBS)", "Bachelor of Dental Surgery (BDS)", "Pharmaceutical & Nutritional Sciences", "Political & Social Sciences", "Clinical & Medical"],
+    frozenset(("I", "E")): ["Finance & Economics", "Biotechnology & Biomedical Engineering"],
+    frozenset(("I", "C")): ["Computer Science", "Computer Engineering", "Software Engineering", "Statistics & Mathematics", "Chartered Accountancy (CA)", "Chemistry, Physics & Marine Science"],
+    frozenset(("A", "S")): ["Political & Social Sciences", "Education", "Media Sciences & Communication", "Language & Literature"],
+    frozenset(("A", "E")): ["Fashion & Textile", "Media Sciences & Communication"],
+    frozenset(("A", "C")): ["Art & Design", "Language & Literature"],
+    frozenset(("S", "E")): ["Business Administration & Management", "Tourism & Hospitality", "Education", "Law & Criminal Studies"],
+    frozenset(("S", "C")): ["Allied Health", "Bachelor of Science in Nursing (BSN)", "Education"],
+    frozenset(("E", "C")): ["Business Administration & Management", "Finance & Economics", "Chartered Accountancy (CA)", "Law & Criminal Studies", "Information Technology"],
 }
 
 # Single-category fallback (used only if a clean top-2 pair isn't found)
 FIELD_MAPPING_SINGLE = {
-    "R": ["Engineering", "Technical & Trades fields", "Agriculture Sciences"],
-    "I": ["Computer Science", "Research Science", "Data Science", "Economics"],
-    "A": ["Design", "Media/Communications", "Architecture"],
-    "S": ["Psychology", "Teaching", "Human Resources"],
-    "E": ["Business Administration", "Marketing", "Entrepreneurship"],
-    "C": ["Accounting/Finance", "Business Administration", "Chartered Accountancy (CA/ACCA)"],
+    "R": ["Mechanical Engineering", "Industrial and Manufacturing Engineering", "Agricultural Sciences"],
+    "I": ["Computer Science", "Biological Sciences", "Chemistry, Physics & Marine Science"],
+    "A": ["Art & Design", "Media Sciences & Communication", "Architecture"],
+    "S": ["Political & Social Sciences", "Education", "Allied Health"],
+    "E": ["Business Administration & Management", "Tourism & Hospitality"],
+    "C": ["Finance & Economics", "Chartered Accountancy (CA)"],
 }
 
 
@@ -538,10 +537,10 @@ def detect_contradictions(
 # surgery to public health to psychology, which have very different day-to-day
 # realities. We use the THIRD-highest RIASEC category to narrow this down.
 MEDICAL_TRACK_SUBSPLIT = {
-    "R": ["Medicine (MBBS)", "Dentistry", "Veterinary Sciences"],           # hands-on, clinical
-    "C": ["Pharmacy", "Public Health", "Medical Laboratory Sciences"],       # structured, precision, lab-based
-    "A": ["Psychology", "Counseling", "Medical Humanities"],                 # expressive, human-focused
-    "E": ["Healthcare Management", "Public Health Administration", "Medicine (MBBS)"],  # leadership-facing
+    "R": ["Bachelor of Medicine, Bachelor of Surgery (MBBS)", "Bachelor of Dental Surgery (BDS)", "Clinical & Medical"],           # hands-on, clinical
+    "C": ["Pharmaceutical & Nutritional Sciences", "Vision Care, Diagnostic & Technical"],       # structured, precision, lab-based
+    "A": ["Political & Social Sciences", "Media Sciences & Communication"],                 # expressive, human-focused
+    "E": ["Business Administration & Management", "Bachelor of Medicine, Bachelor of Surgery (MBBS)"],  # leadership-facing
 }
 
 
@@ -640,15 +639,16 @@ def assess_confidence(riasec_scores: Dict[str, int]) -> Dict:
 # Used to cite real, TCF-verified numbers in contradiction follow-ups
 # instead of a generic "you rated yourself weak" statement.
 TCF_VALIDATED_THRESHOLDS = {
-    "Engineering": "TCF's own admissions data shows students placed in top-tier Engineering programs typically have Mathematics and Physics scores of 55-60% or higher.",
-    "Mechanical/Electrical Engineering": "TCF's own admissions data shows students placed in top-tier Engineering programs typically have Mathematics and Physics scores of 55-60% or higher.",
-    "Chemical Engineering": "TCF's own admissions data shows students placed in top-tier Engineering programs typically have Mathematics and Physics scores of 55-60% or higher.",
+    "Civil & Environmental Engineering": "TCF's own admissions data shows students placed in top-tier Engineering programs typically have Mathematics and Physics scores of 55-60% or higher.",
+    "Mechanical Engineering": "TCF's own admissions data shows students placed in top-tier Engineering programs typically have Mathematics and Physics scores of 55-60% or higher.",
+    "Electrical & Electronics Engineering": "TCF's own admissions data shows students placed in top-tier Engineering programs typically have Mathematics and Physics scores of 55-60% or higher.",
+    "Chemical & Petrochemical Engineering": "TCF's own admissions data shows students placed in top-tier Engineering programs typically have Mathematics and Physics scores of 55-60% or higher.",
     "Computer Science": "TCF's own admissions data shows students placed in top-tier Computer Science programs typically have Mathematics and Physics scores of 55-60% or higher.",
-    "Data Science": "TCF's own admissions data shows students placed in top-tier Computer Science programs typically have Mathematics and Physics scores of 55-60% or higher.",
-    "Medicine (MBBS)": "TCF's minimum threshold for MBBS/BDS is 80% overall intermediate marks, with Biology and Chemistry each at 60% or higher.",
-    "Dentistry": "TCF's minimum threshold for MBBS/BDS is 80% overall intermediate marks, with Biology and Chemistry each at 60% or higher.",
-    "Pharmacy": "TCF's data shows Health Sciences students placed in top-tier programs typically have Biology and Chemistry at 55% or higher.",
-    "Medical Laboratory Sciences": "TCF's data shows Health Sciences students placed in top-tier programs typically have Biology and Chemistry at 55% or higher.",
+    "Software Engineering": "TCF's own admissions data shows students placed in top-tier Computer Science programs typically have Mathematics and Physics scores of 55-60% or higher.",
+    "Bachelor of Medicine, Bachelor of Surgery (MBBS)": "TCF's minimum threshold for MBBS/BDS is 80% overall intermediate marks, with Biology and Chemistry each at 60% or higher.",
+    "Bachelor of Dental Surgery (BDS)": "TCF's minimum threshold for MBBS/BDS is 80% overall intermediate marks, with Biology and Chemistry each at 60% or higher.",
+    "Pharmaceutical & Nutritional Sciences": "TCF's data shows Health Sciences students placed in top-tier programs typically have Biology and Chemistry at 55% or higher.",
+    "Vision Care, Diagnostic & Technical": "TCF's data shows Health Sciences students placed in top-tier programs typically have Biology and Chemistry at 55% or higher.",
 }
 
 
