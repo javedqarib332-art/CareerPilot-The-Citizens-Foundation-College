@@ -114,14 +114,19 @@
 
   <div class="card">
     <h3>Universities Offering This Field</h3>
+    {% if f.universities_source and 'TCF Verified' in f.universities_source %}
+    <p style="font-size:12px; color:#4A7A5E; font-weight:600; margin:-8px 0 14px;">&#10003; TCF Verified — sourced directly from TCF's Tertiary Support Program University Guidance Framework 2025</p>
+    {% elif f.universities_source %}
+    <p style="font-size:12px; color:var(--grey); font-style:italic; margin:-8px 0 14px;">AI-researched — not yet verified against TCF's official framework. Please confirm with your counsellor before relying on this list.</p>
+    {% endif %}
     <table class="uni-table">
-      <thead><tr><th>University</th><th>City</th><th>Program</th><th>Sector</th></tr></thead>
+      <thead><tr><th>University</th><th>City</th>{% if f.universities and f.universities[0].tier %}<th>Tier</th>{% endif %}<th>Sector</th></tr></thead>
       <tbody>
         {% for u in f.universities %}
         <tr>
           <td>{{ u.name }}</td>
           <td>{{ u.city }}</td>
-          <td>{{ u.program }}</td>
+          {% if u.tier %}<td>{{ u.tier }}</td>{% endif %}
           <td><span class="sector-tag {{ 'sector-public' if u.sector == 'Public' else 'sector-private' }}">{{ u.sector }}</span></td>
         </tr>
         {% endfor %}
