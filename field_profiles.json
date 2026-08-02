@@ -505,16 +505,16 @@
   },
   {
     "field_name": "Electrical & Electronics Engineering",
-    "overview": "Mechanical/Electrical Engineering covers the design, stress dynamics, and electronic control architectures of thermal systems, power generation grids, and automated machinery. Mechanical focuses on kinetic energy and manufacturing components, while Electrical balances power infrastructure, electronics design, and signal processing loops. In Pakistan, these core fields keep large-scale grids, manufacturing plants, and processing systems running safely.",
+    "overview": "Electrical & Electronics Engineering covers the design and analysis of electrical power systems, electronic circuits, and telecommunication systems. Students study circuit theory, power systems, signal processing, and control systems. Graduates keep Pakistan's power grids, telecom networks, and electronic devices running.",
     "required_skills": [
-      "Advanced Calculus and Physics Modeling",
-      "Circuit Analysis and Troubleshooting",
-      "Power Distribution and Transformer Design",
-      "CAD/CAM Mechanical Design (SolidWorks)",
-      "Thermodynamics and Fluid Systems Analysis",
-      "PLC Automation and SCADA Integration"
+      "Circuit analysis and design",
+      "Power systems and transformer design",
+      "Signal processing",
+      "PLC automation and control systems",
+      "Mathematics and Physics",
+      "Problem-solving"
     ],
-    "personality_fit": "Suited for highly analytical, disciplined, and logical problem solvers who enjoy manual technical diagnostics, geometric tracking, and resolving complex hardware failures under strict safety parameters. It requires deep mathematical stamina.",
+    "personality_fit": "Suited to students who enjoy working with electrical circuits, power systems, and electronics — comfortable with abstract signal/circuit theory as well as hands-on lab and testing work.",
     "academic_stream": "FSc Pre-Engineering or matching DAE (Civil/Mechanical/Electrical fields). Absolute mastery over high school physics equations, integration calculus, and vectors is a core prerequisite.",
     "universities": [
       {
@@ -844,30 +844,26 @@
     "entry_tests": "ECAT (Punjab), NUST-NET, GIKI Entrance Exam, or NED Entry Test.",
     "merit_criteria": "UET Lahore / Punjab ECAT aggregate uses a strict statutory breakdown: 50% on FSc Pre-Engineering marks, 33% on the ECAT exam score, and 17% on Matriculation records. Admission seats are highly competitive.",
     "career_scope": [
-      "Power Plant Operations Engineer",
-      "Electrical Grid Maintenance Specialist",
-      "Mechanical Product Design Engineer",
-      "Automation and Robotics Engineer",
-      "HVAC Systems Project Lead",
-      "Industrial Maintenance Manager"
+      "Power Systems Engineer",
+      "Electrical Design Engineer",
+      "Telecommunications Engineer",
+      "Control Systems/Automation Engineer",
+      "Electronics Design Engineer",
+      "Grid/Utility Engineer"
     ],
     "salary_expectations": "Entry-level: PKR 45,000 to PKR 95,000 per month (multinational automotive and heavy energy sectors provide premium entry limits). Mid-level: PKR 140,000 to PKR 290,000 per month.",
     "faqs": [
       {
-        "question": "Can I specialize in Mechatronics if I study Mechanical or Electrical engineering?",
-        "answer": "Yes. Mechanical and Electrical degrees provide wide parent foundations. You can choose electives or pursue post-graduate studies in Mechatronics, robotics, and automation."
-      },
-      {
         "question": "Is PEC registration required to practice?",
-        "answer": "Yes. Registration with the Pakistan Engineering Council (PEC) as a Registered Engineer is a legal mandate to sign off on engineering designs or apply for public sector BPS-17 engineer postings."
+        "answer": "Yes. Registration with the Pakistan Engineering Council (PEC) as a Registered Engineer is required to formally sign off on engineering designs or apply for public sector BPS-17 engineer postings."
       },
       {
-        "question": "What software platforms should a mechanical engineering student master?",
-        "answer": "Students primarily master SolidWorks or AutoCAD for geometric 3D drafting, ANSYS for thermal stress tracking, and MATLAB for system simulations."
+        "question": "Are there green energy career paths in this field?",
+        "answer": "Yes — Pakistan's expanding solar energy infrastructure, wind power systems, and EV charging network development represent growing opportunities for electrical power specialists."
       },
       {
-        "question": "Are there green energy paths available for electrical engineers?",
-        "answer": "Yes. The expanding solar energy grid infrastructure, commercial wind systems tracking, and EV charging network setups in Pakistan represent massive new avenues for electrical power specialists."
+        "question": "What's the difference between this and Computer Engineering?",
+        "answer": "Electrical & Electronics Engineering focuses more on power systems, analog electronics, and telecommunications, while Computer Engineering leans more toward digital systems and the hardware/software boundary. There's overlap, but the emphasis differs."
       }
     ],
     "step_by_step_guidance": [
@@ -1143,16 +1139,16 @@
   },
   {
     "field_name": "Mechanical Engineering",
-    "overview": "Mechanical/Electrical Engineering covers the design, stress dynamics, and electronic control architectures of thermal systems, power generation grids, and automated machinery. Mechanical focuses on kinetic energy and manufacturing components, while Electrical balances power infrastructure, electronics design, and signal processing loops. In Pakistan, these core fields keep large-scale grids, manufacturing plants, and processing systems running safely.",
+    "overview": "Mechanical Engineering covers the design, analysis, and manufacturing of physical/mechanical systems — machines, engines, HVAC systems, and mechanical components. Students study thermodynamics, fluid mechanics, mechanical design, and manufacturing processes. This is one of the broadest and most flexible engineering disciplines, with graduates working across almost every industrial sector in Pakistan.",
     "required_skills": [
-      "Advanced Calculus and Physics Modeling",
-      "Circuit Analysis and Troubleshooting",
-      "Power Distribution and Transformer Design",
-      "CAD/CAM Mechanical Design (SolidWorks)",
-      "Thermodynamics and Fluid Systems Analysis",
-      "PLC Automation and SCADA Integration"
+      "Thermodynamics and fluid mechanics",
+      "CAD/CAM design (SolidWorks, AutoCAD)",
+      "Mechanical design and stress analysis",
+      "Manufacturing process knowledge",
+      "Mathematics and Physics",
+      "Problem-solving"
     ],
-    "personality_fit": "Suited for highly analytical, disciplined, and logical problem solvers who enjoy manual technical diagnostics, geometric tracking, and resolving complex hardware failures under strict safety parameters. It requires deep mathematical stamina.",
+    "personality_fit": "Suited to students who enjoy understanding how physical systems and machines work, like hands-on design and building, and are comfortable with both theoretical calculations and practical workshop/lab work.",
     "academic_stream": "FSc Pre-Engineering or matching DAE (Civil/Mechanical/Electrical fields). Absolute mastery over high school physics equations, integration calculus, and vectors is a core prerequisite.",
     "universities": [
       {
@@ -1377,30 +1373,26 @@
     "entry_tests": "ECAT (Punjab), NUST-NET, GIKI Entrance Exam, or NED Entry Test.",
     "merit_criteria": "UET Lahore / Punjab ECAT aggregate uses a strict statutory breakdown: 50% on FSc Pre-Engineering marks, 33% on the ECAT exam score, and 17% on Matriculation records. Admission seats are highly competitive.",
     "career_scope": [
-      "Power Plant Operations Engineer",
-      "Electrical Grid Maintenance Specialist",
-      "Mechanical Product Design Engineer",
-      "Automation and Robotics Engineer",
-      "HVAC Systems Project Lead",
-      "Industrial Maintenance Manager"
+      "Mechanical Design Engineer",
+      "HVAC Systems Engineer",
+      "Manufacturing/Production Engineer",
+      "Automotive Engineer",
+      "Maintenance Engineer",
+      "Robotics and Automation Engineer"
     ],
     "salary_expectations": "Entry-level: PKR 45,000 to PKR 95,000 per month (multinational automotive and heavy energy sectors provide premium entry limits). Mid-level: PKR 140,000 to PKR 290,000 per month.",
     "faqs": [
       {
-        "question": "Can I specialize in Mechatronics if I study Mechanical or Electrical engineering?",
-        "answer": "Yes. Mechanical and Electrical degrees provide wide parent foundations. You can choose electives or pursue post-graduate studies in Mechatronics, robotics, and automation."
-      },
-      {
         "question": "Is PEC registration required to practice?",
-        "answer": "Yes. Registration with the Pakistan Engineering Council (PEC) as a Registered Engineer is a legal mandate to sign off on engineering designs or apply for public sector BPS-17 engineer postings."
+        "answer": "Yes. Registration with the Pakistan Engineering Council (PEC) as a Registered Engineer is required to formally sign off on engineering designs or apply for public sector BPS-17 engineer postings."
       },
       {
-        "question": "What software platforms should a mechanical engineering student master?",
-        "answer": "Students primarily master SolidWorks or AutoCAD for geometric 3D drafting, ANSYS for thermal stress tracking, and MATLAB for system simulations."
+        "question": "What software should a Mechanical Engineering student master?",
+        "answer": "SolidWorks or AutoCAD for 3D design and drafting, ANSYS for stress/thermal simulation, and MATLAB for system modeling are commonly used throughout the degree and in industry."
       },
       {
-        "question": "Are there green energy paths available for electrical engineers?",
-        "answer": "Yes. The expanding solar energy grid infrastructure, commercial wind systems tracking, and EV charging network setups in Pakistan represent massive new avenues for electrical power specialists."
+        "question": "Can I specialize further after a general Mechanical Engineering degree?",
+        "answer": "Yes — many students pursue further specialization in Mechatronics, robotics, automotive engineering, or HVAC design through electives or postgraduate study."
       }
     ],
     "step_by_step_guidance": [
@@ -1461,7 +1453,8 @@
       "Apply within standard engineering admission timelines.",
       "Consider international maritime academies as an additional option given the narrow domestic market."
     ],
-    "universities_source": "TCF Verified (limited)"
+    "universities_source": "TCF Verified (limited)",
+    "content_note": "This field's overview, skills, entry requirements, merit criteria, salary figures, and FAQs were written from general knowledge, not cross-checked against a live web search or an official current source. University names/tiers above ARE TCF-verified, but the rest of this page should be treated as a reasonable starting point, not a confirmed fact — please verify specifics with your counsellor or the university directly."
   },
   {
     "field_name": "Computer Science",
@@ -2343,7 +2336,8 @@
       "Apply to target universities within standard admission windows.",
       "Once admitted, engage early with hardware labs/projects since hands-on experience matters for internships."
     ],
-    "universities_source": "TCF Verified (Tertiary Support Program - University Guidance Framework 2025)"
+    "universities_source": "TCF Verified (Tertiary Support Program - University Guidance Framework 2025)",
+    "content_note": "This field's overview, skills, entry requirements, merit criteria, salary figures, and FAQs were written from general knowledge, not cross-checked against a live web search or an official current source. University names/tiers above ARE TCF-verified, but the rest of this page should be treated as a reasonable starting point, not a confirmed fact — please verify specifics with your counsellor or the university directly."
   },
   {
     "field_name": "Information Technology",
@@ -2773,7 +2767,8 @@
       "Apply within standard admission windows.",
       "Consider industry certifications (networking, cloud, security) alongside your degree to strengthen job prospects."
     ],
-    "universities_source": "TCF Verified (Tertiary Support Program - University Guidance Framework 2025)"
+    "universities_source": "TCF Verified (Tertiary Support Program - University Guidance Framework 2025)",
+    "content_note": "This field's overview, skills, entry requirements, merit criteria, salary figures, and FAQs were written from general knowledge, not cross-checked against a live web search or an official current source. University names/tiers above ARE TCF-verified, but the rest of this page should be treated as a reasonable starting point, not a confirmed fact — please verify specifics with your counsellor or the university directly."
   },
   {
     "field_name": "Software Engineering",
@@ -3028,7 +3023,8 @@
       "Apply to target universities within standard admission windows.",
       "Build a portfolio of small projects during your degree — this matters significantly for internships and job placement in this field."
     ],
-    "universities_source": "TCF Verified (Tertiary Support Program - University Guidance Framework 2025)"
+    "universities_source": "TCF Verified (Tertiary Support Program - University Guidance Framework 2025)",
+    "content_note": "This field's overview, skills, entry requirements, merit criteria, salary figures, and FAQs were written from general knowledge, not cross-checked against a live web search or an official current source. University names/tiers above ARE TCF-verified, but the rest of this page should be treated as a reasonable starting point, not a confirmed fact — please verify specifics with your counsellor or the university directly."
   },
   {
     "field_name": "Bachelor of Medicine, Bachelor of Surgery (MBBS)",
@@ -8369,14 +8365,12 @@
     "field_name": "Art & Design",
     "overview": "Design is a broad multidisciplinary field focused on creating functional, aesthetically pleasing products, systems, spaces, or visual materials that resolve practical user problems. Students explore color theory, human factors engineering, conceptual visualization, drafting, and digital prototype creation. In Pakistan, this field encompasses diverse applications including commercial brand development, product packaging, and corporate spatial design.",
     "required_skills": [
-      "Conceptual Visualization",
-      "Digital Illustration and Vector Tools",
-      "Spatial Layout and Form Design",
-      "Prototyping and Wireframing",
-      "Color Theory and Typography Application",
-      "Creative Critical Thinking",
-      "Digital Vector Design (Adobe Illustrator)",
-      "Image Manipulation and Compositing (Photoshop)"
+      "Conceptual visualization and sketching",
+      "Digital design tools (Adobe Illustrator, Photoshop)",
+      "Spatial layout and form design (for interior/product design)",
+      "Prototyping and wireframing",
+      "Color theory and typography",
+      "Creative critical thinking"
     ],
     "personality_fit": "Suited for highly creative, observant, and visually expressive individuals who enjoy reimagining products, sketching concepts, and working with diverse physical or digital mediums. It requires high constructive stamina and openness to peer feedback.",
     "academic_stream": "FA, Commerce (I.Com), ICS, or FSc (Pre-Medical/Pre-Engineering). Design schools accept students from all intermediate academic backgrounds, prioritizing artistic and spatial aptitude over specific high school course tracking.",
@@ -8688,14 +8682,12 @@
     "field_name": "Education",
     "overview": "Education studies the psychological, pedagogical, and administrative frameworks that shape teaching, curricular design, and institutional operations. Students explore human development, cognitive learning styles, instructional technologies, and organizational leadership. In Pakistan, this degree professionalizes the education sector, preparing graduates to lead instructional innovation, manage schools, and consult on national learning policies.",
     "required_skills": [
-      "Curriculum Development",
-      "Pedagogical Instruction",
-      "Educational Psychology Assessment",
-      "Instructional Design and EdTech",
-      "Classroom Management",
-      "Institutional Policy Analysis",
-      "Pedagogical Instruction Mastery",
-      "Lesson and Curriculum Design"
+      "Curriculum development",
+      "Classroom management",
+      "Communication and public speaking",
+      "Educational psychology",
+      "Instructional design (including EdTech)",
+      "Patience and adaptability"
     ],
     "personality_fit": "Perfect for empathetic, highly communicative, and patient individuals who are deeply invested in human development, public mentorship, and community structural improvement. It demands strong public presentation and high emotional patience.",
     "academic_stream": "FA, Commerce (I.Com), ICS, FSc Pre-Engineering, or FSc Pre-Medical. Universities accept all intermediate streams into general education bachelor tracks.",
@@ -9048,48 +9040,22 @@
     "entry_tests": "NTS-NAT, institutional aptitude screening tests, or open academic merit evaluation.",
     "merit_criteria": "Public institutions generally use a standard general formula: 50% basic intermediate academic aggregate, 10% matriculation evaluation, and 40% on the NTS-NAT or localized aptitude score.",
     "career_scope": [
+      "Subject Teacher",
       "Curriculum Specialist",
-      "School Principal / Academic Director",
-      "Educational Consultant",
+      "School Principal/Academic Director",
       "Instructional Designer",
-      "Education Policy Researcher (NGOs)",
-      "Corporate Corporate Trainer",
-      "Secondary School Teacher (SST)",
-      "Subject Matter Instructor"
+      "Education Policy Researcher (NGOs/Government)",
+      "Corporate Trainer"
     ],
     "salary_expectations": "Entry-level: PKR 25,000 to PKR 50,000 per month. Mid-level: PKR 75,000 to PKR 150,000 per month (higher scales correspond to premium international school systems or UN agency programs).",
     "faqs": [
       {
-        "question": "Is a BS in Education only meant for school classroom teachers?",
-        "answer": "No. While it qualifies you to teach, it is heavily designed to produce school administrative directors, educational technology specialists, curriculum planners, and policy consultants for NGOs."
+        "question": "Do I need a teaching license to work as a teacher in Pakistan?",
+        "answer": "Requirements vary by province and institution — some schools require B.Ed alongside your subject degree, while others accept the degree alone for private-sector teaching. Check specific school/board requirements."
       },
       {
-        "question": "What is the difference between a traditional B.Ed and a BS Education?",
-        "answer": "A 4-year BS Education is an extensive, academic degree taken directly after intermediate. A traditional B.Ed is historically a shorter professional certificate taken after a separate graduation track, though it is increasingly standardized under the 4-year umbrella."
-      },
-      {
-        "question": "Are there job opportunities in the non-profit (NGO) sector for this major?",
-        "answer": "Yes. Organizations like TCF, rural support networks, and international bodies like UNICEF frequently hire education majors to evaluate, monitor, and deploy primary learning initiatives across the country."
-      },
-      {
-        "question": "Can I work in instructional design without coding skills?",
-        "answer": "Yes. Digital instructional design focuses on the structuring of learning pathways, storyboard creation, and lesson architectures. Software deployment is handled by tech teams, though knowing basic LMS systems is helpful."
-      },
-      {
-        "question": "Is the old 1-year B.Ed certificate program still available for intermediate students?",
-        "answer": "No. Under modern Higher Education Commission (HEC) reforms, the historical 1-year B.Ed certificate directly after intermediate has been completely phased out. High school graduates must enroll in the comprehensive 4-year B.Ed (Hons) or BS Education degree program."
-      },
-      {
-        "question": "How do I secure a teaching job inside government public schools in Pakistan?",
-        "answer": "To secure public sector teaching posts (e.g., PST, EST, SST scales matching BPS-14 to BPS-17), you must complete your degree and clear competitive provincial testing frameworks administered via PPSC, FPSC, SPSC, or specified departmental tracking models."
-      },
-      {
-        "question": "Can I teach at a university level with a B.Ed (Hons) degree?",
-        "answer": "A B.Ed (Hons) qualifies you to teach in primary, middle, and secondary high schools. To teach as an Assistant Professor or Lecturer at an accredited university, HEC rules mandate completing an MS, M.Phil, or Ph.D. in your specialized discipline."
-      },
-      {
-        "question": "Are digital or online teaching skills part of modern training programs?",
-        "answer": "Yes. Modern curricula integrate intensive coursework in educational technology, training students to manage Learning Management Systems (LMS), design interactive video presentations, and run digital remote classrooms."
+        "question": "Can this degree lead to non-teaching careers?",
+        "answer": "Yes — graduates also work in curriculum design, educational policy research, corporate training, and instructional design for EdTech companies."
       }
     ],
     "step_by_step_guidance": [
@@ -9769,7 +9735,8 @@
       "Apply within standard admission windows — entry tests are generally less demanding than technical fields.",
       "Consider what specific career direction interests you (teaching, research, Islamic finance, media) to guide elective choices during your degree."
     ],
-    "universities_source": "TCF Verified (Tertiary Support Program - University Guidance Framework 2025)"
+    "universities_source": "TCF Verified (Tertiary Support Program - University Guidance Framework 2025)",
+    "content_note": "This field's overview, skills, entry requirements, merit criteria, salary figures, and FAQs were written from general knowledge, not cross-checked against a live web search or an official current source. University names/tiers above ARE TCF-verified, but the rest of this page should be treated as a reasonable starting point, not a confirmed fact — please verify specifics with your counsellor or the university directly."
   },
   {
     "field_name": "Language & Literature",
@@ -10872,19 +10839,16 @@
   },
   {
     "field_name": "Political & Social Sciences",
-    "overview": "Psychology examines the scientific structures of human behavior, cognitive processes, emotional regulation mechanisms, and social dynamics. Students specialize in clinical psychopathology, statistical research models, behavioral interventions, and organizational dynamics. In Pakistan, this discipline trains professionals to handle mental health support across clinical, therapeutic, educational, and corporate setups.",
+    "overview": "Political & Social Sciences is TCF's broadest discipline group, covering a wide range of subjects that study human society, behavior, and governance — including Psychology, Sociology, History, International Relations, Public Administration, Public Health, Geography, Gender Studies, Anthropology, and Pakistan Studies, among others. Students typically pick one specific major within this broad umbrella rather than studying all of them together.",
     "required_skills": [
-      "Psychological Case Assessment",
-      "Statistical Data Analysis (SPSS)",
-      "Therapeutic Active Listening",
-      "Behavioral Pattern Analysis",
-      "Qualitative Case Documentation",
-      "Research Project Design",
-      "Active Listening",
-      "Empathy and Emotional Regulation"
+      "Critical thinking and analysis",
+      "Research and academic writing",
+      "Statistical/data analysis (SPSS or similar, for empirical majors)",
+      "Communication and interpersonal skills",
+      "Reading comprehension of complex texts"
     ],
-    "personality_fit": "Highly suited for deeply empathetic, highly observant, and patient analytical thinkers who possess strong communication boundaries and a genuine commitment to mental health well-being. It requires strong emotional endurance and objective logic.",
-    "academic_stream": "FA, FSc Pre-Medical, FSc Pre-Engineering, ICS, or Commerce. General business and arts schools accept all high school combinations into undergraduate psychology programs.",
+    "personality_fit": "Suited to students genuinely curious about how people, societies, and institutions work — whether that curiosity leans toward individual behavior (Psychology), group dynamics and inequality (Sociology, Gender Studies), governance and power (Political Science, International Relations, Public Administration), or historical/geographic context (History, Geography, Pakistan Studies).",
+    "academic_stream": "Open to all intermediate backgrounds (FA, Commerce, ICS, FSc) — this is one of the more widely accessible discipline groups in terms of subject prerequisites.",
     "universities": [
       {
         "name": "University of Karachi - UoK",
@@ -11293,60 +11257,38 @@
         "tier": "Tier 4 & Below"
       }
     ],
-    "admission_requirements": "Minimum 45% to 50% marks in Intermediate (HSSC) or equivalent qualification from any recognized testing board.",
-    "entry_tests": "NUST-NET (Social Sciences), NTS-NAT-Arts/Sciences, or university-specific general aptitude tests.",
-    "merit_criteria": "Public general faculties typically use a standardized formula: 50% on the entry test or NTS score combined with 40% on intermediate grades and 10% on matriculation results.",
+    "admission_requirements": "Minimum 45-50% marks in Intermediate (HSSC) or equivalent at most institutions; varies by specific major and university.",
+    "entry_tests": "NTS-NAT (Social Sciences), university-specific general aptitude tests, or for some specializations (e.g., competitive Political Science/IR programs), a written test plus interview.",
+    "merit_criteria": "Typically a combination of entry test/NTS score, intermediate marks, and Matric marks — public universities commonly weight roughly 50% entry test, 40% intermediate, 10% Matric, though this varies by institution and specific major.",
     "career_scope": [
-      "Clinical Psychologist Associate",
-      "School Guidance Counselor",
-      "Human Resource Executive",
-      "Mental Health Rehabilitation Worker",
-      "Research Associate (Social Sector)",
-      "Corporate Wellness Specialist",
-      "Career Counseling Consultant",
-      "Mental Health Rehabilitation Executive"
+      "Psychologist/Counselor (with Psychology specialization)",
+      "Civil Service Officer (CSS/PMS, with Political Science/Public Administration)",
+      "Policy Researcher/Analyst",
+      "NGO/Development Sector Professional",
+      "Journalist/Media Researcher (with relevant specialization)",
+      "Academic/University Lecturer (after postgraduate study)"
     ],
-    "salary_expectations": "Entry-level: PKR 30,000 to PKR 55,000 per month. Mid-level: PKR 85,000 to PKR 180,000 per month (independent private clinical therapeutic practices can command higher brackets).",
+    "salary_expectations": "Varies significantly by specific major and sector: entry-level roles in research/NGO work typically pay PKR 35,000-60,000/month; clinical psychology practice, civil service, and specialized policy roles can pay considerably more with experience and further qualification.",
     "faqs": [
       {
-        "question": "Can I open an independent clinical therapy practice immediately after completing a BS degree?",
-        "answer": "No. A 4-year BS degree provides general academic foundations. To legally practice as a certified Clinical Psychologist, you must complete an MS or an Advanced Post-Graduate Diploma (ADCP) in Clinical Psychology involving intensive supervised clinical hospital hours."
+        "question": "This group covers so many subjects — how do I pick one?",
+        "answer": "Each university structures this differently — some let you pick a specific major (e.g., Psychology, Sociology, International Relations) at admission time, others offer a broader Social Sciences degree with a specialization chosen later. Check each university's exact program structure."
       },
       {
-        "question": "What software systems are heavily used by psychology students?",
-        "answer": "Students master statistical analysis applications—primarily IBM SPSS (Statistical Package for the Social Sciences)—to run behavioral data correlations, regressions, and validate research hypotheses."
+        "question": "Is this a good path for competitive exams like CSS?",
+        "answer": "Yes — Political Science, Public Administration, International Relations, and Sociology are all common and well-regarded optional subjects for Pakistan's CSS/PMS competitive exams."
       },
       {
-        "question": "Is there a demand for psychology graduates in corporate companies?",
-        "answer": "Yes. Corporate bodies heavily recruit psychology graduates into Human Resource (HR) divisions, consumer behavior research roles, corporate training programs, and employee wellness setups because of their training in group dynamics and human motivation."
-      },
-      {
-        "question": "How is a clinical psychologist different from a psychiatrist?",
-        "answer": "A psychiatrist completes a 5-year MBBS medical degree followed by an FCPS/MD clinical specialization, enabling them to prescribe pharmaceutical medications for severe mental illnesses. A psychologist uses non-medical talk therapies, cognitive behavioral strategies (CBT), and therapeutic coping interventions."
-      },
-      {
-        "question": "Can I practice as an independent clinical therapist immediately after a BS degree?",
-        "answer": "No. A BS degree provides the foundational education. To practice independently as a certified therapist or clinical counselor, you must complete an MS or Advanced Diploma in Clinical/Counseling Psychology, which includes supervised clinical practice."
-      },
-      {
-        "question": "Where do counselors primarily work in Pakistan?",
-        "answer": "They are increasingly employed by private schools and universities as guidance counselors, by NGOs focusing on community support, by corporate HR divisions for employee wellness, and within private clinics."
-      },
-      {
-        "question": "Is there a difference between a Counselor and a Psychiatrist?",
-        "answer": "Yes. A psychiatrist completes an MBBS medical degree followed by a specialization, allows them to prescribe pharmaceutical medications for severe mental illnesses. Counselors use non-medical talk therapy, behavioral strategies, and lifestyle guidance."
-      },
-      {
-        "question": "Are career counseling opportunities growing in Pakistan?",
-        "answer": "Yes, as high school students encounter a widening array of educational streams and professional fields, schools and coaching networks are expanding their career counseling setups."
+        "question": "Do I need a postgraduate degree to have a real career in this field?",
+        "answer": "For some paths (like clinical psychology practice or university teaching), yes — a Master's or higher is generally expected. For others (research, NGO work, journalism, civil service), a strong Bachelor's can be a sufficient starting point."
       }
     ],
     "step_by_step_guidance": [
-      "Complete your intermediate certificate exams in any combination stream with competitive marks.",
-      "Shortlist target social and behavioral science faculties during your final intermediate semester.",
-      "Register for required aptitude frameworks like NTS-NAT or institutional social science entrance assessments.",
-      "Submit online applications with verified educational transcripts before seasonal registration dates close.",
-      "Plan to pursue post-graduate specialized studies (MS or ADCP) after graduation to secure formal clinical practice credentials."
+      "Complete intermediate studies in any stream.",
+      "Research which specific major within this group (Psychology, Sociology, IR, Public Administration, etc.) genuinely interests you — they lead to quite different careers.",
+      "Check each target university's specific program structure, since some offer a broad degree and others require choosing a major at admission.",
+      "Prepare for the relevant entry test (NTS-NAT or university-specific) if required.",
+      "Consider your longer-term plan (postgraduate study, civil service exams, direct entry into NGO/research work) to guide elective choices during your degree."
     ],
     "universities_source": "TCF Verified (Tertiary Support Program - University Guidance Framework 2025)"
   },
