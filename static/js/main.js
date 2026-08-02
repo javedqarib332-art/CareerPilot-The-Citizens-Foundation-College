@@ -125,6 +125,8 @@ function setProgress(sectionIndex, fraction) {
   });
 }
 
+let selectedQVal = null;
+
 function renderQuestion() {
   const q = flatQuestions[currentIndex];
   document.getElementById("q-text").textContent = q.question;
@@ -138,6 +140,7 @@ function renderQuestion() {
     setProgress(1, (currentIndex - riasecLen) / QUESTIONS.big_five.length);
   }
 
+  selectedQVal = null;
   const labels = q.type === "riasec" ? RIASEC_SCALE_LABELS : AGREE_SCALE_LABELS;
   document.querySelectorAll("#q-scale button").forEach((btn, i) => {
     btn.querySelector("small").textContent = labels[i];
@@ -148,29 +151,34 @@ function renderQuestion() {
 document.getElementById("q-scale").addEventListener("click", (e) => {
   const btn = e.target.closest("button");
   if (!btn) return;
-  const val = parseInt(btn.dataset.val, 10);
+  selectedQVal = parseInt(btn.dataset.val, 10);
+  document.querySelectorAll("#q-scale button").forEach(b => b.classList.remove("selected"));
+  btn.classList.add("selected");
+});
+
+document.getElementById("btn-q-next").addEventListener("click", () => {
+  if (selectedQVal === null) {
+    alert("Please select an answer first.");
+    return;
+  }
   const q = flatQuestions[currentIndex];
 
-  btn.classList.add("selected");
-
   if (q.type === "riasec") {
-    answers.riasec.push([q.category, currentIndex, val]);
+    answers.riasec.push([q.category, currentIndex, selectedQVal]);
   } else {
-    answers.big_five.push([q.trait, currentIndex, val]);
+    answers.big_five.push([q.trait, currentIndex, selectedQVal]);
   }
 
   saveProgress();
 
-  setTimeout(() => {
-    currentIndex++;
-    if (currentIndex < flatQuestions.length) {
-      renderQuestion();
-    } else {
-      currentSkillIndex = 0;
-      showScreen("skills");
-      renderSkill();
-    }
-  }, 180);
+  currentIndex++;
+  if (currentIndex < flatQuestions.length) {
+    renderQuestion();
+  } else {
+    currentSkillIndex = 0;
+    showScreen("skills");
+    renderSkill();
+  }
 });
 
 let selectedSkillVal = null;
@@ -227,25 +235,29 @@ function renderAcademic() {
   setProgress(3, currentAcademicIndex / QUESTIONS.academic_subjects.length);
 }
 
-document.getElementById("academic-scale").addEventListener("click", async (e) => {
+document.getElementById("academic-scale").addEventListener("click", (e) => {
   const btn = e.target.closest("button");
   if (!btn) return;
   selectedAcademicVal = parseInt(btn.dataset.val, 10);
   document.querySelectorAll("#academic-scale button").forEach(b => b.classList.remove("selected"));
   btn.classList.add("selected");
+});
 
+document.getElementById("btn-academic-next").addEventListener("click", async () => {
+  if (selectedAcademicVal === null) {
+    alert("Please select a rating first.");
+    return;
+  }
   const subject = QUESTIONS.academic_subjects[currentAcademicIndex];
   answers.academic.push([subject, selectedAcademicVal]);
   saveProgress();
 
-  setTimeout(async () => {
-    currentAcademicIndex++;
-    if (currentAcademicIndex < QUESTIONS.academic_subjects.length) {
-      renderAcademic();
-    } else {
-      await submitAssessment();
-    }
-  }, 180);
+  currentAcademicIndex++;
+  if (currentAcademicIndex < QUESTIONS.academic_subjects.length) {
+    renderAcademic();
+  } else {
+    await submitAssessment();
+  }
 });
 
 async function submitAssessment() {
