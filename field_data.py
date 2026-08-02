@@ -78,37 +78,35 @@ def all_available_field_names():
 # TCF's own official categorization exactly.
 FIELD_CATEGORIES = {
     "Engineering": [
-        "Engineering", "Mechanical/Electrical Engineering", "Chemical Engineering",
-        "Textile Engineering", "Environmental Science", "Construction Management",
-        "Aviation", "Quality Control", "Technical & Trades fields",
-        "Technical/Trades fields", "Technical Entrepreneurship",
+        "Aerospace & Aeronautical Engineering", "Chemical & Petrochemical Engineering",
+        "Civil & Environmental Engineering", "Electrical & Electronics Engineering",
+        "Industrial and Manufacturing Engineering", "Materials, Mining & Textile Engineering",
+        "Mechanical Engineering", "Marine Engineering",
     ],
     "Computer Studies": [
-        "Computer Science", "Data Science", "UX/Design Research",
+        "Computer Science", "Computer Engineering", "Information Technology", "Software Engineering",
     ],
     "Health Sciences": [
-        "Medicine (MBBS)", "Dentistry", "Pharmacy", "Veterinary Sciences",
-        "Medical Laboratory Sciences", "Public Health", "Public Health Administration",
-        "Nursing/Healthcare Administration", "Paramedic/Emergency Services",
-        "Medical Humanities", "Biotechnology", "Biotech/Health-tech Entrepreneurship",
+        "Bachelor of Medicine, Bachelor of Surgery (MBBS)", "Bachelor of Dental Surgery (BDS)",
+        "Bachelor of Science in Nursing (BSN)", "Clinical & Medical", "Allied Health",
+        "Pharmaceutical & Nutritional Sciences", "Vision Care, Diagnostic & Technical",
+        "Biotechnology & Biomedical Engineering",
     ],
     "Management Sciences": [
-        "Business Administration", "Business/Management", "Accounting", "Accounting/Finance",
-        "Finance", "Chartered Accountancy (CA/ACCA)", "Economics", "Marketing",
-        "Human Resources", "Entrepreneurship", "Hotel Management", "Actuarial Science",
-        "Healthcare Management",
+        "Business Administration & Management", "Finance & Economics",
+        "Chartered Accountancy (CA)", "Tourism & Hospitality",
     ],
     "Natural Sciences": [
-        "Statistics", "Applied Physics", "Research Science",
+        "Biological Sciences", "Chemistry, Physics & Marine Science", "Statistics & Mathematics",
     ],
     "Social Sciences & Arts": [
-        "Design", "Graphic/Structured Design", "Industrial/Product Design", "Fashion Merchandising",
-        "Architecture", "Advertising", "Media Production", "Media/Communications",
-        "Mass Communication/Journalism", "Publishing & Editing", "Psychology", "Counseling",
-        "Education", "Teaching", "Law", "Social Work Administration", "Sports Science/Coaching",
+        "Architecture", "Art & Design", "Education", "Fashion & Textile",
+        "Health & Physical Education", "Islamic & Comparative Religions Studies",
+        "Language & Literature", "Law & Criminal Studies", "Media Sciences & Communication",
+        "Political & Social Sciences",
     ],
     "Agricultural Sciences": [
-        "Agriculture Sciences",
+        "Agricultural Sciences",
     ],
 }
 
