@@ -84,16 +84,9 @@ def api_submit():
             }
             for name in result.get("suggested_fields", [])
         ]
-
-        # Derive domain-level suggestions from the specific candidate fields —
-        # students see the domain, not the specific field; counsellors still
-        # get the specific fields via the counsellor report.
-        seen_domains = []
-        for name in result.get("suggested_fields", []):
-            category = field_data.get_category_for_field(name)
-            if category not in seen_domains:
-                seen_domains.append(category)
-        result["suggested_domains"] = seen_domains
+        # Note: "suggested_domains" is now computed directly in discovery_engine.py
+        # using TCF's own official RIASEC-to-discipline table (Tertiary Assessment
+        # Process, 7th Nov 2025) — not derived from our internal field-category mapping.
 
         return jsonify({"ok": True, "result": result})
     except Exception as e:
