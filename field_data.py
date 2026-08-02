@@ -71,36 +71,44 @@ def all_available_field_names():
 # Categorization — used by the "Browse All Fields" directory page
 # ---------------------------------------------------------------------------
 
+# TCF's OFFICIAL 7 discipline groups, sourced directly from TCF's
+# "Tertiary Support Program — University Guidance Framework 2025" (TSP Grid).
+# This replaces an earlier internally-invented 6-category system so that
+# Stage 1's domain suggestions and Stage 2's browse directory both match
+# TCF's own official categorization exactly.
 FIELD_CATEGORIES = {
-    "Engineering & Technical": [
+    "Engineering": [
         "Engineering", "Mechanical/Electrical Engineering", "Chemical Engineering",
-        "Textile Engineering", "Applied Physics", "Environmental Science",
-        "Construction Management", "Aviation", "Quality Control",
-        "Technical & Trades fields", "Technical/Trades fields", "Technical Entrepreneurship",
+        "Textile Engineering", "Environmental Science", "Construction Management",
+        "Aviation", "Quality Control", "Technical & Trades fields",
+        "Technical/Trades fields", "Technical Entrepreneurship",
     ],
-    "Computer, Data & Analytics": [
-        "Computer Science", "Data Science", "Actuarial Science", "Statistics", "UX/Design Research",
+    "Computer Studies": [
+        "Computer Science", "Data Science", "UX/Design Research",
     ],
-    "Medical & Health Sciences": [
+    "Health Sciences": [
         "Medicine (MBBS)", "Dentistry", "Pharmacy", "Veterinary Sciences",
         "Medical Laboratory Sciences", "Public Health", "Public Health Administration",
         "Nursing/Healthcare Administration", "Paramedic/Emergency Services",
-        "Healthcare Management", "Medical Humanities", "Biotechnology",
-        "Biotech/Health-tech Entrepreneurship", "Agriculture Sciences", "Sports Science/Coaching",
+        "Medical Humanities", "Biotechnology", "Biotech/Health-tech Entrepreneurship",
     ],
-    "Business, Finance & Commerce": [
+    "Management Sciences": [
         "Business Administration", "Business/Management", "Accounting", "Accounting/Finance",
         "Finance", "Chartered Accountancy (CA/ACCA)", "Economics", "Marketing",
-        "Human Resources", "Entrepreneurship", "Hotel Management",
+        "Human Resources", "Entrepreneurship", "Hotel Management", "Actuarial Science",
+        "Healthcare Management",
     ],
-    "Arts, Design & Media": [
+    "Natural Sciences": [
+        "Statistics", "Applied Physics", "Research Science",
+    ],
+    "Social Sciences & Arts": [
         "Design", "Graphic/Structured Design", "Industrial/Product Design", "Fashion Merchandising",
         "Architecture", "Advertising", "Media Production", "Media/Communications",
-        "Mass Communication/Journalism", "Publishing & Editing",
+        "Mass Communication/Journalism", "Publishing & Editing", "Psychology", "Counseling",
+        "Education", "Teaching", "Law", "Social Work Administration", "Sports Science/Coaching",
     ],
-    "Social Sciences & Humanities": [
-        "Psychology", "Counseling", "Education", "Teaching", "Law",
-        "Social Work Administration", "Research Science",
+    "Agricultural Sciences": [
+        "Agriculture Sciences",
     ],
 }
 
