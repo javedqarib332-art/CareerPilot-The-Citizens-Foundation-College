@@ -366,6 +366,21 @@ function renderRadarChart(riasecScores) {
 // REPORT RENDERING
 // ---------------------------------------------------------------------------
 
+function renderPdtiBars(pdtiScores) {
+  const order = ["People", "Data", "Things", "Ideas"];
+  let html = "";
+  order.forEach(cat => {
+    const val = (pdtiScores || {})[cat] || 0;
+    const pct = (val / 40) * 100;
+    html += `
+      <div class="bar-row">
+        <div class="bar-label"><span>${cat}</span><span>${val}/40</span></div>
+        <div class="bar-track"><div class="bar-fill navy-fill" style="width:${pct}%;"></div></div>
+      </div>`;
+  });
+  return html;
+}
+
 function renderRiasecBars(riasecScores) {
   const labels = { R: "Realistic", I: "Investigative", A: "Artistic", S: "Social", E: "Enterprising", C: "Conventional" };
   const order = ["R", "I", "A", "S", "E", "C"];
@@ -403,17 +418,20 @@ function renderReport(result) {
   lastResult = result;
   const radarContainer = document.getElementById("radar-container");
   radarContainer.innerHTML = renderRadarChart(result.riasec_scores || {});
+  document.getElementById("pdti-bars").innerHTML = renderPdtiBars(result.pdti_scores);
   document.getElementById("riasec-bars").innerHTML = renderRiasecBars(result.riasec_scores);
 
   const bigfiveCard = document.getElementById("bigfive-card");
   const domainCard = document.getElementById("domain-card");
   const stage2Pointer = document.getElementById("stage2-pointer");
   const riasecCard = document.getElementById("riasec-card");
+  const pdtiCard = document.getElementById("pdti-card");
 
   if (result.valid_response === false) {
     document.getElementById("report-name").innerHTML = `A note for you, <em>${escapeHtml(studentName)}</em>`;
     document.getElementById("personality-overview-text").textContent = "";
     document.getElementById("report-reason").textContent = result.reason || "We couldn't generate a confident overview from these answers.";
+    pdtiCard.style.display = "none";
     riasecCard.style.display = "none";
     bigfiveCard.style.display = "none";
     domainCard.style.display = "none";
@@ -422,6 +440,7 @@ function renderReport(result) {
     return;
   }
 
+  pdtiCard.style.display = "block";
   riasecCard.style.display = "block";
   bigfiveCard.style.display = "block";
   domainCard.style.display = "block";
@@ -602,10 +621,31 @@ document.getElementById("btn-download-pdf").addEventListener("click", () => {
     doc.text("For specific fields within these domains — universities, admission requirements, career scope — use Stage 2.", margin, y);
     y += 12;
 
-    // --- RIASEC bar chart ---
+    // --- PDTI bar chart (what the student actually answered) ---
+    y = pdfCheckPageBreak(doc, y, 55, pageHeight, margin);
+    y = pdfSectionHeading(doc, "How You Answered (People / Data / Things / Ideas)", margin, y);
+    const barMaxWidth = pageWidth - margin * 2 - 55;
+    Object.entries(lastResult.pdti_scores || {}).forEach(([cat, val]) => {
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(9.5);
+      doc.setTextColor(...PDF_COLORS.navy);
+      doc.text(cat, margin, y + 4);
+
+      doc.setFillColor(230, 226, 216);
+      doc.rect(margin + 45, y, barMaxWidth, 5, "F");
+      doc.setFillColor(...PDF_COLORS.navy);
+      doc.rect(margin + 45, y, (val / 40) * barMaxWidth, 5, "F");
+
+      doc.setFontSize(8.5);
+      doc.setTextColor(...PDF_COLORS.grey);
+      doc.text(`${val}/40`, margin + 45 + barMaxWidth + 4, y + 4);
+      y += 9;
+    });
+    y += 8;
+
+    // --- RIASEC bar chart (derived from the above via crosswalk) ---
     y = pdfCheckPageBreak(doc, y, 60, pageHeight, margin);
     y = pdfSectionHeading(doc, "Interest Profile (RIASEC)", margin, y);
-    const barMaxWidth = pageWidth - margin * 2 - 55;
     Object.entries(lastResult.riasec_scores || {}).forEach(([cat, val]) => {
       doc.setFont("helvetica", "normal");
       doc.setFontSize(9.5);
