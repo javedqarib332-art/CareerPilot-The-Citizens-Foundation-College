@@ -16,8 +16,14 @@ DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "discovery_ag
 
 @contextmanager
 def get_connection():
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(DB_PATH, timeout=30)
     conn.row_factory = sqlite3.Row
+    # WAL mode lets reads proceed while a write is happening, and the busy
+    # timeout makes concurrent writers wait briefly instead of immediately
+    # failing with "database is locked" — both matter when many students
+    # submit within the same few seconds.
+    conn.execute("PRAGMA journal_mode=WAL")
+    conn.execute("PRAGMA busy_timeout=30000")
     try:
         yield conn
         conn.commit()
