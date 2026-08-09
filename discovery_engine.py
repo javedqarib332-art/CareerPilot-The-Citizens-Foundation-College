@@ -112,6 +112,109 @@ RIASEC_QUESTIONS = {
     ],
 }
 
+
+# ---------------------------------------------------------------------------
+# 1b. PEOPLE / DATA / THINGS / IDEAS (PDTI) — the actual instrument students
+# answer. TCF's own scholarship counselling framework references a
+# "People, Idea, Things, Data" personality assessment (Scholarship Evaluation
+# Process document, Step 2). RIASEC is still the backbone of Stage 1's
+# scoring and TCF-domain-suggestion logic — PDTI answers are converted into
+# RIASEC scores via a standard vocational-psychology crosswalk (see
+# PDTI_TO_RIASEC_CROSSWALK below), so downstream logic is unaffected.
+# ---------------------------------------------------------------------------
+
+PDTI_CATEGORIES = ["People", "Data", "Things", "Ideas"]
+
+PDTI_QUESTIONS = {
+    "People": [
+        {"en": "Helping a struggling classmate understand a topic until it finally clicks for them."},
+        {"en": "Leading a small group project and making sure everyone's voice gets heard."},
+        {"en": "Sitting with a friend who's upset and just listening, without rushing to fix it."},
+        {"en": "Introducing yourself to a room full of strangers and starting conversations."},
+        {"en": "Convincing a group to try your idea when they were initially unsure."},
+        {"en": "Organizing an event or activity that gets a lot of different people involved."},
+        {"en": "Noticing when someone nearby is having a hard day, even if they haven't said anything."},
+        {"en": "Being the person people come to first when they need advice or support."},
+    ],
+    "Data": [
+        {"en": "Digging through numbers to find a pattern nobody else noticed."},
+        {"en": "Keeping precise track of money spent and saved over a period of time."},
+        {"en": "Running a small experiment step by step to see if your prediction was right."},
+        {"en": "Double-checking a report for errors before anyone else sees it."},
+        {"en": "Figuring out the most cost-efficient way to plan a trip or a budget."},
+        {"en": "Writing a set of instructions or code that a computer follows exactly."},
+        {"en": "Comparing multiple options using clear criteria before deciding which is best."},
+        {"en": "Organizing a messy set of information into clean categories or a table."},
+    ],
+    "Things": [
+        {"en": "Taking apart a broken gadget or toy to figure out what went wrong inside."},
+        {"en": "Building or assembling something with your hands until it's finished right."},
+        {"en": "Following a recipe or set of steps exactly to cook or make something."},
+        {"en": "Fixing something that stopped working — a bike chain, a leaky tap, a loose hinge."},
+        {"en": "Spending an afternoon on a hands-on project rather than reading about one."},
+        {"en": "Learning how a machine or engine actually works by examining it directly."},
+        {"en": "Working outdoors doing physical tasks rather than sitting at a desk."},
+        {"en": "Using tools carefully and precisely to get a physical task exactly right."},
+    ],
+    "Ideas": [
+        {"en": "Coming up with a completely new way to solve a problem everyone else does the same old way."},
+        {"en": "Writing a story, poem, or piece of music just because an idea wouldn't leave you alone."},
+        {"en": "Wondering 'why does this work this way?' until you actually go find out."},
+        {"en": "Sketching, designing, or imagining something that doesn't exist yet."},
+        {"en": "Debating a big 'what if' or philosophical question just for the fun of thinking it through."},
+        {"en": "Noticing a completely different way to look at a familiar problem."},
+        {"en": "Getting absorbed in art, design, or performance until you lose track of time."},
+        {"en": "Preferring open-ended tasks where you get to decide the approach yourself."},
+    ],
+}
+
+# Each PDTI category's signal is redistributed across the RIASEC categories
+# it's most associated with in standard vocational-psychology crosswalks.
+# Each row (PDTI category) sums to 1.0 across its own outgoing weights.
+PDTI_TO_RIASEC_CROSSWALK = {
+    "People": {"S": 0.55, "E": 0.35, "A": 0.10},
+    "Data":   {"C": 0.50, "I": 0.30, "E": 0.20},
+    "Things": {"R": 0.75, "I": 0.25},
+    "Ideas":  {"A": 0.50, "I": 0.50},
+}
+
+
+def score_pdti(answers: Dict[str, List[int]]) -> Dict[str, int]:
+    """Sum each PDTI category's 8 answers (1-5 scale each). Max 40 per category."""
+    scores = {}
+    for cat in PDTI_CATEGORIES:
+        vals = answers.get(cat, [])
+        scores[cat] = sum(vals)
+    return scores
+
+
+def crosswalk_pdti_to_riasec(pdti_scores: Dict[str, int], pdti_max_per_category: int = 40,
+                               riasec_max_per_category: int = 30) -> Dict[str, int]:
+    """
+    Converts PDTI category scores into RIASEC category scores using
+    PDTI_TO_RIASEC_CROSSWALK, so all of Stage 1's existing RIASEC-based logic
+    (TCF domain suggestion, field mapping, contradiction detection) keeps
+    working unchanged even though students now answer PDTI-framed questions.
+    """
+    pdti_fraction = {cat: (pdti_scores.get(cat, 0) / pdti_max_per_category) for cat in PDTI_CATEGORIES}
+
+    incoming_weight = {cat: 0.0 for cat in RIASEC_CATEGORIES}
+    for pdti_cat, weights in PDTI_TO_RIASEC_CROSSWALK.items():
+        for riasec_cat, w in weights.items():
+            incoming_weight[riasec_cat] += w
+
+    riasec_scores = {}
+    for riasec_cat in RIASEC_CATEGORIES:
+        total = 0.0
+        for pdti_cat, weights in PDTI_TO_RIASEC_CROSSWALK.items():
+            w = weights.get(riasec_cat, 0.0)
+            if w:
+                total += pdti_fraction[pdti_cat] * w
+        fraction = (total / incoming_weight[riasec_cat]) if incoming_weight[riasec_cat] else 0.0
+        riasec_scores[riasec_cat] = round(fraction * riasec_max_per_category)
+    return riasec_scores
+
+
 BIG_FIVE_TRAITS = ["Openness", "Conscientiousness", "Extraversion", "Agreeableness", "EmotionalStability"]
 
 # Adapted from the IPIP (International Personality Item Pool, Goldberg 1992) —
@@ -261,7 +364,7 @@ FIELD_MAPPING_SINGLE = {
 @dataclass
 class StudentResponse:
     student_name: str
-    riasec_answers: Dict[str, List[int]]          # e.g. {"R": [3,4,2,5,1,3], ...} 1-5 scale
+    pdti_answers: Dict[str, List[int]]             # e.g. {"People": [3,4,2,5,1,3,4,2], ...} 1-5 scale
     big_five_answers: Dict[str, List[int]]        # e.g. {"Openness": [4,5,3], ...}
     skills_ratings: Dict[str, Tuple[int, str]]     # e.g. {"Mathematics": (2, "I find algebra hard")}
     academic_ratings: Dict[str, int] = None        # e.g. {"Biology": 4, "Chemistry": 2}
@@ -328,12 +431,12 @@ def bottom_riasec_categories(riasec_scores: Dict[str, int], n: int = 2) -> List[
 
 import statistics
 
-def check_response_validity(riasec_answers: Dict[str, List[int]]) -> Dict:
+def check_response_validity(pdti_answers: Dict[str, List[int]]) -> Dict:
     """
     Detects genuine 'straight-lining' — when a student picks the same value
     over and over regardless of what the question actually says.
 
-    Important: this checks variation in the RAW individual answers (all 36
+    Important: this checks variation in the RAW individual answers (all 32
     of them), NOT the final category totals. Category totals can legitimately
     end up close together for a thoughtful student (people naturally cluster
     around middle values) — that is not the same thing as not having read
@@ -342,7 +445,7 @@ def check_response_validity(riasec_answers: Dict[str, List[int]]) -> Dict:
 
     Returns a dict with 'valid' (bool) and 'reason' (str, only if invalid).
     """
-    all_answers = [v for values in riasec_answers.values() for v in values]
+    all_answers = [v for values in pdti_answers.values() for v in values]
 
     if not all_answers:
         return {"valid": True, "reason": ""}
@@ -868,11 +971,11 @@ def generate_counsellor_report(
 # ---------------------------------------------------------------------------
 
 def get_all_questions() -> Dict:
-    """Returns the full question bank in a frontend-friendly structure, with Urdu translations."""
+    """Returns the full question bank in a frontend-friendly structure."""
     return {
-        "riasec": [
-            {"category": cat, "question": item["en"], "question_ur": item["ur"]}
-            for cat, items in RIASEC_QUESTIONS.items() for item in items
+        "pdti": [
+            {"category": cat, "question": item["en"]}
+            for cat, items in PDTI_QUESTIONS.items() for item in items
         ],
         "big_five": [
             {
@@ -890,9 +993,9 @@ def get_all_questions() -> Dict:
 
 def parse_submission(payload: Dict) -> StudentResponse:
     """Converts raw JSON payload from the frontend into a StudentResponse object."""
-    riasec_answers: Dict[str, List[int]] = {cat: [] for cat in RIASEC_CATEGORIES}
-    for cat, q_idx, value in payload["riasec"]:
-        riasec_answers[cat].append(int(value))
+    pdti_answers: Dict[str, List[int]] = {cat: [] for cat in PDTI_CATEGORIES}
+    for cat, q_idx, value in payload["pdti"]:
+        pdti_answers[cat].append(int(value))
 
     big_five_answers: Dict[str, List[int]] = {trait: [] for trait in BIG_FIVE_TRAITS}
     for trait, q_idx, value in payload["big_five"]:
@@ -910,7 +1013,7 @@ def parse_submission(payload: Dict) -> StudentResponse:
         student_name=payload.get("student_name", "Student"),
         roll_number=payload.get("student_roll", ""),
         student_class=payload.get("student_class", ""),
-        riasec_answers=riasec_answers,
+        pdti_answers=pdti_answers,
         big_five_answers=big_five_answers,
         skills_ratings=skills_ratings,
         academic_ratings=academic_ratings,
@@ -922,10 +1025,11 @@ def parse_submission(payload: Dict) -> StudentResponse:
 # ---------------------------------------------------------------------------
 
 def run_discovery_assessment(student: StudentResponse) -> Dict:
-    riasec_scores = score_riasec(student.riasec_answers)
+    pdti_scores = score_pdti(student.pdti_answers)
+    riasec_scores = crosswalk_pdti_to_riasec(pdti_scores)
     big_five_scores = score_big_five(student.big_five_answers)
 
-    validity = check_response_validity(student.riasec_answers)
+    validity = check_response_validity(student.pdti_answers)
 
     if not validity["valid"]:
         # Don't fabricate a confident suggestion from flat/meaningless scores.
@@ -938,11 +1042,13 @@ def run_discovery_assessment(student: StudentResponse) -> Dict:
         counsellor_report = (
             f"COUNSELLOR REPORT — {student.student_name}\n" + "=" * 50 +
             f"\n\nVALIDITY FLAG: Straight-lined / flat response pattern detected.\n"
-            f"RIASEC scores: {riasec_scores}\n"
+            f"PDTI scores: {pdti_scores}\n"
+            f"Derived RIASEC scores: {riasec_scores}\n"
             "No reliable field suggestion could be generated from this response set. "
             "Recommend a retake or a direct conversation to establish genuine interests."
         )
         return {
+            "pdti_scores": pdti_scores,
             "riasec_scores": riasec_scores,
             "big_five_scores": big_five_scores,
             "contradiction_flags": [],
@@ -964,6 +1070,7 @@ def run_discovery_assessment(student: StudentResponse) -> Dict:
     counsellor_report = generate_counsellor_report(student, riasec_scores, big_five_scores, flags, fields)
 
     return {
+        "pdti_scores": pdti_scores,
         "riasec_scores": riasec_scores,
         "big_five_scores": big_five_scores,
         "contradiction_flags": [f.__dict__ for f in flags],
@@ -984,13 +1091,11 @@ def run_discovery_assessment(student: StudentResponse) -> Dict:
 if __name__ == "__main__":
     sample_student = StudentResponse(
         student_name="Ali Raza",
-        riasec_answers={
-            "R": [2, 1, 2, 1, 2, 2],
-            "I": [5, 4, 5, 4, 5, 4],
-            "A": [2, 2, 3, 2, 2, 2],
-            "S": [3, 2, 3, 2, 3, 2],
-            "E": [2, 2, 3, 2, 2, 2],
-            "C": [4, 5, 4, 5, 4, 5],
+        pdti_answers={
+            "People": [3, 2, 3, 2, 3, 2, 3, 2],
+            "Data": [5, 4, 5, 4, 5, 4, 5, 4],
+            "Things": [2, 1, 2, 1, 2, 2, 2, 1],
+            "Ideas": [4, 5, 4, 5, 4, 5, 4, 5],
         },
         big_five_answers={
             "Openness": [4, 4, 2, 2],
