@@ -40,6 +40,7 @@ def init_db():
                 student_class TEXT NOT NULL DEFAULT '',
                 created_at TEXT NOT NULL,
                 riasec_scores TEXT NOT NULL,
+                pdti_scores TEXT NOT NULL DEFAULT '{}',
                 big_five_scores TEXT NOT NULL,
                 skills_ratings TEXT NOT NULL,
                 academic_ratings TEXT NOT NULL DEFAULT '{}',
@@ -55,6 +56,7 @@ def init_db():
             "ALTER TABLE submissions ADD COLUMN academic_ratings TEXT NOT NULL DEFAULT '{}'",
             "ALTER TABLE submissions ADD COLUMN roll_number TEXT NOT NULL DEFAULT ''",
             "ALTER TABLE submissions ADD COLUMN student_class TEXT NOT NULL DEFAULT ''",
+            "ALTER TABLE submissions ADD COLUMN pdti_scores TEXT NOT NULL DEFAULT '{}'",
         ]:
             try:
                 conn.execute(migration)
@@ -70,16 +72,17 @@ def save_submission(
     with get_connection() as conn:
         cursor = conn.execute("""
             INSERT INTO submissions (
-                student_name, roll_number, student_class, created_at, riasec_scores, big_five_scores,
+                student_name, roll_number, student_class, created_at, riasec_scores, pdti_scores, big_five_scores,
                 skills_ratings, academic_ratings, contradiction_flags, suggested_fields,
                 valid_response, student_report, counsellor_report
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             student_name,
             roll_number,
             student_class,
             datetime.utcnow().isoformat(),
             json.dumps(result.get("riasec_scores", {})),
+            json.dumps(result.get("pdti_scores", {})),
             json.dumps(result.get("big_five_scores", {})),
             json.dumps(skills_ratings),
             json.dumps(academic_ratings or {}),
@@ -126,6 +129,7 @@ def get_all_submissions_full() -> list:
                 "student_class": row["student_class"] or "",
                 "created_at": row["created_at"],
                 "riasec_scores": json.loads(row["riasec_scores"]),
+                "pdti_scores": json.loads(row["pdti_scores"]) if row["pdti_scores"] else {},
                 "big_five_scores": json.loads(row["big_five_scores"]),
                 "suggested_fields": json.loads(row["suggested_fields"]),
                 "valid_response": bool(row["valid_response"]),
@@ -147,6 +151,7 @@ def get_submission_by_id(submission_id: int):
             "student_class": row["student_class"] or "",
             "created_at": row["created_at"],
             "riasec_scores": json.loads(row["riasec_scores"]),
+            "pdti_scores": json.loads(row["pdti_scores"]) if row["pdti_scores"] else {},
             "big_five_scores": json.loads(row["big_five_scores"]),
             "skills_ratings": json.loads(row["skills_ratings"]),
             "academic_ratings": json.loads(row["academic_ratings"]) if row["academic_ratings"] else {},
