@@ -10,7 +10,7 @@ let currentIndex = 0;
 let currentSkillIndex = 0;
 let lastResult = null;
 
-const answers = { riasec: [], big_five: [], skills: [], academic: [] };
+const answers = { pdti: [], big_five: [], skills: [], academic: [] };
 const STORAGE_KEY = "tcf_discovery_progress_v1";
 
 const screens = {
@@ -27,7 +27,7 @@ function showScreen(name) {
   screens[name].classList.add("active");
 }
 
-const RIASEC_SCALE_LABELS = ["Strongly dislike", "Dislike", "Neutral", "Enjoy", "Strongly enjoy"];
+const PDTI_SCALE_LABELS = ["Strongly dislike", "Dislike", "Neutral", "Enjoy", "Strongly enjoy"];
 const AGREE_SCALE_LABELS = ["Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly agree"];
 
 // ---------------------------------------------------------------------------
@@ -37,6 +37,7 @@ const AGREE_SCALE_LABELS = ["Strongly disagree", "Disagree", "Neutral", "Agree",
 function saveProgress() {
   const state = {
     studentName, studentRoll, studentClass, currentIndex, currentSkillIndex, currentAcademicIndex, answers,
+    pdtiOrder: flatQuestions.filter(q => q.type === "pdti").map(({ type, ...rest }) => rest),
     stage: screens.academic.classList.contains("active") ? "academic"
       : screens.skills.classList.contains("active") ? "skills" : "questions",
     savedAt: Date.now(),
@@ -61,14 +62,14 @@ function checkForSavedProgress() {
       studentName = state.studentName;
       studentRoll = state.studentRoll || "";
       studentClass = state.studentClass || "";
-      answers.riasec = state.answers.riasec;
+      answers.pdti = state.answers.pdti;
       answers.big_five = state.answers.big_five;
       answers.skills = state.answers.skills;
       answers.academic = state.answers.academic || [];
       currentIndex = state.currentIndex;
       currentSkillIndex = state.currentSkillIndex;
       currentAcademicIndex = state.currentAcademicIndex || 0;
-      if (!QUESTIONS) await loadQuestions();
+      if (!QUESTIONS) await loadQuestions(state.pdtiOrder);
       if (state.stage === "academic") {
         showScreen("academic");
         renderAcademic();
@@ -93,11 +94,23 @@ function checkForSavedProgress() {
 // QUESTION FLOW
 // ---------------------------------------------------------------------------
 
-async function loadQuestions() {
+function shuffleArray(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+async function loadQuestions(savedPdtiOrder) {
   const res = await fetch("/api/questions");
   QUESTIONS = await res.json();
+  const pdtiOrder = savedPdtiOrder && savedPdtiOrder.length === QUESTIONS.pdti.length
+    ? savedPdtiOrder
+    : shuffleArray(QUESTIONS.pdti);
   flatQuestions = [
-    ...QUESTIONS.riasec.map(q => ({ type: "riasec", ...q })),
+    ...pdtiOrder.map(q => ({ type: "pdti", ...q })),
     ...QUESTIONS.big_five.map(q => ({ type: "big_five", ...q })),
   ];
 }
@@ -130,18 +143,18 @@ let selectedQVal = null;
 function renderQuestion() {
   const q = flatQuestions[currentIndex];
   document.getElementById("q-text").textContent = q.question;
-  const section = q.type === "riasec" ? "Section 1 of 4 — Interests" : "Section 2 of 4 — Personality";
+  const section = q.type === "pdti" ? "Section 1 of 4 — Interests" : "Section 2 of 4 — Personality";
   document.getElementById("q-meta").textContent = section;
 
-  const riasecLen = QUESTIONS.riasec.length;
-  if (q.type === "riasec") {
-    setProgress(0, currentIndex / riasecLen);
+  const pdtiLen = QUESTIONS.pdti.length;
+  if (q.type === "pdti") {
+    setProgress(0, currentIndex / pdtiLen);
   } else {
-    setProgress(1, (currentIndex - riasecLen) / QUESTIONS.big_five.length);
+    setProgress(1, (currentIndex - pdtiLen) / QUESTIONS.big_five.length);
   }
 
   selectedQVal = null;
-  const labels = q.type === "riasec" ? RIASEC_SCALE_LABELS : AGREE_SCALE_LABELS;
+  const labels = q.type === "pdti" ? PDTI_SCALE_LABELS : AGREE_SCALE_LABELS;
   document.querySelectorAll("#q-scale button").forEach((btn, i) => {
     btn.querySelector("small").textContent = labels[i];
     btn.classList.remove("selected");
@@ -163,8 +176,8 @@ document.getElementById("btn-q-next").addEventListener("click", () => {
   }
   const q = flatQuestions[currentIndex];
 
-  if (q.type === "riasec") {
-    answers.riasec.push([q.category, currentIndex, selectedQVal]);
+  if (q.type === "pdti") {
+    answers.pdti.push([q.category, currentIndex, selectedQVal]);
   } else {
     answers.big_five.push([q.trait, currentIndex, selectedQVal]);
   }
