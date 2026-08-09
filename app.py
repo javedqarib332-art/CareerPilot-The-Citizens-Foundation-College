@@ -115,6 +115,7 @@ def dashboard_export():
 
     headers = [
         "ID", "Student Name", "Roll Number", "Class", "Submitted At",
+        "People", "Data", "Things", "Ideas",
         "Realistic", "Investigative", "Artistic", "Social", "Enterprising", "Conventional",
         "Suggested Fields", "Valid Response", "Contradictions Flagged",
     ]
@@ -128,12 +129,14 @@ def dashboard_export():
 
     for s in submissions:
         r = s["riasec_scores"]
+        p = s.get("pdti_scores", {})
         ws.append([
             s["id"],
             s["student_name"],
             s["roll_number"],
             s["student_class"],
             s["created_at"][:16].replace("T", " "),
+            p.get("People", ""), p.get("Data", ""), p.get("Things", ""), p.get("Ideas", ""),
             r.get("R", ""), r.get("I", ""), r.get("A", ""), r.get("S", ""), r.get("E", ""), r.get("C", ""),
             ", ".join(s["suggested_fields"]),
             "Yes" if s["valid_response"] else "No",
