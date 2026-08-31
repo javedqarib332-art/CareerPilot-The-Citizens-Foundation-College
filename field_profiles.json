@@ -5898,605 +5898,7 @@
     "universities_source": "TCF Verified (Tertiary Support Program - University Guidance Framework 2025)"
   },
   {
-    "field_name": "Business Administration & Management",
-    "overview": "Business Administration covers the strategic planning, financial management, marketing analytics, and executive leadership required to run corporate enterprises, small businesses, and non-profit organizations. Students analyze corporate strategies, consumer data, global supply networks, and organizational psychology. In Pakistan, this field provides a versatile career path into managing brand portfolios, manufacturing units, and digital service firms.",
-    "required_skills": [
-      "Strategic Business Planning",
-      "Data-Driven Decision Making",
-      "Team Leadership & Management",
-      "Corporate Project Coordination",
-      "Financial Statement Interpretation",
-      "Negotiation & Pitch Presentation",
-      "Organizational Leadership",
-      "Change Management"
-    ],
-    "personality_fit": "Highly suited for goal-oriented, communicative, and socially confident individuals who enjoy leading multi-disciplinary teams, resolving organizational bottlenecks, and managing complex projects simultaneously. It requires strong persuasion skills and adaptability.",
-    "academic_stream": "Commerce (I.Com), FA, ICS, FSc Pre-Engineering, or FSc Pre-Medical. Business schools accept high school graduates from all educational streams, prioritizing language logic and analytical aptitudes.",
-    "universities": [
-      {
-        "name": "Institute of Business Administration - IBA",
-        "city": "Karachi",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 1"
-      },
-      {
-        "name": "National University of Sciences and Technology - NUST",
-        "city": "Islamabad,+[13]",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 1"
-      },
-      {
-        "name": "Lahore University of Management Sciences - LUMS",
-        "city": "Lahore",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 1"
-      },
-      {
-        "name": "Bahria University - BU",
-        "city": "Islamabad,+[3]",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 2"
-      },
-      {
-        "name": "Institute of Management Sciences - IMSciences",
-        "city": "Peshawar",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 2"
-      },
-      {
-        "name": "University of Karachi - UoK",
-        "city": "Karachi",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 2"
-      },
-      {
-        "name": "Government College University Lahore - GCU",
-        "city": "Lahore",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 2"
-      },
-      {
-        "name": "University of Punjab - PU",
-        "city": "Lahore,+[23]",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 2"
-      },
-      {
-        "name": "Dawood University of Engineering & Technology - DUET",
-        "city": "Karachi",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 2"
-      },
-      {
-        "name": "Fatima Jinnah Women University - FJWU",
-        "city": "Rawalpindi",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 2"
-      },
-      {
-        "name": "Shah Abdul Latif University - SALU",
-        "city": "Khairpur",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 2"
-      },
-      {
-        "name": "Institute of Business Management - IoBM",
-        "city": "Karachi",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 2"
-      },
-      {
-        "name": "Lahore School of Economics - LSE",
-        "city": "Lahore",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 2"
-      },
-      {
-        "name": "Shaheed Zulfikar Ali Bhutto Institute of Science & Technology - SZABIST",
-        "city": "Karachi,+[15]",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 2"
-      },
-      {
-        "name": "Abdul Wali Khan University Mardan - AWKUM",
-        "city": "Mardan",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Government College for Women University, Sialkot - GCWUS",
-        "city": "Sialkot",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Government Post Graduate College - GPGC",
-        "city": "Multiple locations in Pakistan",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Information Technology University (ITU) - ITU",
-        "city": "Lahore",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "International Islamic University Islamabad - IIUI",
-        "city": "Islamabad",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Iqra National University - INU",
-        "city": "Peshawar",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "The Islamia University of Bahawalpur - IUB",
-        "city": "Bahawalpur,+[18]",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Namal Institute Mianwali - NIM",
-        "city": "Mianwali",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Pir Mehr Ali Shah Arid Agriculture University - PMAS- AAUR",
-        "city": "Rawalpindi",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Rawalpindi Women University - RWU",
-        "city": "Rawalpindi",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Sindh Madressatul Islam University - SMIU",
-        "city": "Karachi",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "University of Chakwal - UoC",
-        "city": "Chakwal",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "University of Education - UE",
-        "city": "Lahore,+[20]",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Government College University, Faisalabad - GCUF",
-        "city": "Faisalabad,+[7]",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "University of Mianwali - UMW",
-        "city": "Mianwali",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "University of Sargodha - UOS",
-        "city": "Sargodha",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "University of Sindh - UoS",
-        "city": "Jamshoro",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "University of Sufism and Modern Sciences, Bhitshah Sindh - USMS",
-        "city": "Bhitshah",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Women University Mardan - WUM",
-        "city": "Mardan",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Government College for Women University, Faisalabad - GCWUF",
-        "city": "Faisalabad",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Bahauddin Zakariya University - BZU",
-        "city": "Multan,+[2]",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Balochistan University of Information Technology, Engineering & Management Sciences - BUITEMS",
-        "city": "Quetta",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Mehran University of Engineering & Technology, Jamshoro - MUET",
-        "city": "Jamshoro",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Sukkur IBA University - Sukkur IBA",
-        "city": "Sukkur,+[17]",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Foundation University - FU",
-        "city": "Islamabad",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Sardar Bahadur Khan Women's University - SBKWU",
-        "city": "Quetta",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Kinnaird College for Women - KCW",
-        "city": "Lahore",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "University of Agriculture Faisalabad - UAF",
-        "city": "Faisalabad,+[19]",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "COMSATS University Islamabad - CUI",
-        "city": "Islamabad,+[5]",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "National University of Modern Languages - NUML",
-        "city": "Islamabad,+[12]",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Institute of Southern Punjab - ISP",
-        "city": "Multan",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Iqra University - IU",
-        "city": "Karachi,+[8]",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Jinnah University for Women - JUW",
-        "city": "Karachi",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Northern University - NU",
-        "city": "Nowshera",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Salim Habib University - SHU",
-        "city": "Karachi",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Ziauddin University - ZU",
-        "city": "Karachi",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Karachi School of Business & Leadership - KSBL",
-        "city": "Karachi",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "National University of Computer & Emerging Sciences - NUCES (FAST)",
-        "city": "Islamabad,+[11]",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Forman Christian College - FCC",
-        "city": "Lahore",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "University of Lahore - UOL",
-        "city": "Lahore,+[22]",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Muhammad Ali Jinnah University - MAJU",
-        "city": "Karachi",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Riphah International University - RIU",
-        "city": "Islamabad,+[24]",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "The University of Faisalabad - TUF",
-        "city": "Faisalabad",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Lahore Garrison University - LGU",
-        "city": "Lahore",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "University of Management & Technology - UMT",
-        "city": "Lahore",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 3"
-      },
-      {
-        "name": "Federal Urdu University of Arts, Sciences & Technology - FUUAST",
-        "city": "Karachi,+[6]",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 4 & Below"
-      },
-      {
-        "name": "The Begum Nusrat Bhutto Women University - BNBWU",
-        "city": "Rohri",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 4 & Below"
-      },
-      {
-        "name": "University of Gujrat - UOG",
-        "city": "Gujrat",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 4 & Below"
-      },
-      {
-        "name": "Government College University - GCUH*",
-        "city": "Hyderabad",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 4 & Below"
-      },
-      {
-        "name": "University of Sufism and Modern Sciences - USMS*",
-        "city": "Bhitshah",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 4 & Below"
-      },
-      {
-        "name": "Shaheed Benazir Bhutto University of Veterinary and Animal Sciences - SBBUVAS*",
-        "city": "Sakrand",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 4 & Below"
-      },
-      {
-        "name": "The Shaikh Ayaz University, Shikarpur - TSAU*",
-        "city": "Shikarpur",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 4 & Below"
-      },
-      {
-        "name": "Virtual University of Pakistan - VU",
-        "city": "Islamabad (with more than 200 campuses in Pakistan)",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Public",
-        "tier": "Tier 4 & Below"
-      },
-      {
-        "name": "Greenwich University - GU",
-        "city": "Karachi",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 4 & Below"
-      },
-      {
-        "name": "Lasbela University of Agriculture, Water & Marine Sciences - LUAWMS",
-        "city": "Lasbela",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 4 & Below"
-      },
-      {
-        "name": "Khadim Ali Shah Bukhari Institute of Technology - KASBIT",
-        "city": "Karachi",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 4 & Below"
-      },
-      {
-        "name": "Shaheed Benazir Bhutto Dewan University - SBBDU",
-        "city": "Karachi",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 4 & Below"
-      },
-      {
-        "name": "University of Central Punjab - UCP",
-        "city": "Lahore",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 4 & Below"
-      },
-      {
-        "name": "Textile Institute of Pakistan - TIP",
-        "city": "Karachi",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 4 & Below"
-      },
-      {
-        "name": "DHA Suffa University - DSU",
-        "city": "Karachi",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 4 & Below"
-      },
-      {
-        "name": "The University Of Modern Sciences - TUMS*",
-        "city": "Tando Muhammad Khan",
-        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
-        "sector": "Private",
-        "tier": "Tier 4 & Below"
-      }
-    ],
-    "admission_requirements": "Minimum 50% to 60% marks in Intermediate (HSSC) or equivalent. Premium business schools like IBA or LUMS maintain higher baseline requirements and require passing highly competitive institutional entrance exams.",
-    "entry_tests": "IBA Aptitude Test, NUST-NET (Business), LUMS LCAT, or national NTS-NAT-Business frameworks.",
-    "merit_criteria": "NUST applies a standardized business aggregate: 75% on the NET exam score, 15% on FSc Part-1 marks, and 10% on Matriculation records. IBA Karachi enforces sharp minimum raw section score cutoffs in English and Math modules followed by mandatory interactive selection interviews.",
-    "career_scope": [
-      "Management Trainee Officer (MTO)",
-      "Operations Executive",
-      "Business Development Manager",
-      "Supply Chain Coordinator",
-      "Corporate Strategy Analyst",
-      "Brand Associate",
-      "Operations Analyst",
-      "Management Consultant"
-    ],
-    "faqs": [
-      {
-        "question": "What is the primary difference between a BBA and a BS in Management Science?",
-        "answer": "BBA programs are highly case-study driven and emphasize functional business tracks like brand marketing, human resources, and consumer sales. A BS in Management Science leans heavily on mathematical data modeling, quantitative systems optimization, and supply chain analytics."
-      },
-      {
-        "question": "Can I specialize in a specific commercial field during my BBA?",
-        "answer": "Yes. Most business institutions allow students to choose a definitive major track in their third academic year, typically specializing in Marketing, Finance, Human Resource Management, or Supply Chain Management."
-      },
-      {
-        "question": "Are internships mandatory during a BBA program in Pakistan?",
-        "answer": "Yes. Almost all HEC-recognized business schools require completing at least one or two corporate summer internships (typically lasting 6-8 weeks) as a mandatory credit hour requirement for graduation."
-      },
-      {
-        "question": "Is an MBA necessary immediately after finishing a BBA degree?",
-        "answer": "No. Gaining 2 to 3 years of actual corporate market experience after your BBA provides significantly greater value before pursuing an accelerated or executive MBA track."
-      },
-      {
-        "question": "How does a degree in Management differ from a traditional BBA?",
-        "answer": "While a BBA covers all functional business areas like marketing and accounting, a general Management or Management Science degree focuses deeply on leadership theory, organizational behavior, data-driven optimization, and operations strategy."
-      },
-      {
-        "question": "Can I work in the technology sector with a management degree?",
-        "answer": "Yes. Tech companies and software houses regularly hire management graduates for operational roles, project coordination, agile scrum mastering, and business analysis."
-      },
-      {
-        "question": "Are internships necessary during this degree program?",
-        "answer": "Absolutely. Most reputable business schools require at least one or two mandatory summer internships to help students bridge theoretical management frameworks with real corporate work environments."
-      },
-      {
-        "question": "Does this degree require complex programming or math skills?",
-        "answer": "It requires standard quantitative logic, basic statistics, and data visualization tools, but it does not demand the deep calculus or advanced software programming found in computing fields."
-      }
-    ],
-    "step_by_step_guidance": [
-      "Maintain a strong percentage in your HSSC examinations to secure baseline application aggregates.",
-      "Identify entry testing loops for premium business divisions (IBA, NUST, LUMS) during your final year of intermediate.",
-      "Practice basic algebraic word problems, numeric logic loops, sentence corrections, and reading comprehension layouts daily.",
-      "Submit online application parameters alongside your verified high school transcripts and entry test tracking identifiers.",
-      "Participate in public speaking or mock interview circles to prepare for prospective business school intake interviews."
-    ],
-    "universities_source": "TCF Verified (Tertiary Support Program - University Guidance Framework 2025)"
-  },
-  {
-    "field_name": "Chartered Accountancy (CA/ACCA/ICMA)",
+    "field_name": "Accountancy CA/ACCA/ICMA",
     "overview": "This covers Pakistan's three main professional accountancy qualifications — CA (Chartered Accountancy, regulated by ICAP), ACCA (Association of Chartered Certified Accountants, UK-based and globally recognized), and ICMA (Institute of Cost and Management Accountants of Pakistan). Instead of a typical university degree track, students clear sequential professional exam modules alongside completing mandatory practical training. All three are highly respected in Pakistan's financial sector, though they differ in focus, training structure, and typical career direction.",
     "required_skills": [
       "Statutory Auditing (CA)",
@@ -12794,6 +12196,1804 @@
       "Prepare for the relevant admission test if required.",
       "Apply within standard admission windows.",
       "If you're aiming for policy, research, or international-organization careers, plan toward postgraduate study (MPhil/MS in Economics) as part of your longer-term path."
+    ],
+    "universities_source": "TCF Verified (Tertiary Support Program - University Guidance Framework 2025)"
+  },
+  {
+    "field_name": "Business Administration",
+    "overview": "Business Administration covers the practical, day-to-day running of organizations — marketing, human resources, operations, sales, and general management. It's a broad, versatile degree that prepares students to work across almost any industry, with a focus on applied business skills rather than heavy quantitative analysis.",
+    "required_skills": [
+      "Team leadership and people management",
+      "Marketing and brand strategy",
+      "Negotiation and pitch presentation",
+      "Organizational communication",
+      "Sales and business development",
+      "Change management"
+    ],
+    "personality_fit": "Suited to students who enjoy working with people, leading teams, and applying practical business judgment — comfortable with ambiguity and interested in how organizations function day to day, more than in deep quantitative modeling.",
+    "academic_stream": "FA, Commerce (I.Com), ICS, FSc Pre-Engineering, or FSc Pre-Medical. Universities generally accept all intermediate streams into Business Administration.",
+    "universities": [
+      {
+        "name": "Institute of Business Administration - IBA",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 1"
+      },
+      {
+        "name": "National University of Sciences and Technology - NUST",
+        "city": "Islamabad,+[13]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 1"
+      },
+      {
+        "name": "Lahore University of Management Sciences - LUMS",
+        "city": "Lahore",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 1"
+      },
+      {
+        "name": "Bahria University - BU",
+        "city": "Islamabad,+[3]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Institute of Management Sciences - IMSciences",
+        "city": "Peshawar",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "University of Karachi - UoK",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Government College University Lahore - GCU",
+        "city": "Lahore",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "University of Punjab - PU",
+        "city": "Lahore,+[23]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Dawood University of Engineering & Technology - DUET",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Fatima Jinnah Women University - FJWU",
+        "city": "Rawalpindi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Shah Abdul Latif University - SALU",
+        "city": "Khairpur",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Institute of Business Management - IoBM",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Lahore School of Economics - LSE",
+        "city": "Lahore",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Shaheed Zulfikar Ali Bhutto Institute of Science & Technology - SZABIST",
+        "city": "Karachi,+[15]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Abdul Wali Khan University Mardan - AWKUM",
+        "city": "Mardan",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Government College for Women University, Sialkot - GCWUS",
+        "city": "Sialkot",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Government Post Graduate College - GPGC",
+        "city": "Multiple locations in Pakistan",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Information Technology University (ITU) - ITU",
+        "city": "Lahore",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "International Islamic University Islamabad - IIUI",
+        "city": "Islamabad",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Iqra National University - INU",
+        "city": "Peshawar",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "The Islamia University of Bahawalpur - IUB",
+        "city": "Bahawalpur,+[18]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Namal Institute Mianwali - NIM",
+        "city": "Mianwali",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Pir Mehr Ali Shah Arid Agriculture University - PMAS- AAUR",
+        "city": "Rawalpindi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Rawalpindi Women University - RWU",
+        "city": "Rawalpindi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Sindh Madressatul Islam University - SMIU",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Chakwal - UoC",
+        "city": "Chakwal",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Education - UE",
+        "city": "Lahore,+[20]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Government College University, Faisalabad - GCUF",
+        "city": "Faisalabad,+[7]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Mianwali - UMW",
+        "city": "Mianwali",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Sargodha - UOS",
+        "city": "Sargodha",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Sindh - UoS",
+        "city": "Jamshoro",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Sufism and Modern Sciences, Bhitshah Sindh - USMS",
+        "city": "Bhitshah",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Women University Mardan - WUM",
+        "city": "Mardan",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Government College for Women University, Faisalabad - GCWUF",
+        "city": "Faisalabad",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Bahauddin Zakariya University - BZU",
+        "city": "Multan,+[2]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Balochistan University of Information Technology, Engineering & Management Sciences - BUITEMS",
+        "city": "Quetta",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Mehran University of Engineering & Technology, Jamshoro - MUET",
+        "city": "Jamshoro",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Sukkur IBA University - Sukkur IBA",
+        "city": "Sukkur,+[17]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Foundation University - FU",
+        "city": "Islamabad",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Sardar Bahadur Khan Women's University - SBKWU",
+        "city": "Quetta",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Kinnaird College for Women - KCW",
+        "city": "Lahore",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Agriculture Faisalabad - UAF",
+        "city": "Faisalabad,+[19]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "COMSATS University Islamabad - CUI",
+        "city": "Islamabad,+[5]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "National University of Modern Languages - NUML",
+        "city": "Islamabad,+[12]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Institute of Southern Punjab - ISP",
+        "city": "Multan",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Iqra University - IU",
+        "city": "Karachi,+[8]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Jinnah University for Women - JUW",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Northern University - NU",
+        "city": "Nowshera",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Salim Habib University - SHU",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Ziauddin University - ZU",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Karachi School of Business & Leadership - KSBL",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "National University of Computer & Emerging Sciences - NUCES (FAST)",
+        "city": "Islamabad,+[11]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Forman Christian College - FCC",
+        "city": "Lahore",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Lahore - UOL",
+        "city": "Lahore,+[22]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Muhammad Ali Jinnah University - MAJU",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Riphah International University - RIU",
+        "city": "Islamabad,+[24]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "The University of Faisalabad - TUF",
+        "city": "Faisalabad",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Lahore Garrison University - LGU",
+        "city": "Lahore",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Management & Technology - UMT",
+        "city": "Lahore",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Federal Urdu University of Arts, Sciences & Technology - FUUAST",
+        "city": "Karachi,+[6]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "The Begum Nusrat Bhutto Women University - BNBWU",
+        "city": "Rohri",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "University of Gujrat - UOG",
+        "city": "Gujrat",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Government College University - GCUH*",
+        "city": "Hyderabad",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "University of Sufism and Modern Sciences - USMS*",
+        "city": "Bhitshah",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Shaheed Benazir Bhutto University of Veterinary and Animal Sciences - SBBUVAS*",
+        "city": "Sakrand",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "The Shaikh Ayaz University, Shikarpur - TSAU*",
+        "city": "Shikarpur",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Virtual University of Pakistan - VU",
+        "city": "Islamabad (with more than 200 campuses in Pakistan)",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Greenwich University - GU",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Lasbela University of Agriculture, Water & Marine Sciences - LUAWMS",
+        "city": "Lasbela",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Khadim Ali Shah Bukhari Institute of Technology - KASBIT",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Shaheed Benazir Bhutto Dewan University - SBBDU",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "University of Central Punjab - UCP",
+        "city": "Lahore",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Textile Institute of Pakistan - TIP",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "DHA Suffa University - DSU",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "The University Of Modern Sciences - TUMS*",
+        "city": "Tando Muhammad Khan",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      }
+    ],
+    "admission_requirements": "Minimum 50% marks in Intermediate (HSSC) or equivalent at most institutions; top-tier business schools may require higher scores or a specific entry test.",
+    "entry_tests": "University-specific admission tests (often testing English, Math, and general aptitude), or NTS-NAT (Business) depending on the institution.",
+    "merit_criteria": "Typically a combination of entry test score, intermediate marks, and Matric marks — public universities commonly weight roughly 50% entry test, 40% intermediate, 10% Matric, though this varies by institution.",
+    "career_scope": [
+      "Management Trainee Officer (MTO)",
+      "Marketing/Brand Executive",
+      "Human Resources Officer",
+      "Business Development Manager",
+      "Operations Executive",
+      "Sales Manager"
+    ],
+    "faqs": [
+      {
+        "question": "What's the difference between Business Administration and Management Sciences?",
+        "answer": "Business Administration focuses on the practical, applied side of running a business — marketing, HR, operations, sales. Management Sciences leans more analytical and quantitative — decision science, operations research, systems and process optimization. Many students find Business Administration more people-and-strategy focused, and Management Sciences more data-and-process focused."
+      },
+      {
+        "question": "Is an MBA necessary after this degree?",
+        "answer": "Not necessary, but common — many Business Administration graduates pursue an MBA after a few years of work experience to move into more senior management roles."
+      }
+    ],
+    "step_by_step_guidance": [
+      "Complete intermediate studies in any stream.",
+      "Research universities' Business Administration programs and their specific admission requirements.",
+      "Prepare for the relevant entry test if required.",
+      "Apply within standard admission windows.",
+      "Consider which functional area interests you most (marketing, HR, operations, sales) to guide your elective choices during the degree."
+    ],
+    "universities_source": "TCF Verified (Tertiary Support Program - University Guidance Framework 2025)"
+  },
+  {
+    "field_name": "Management Sciences",
+    "overview": "Management Sciences applies analytical and quantitative methods — decision science, operations research, systems thinking, and process optimization — to solving organizational and business problems. It's more data-and-model-driven than general Business Administration, appealing to students who want to combine business understanding with rigorous analytical tools.",
+    "required_skills": [
+      "Quantitative and data-driven decision making",
+      "Operations and process optimization",
+      "Project management",
+      "Systems and process thinking",
+      "Statistical analysis",
+      "Supply chain coordination"
+    ],
+    "personality_fit": "Suited to students who enjoy solving business problems with structured, analytical methods — comfortable with data, models, and process design, and interested in optimizing how organizations work rather than purely in leading or motivating people.",
+    "academic_stream": "FSc Pre-Engineering, ICS, Commerce (I.Com), or FA — Mathematics performance is a genuine advantage given the quantitative/analytical focus of this field.",
+    "universities": [
+      {
+        "name": "Institute of Business Administration - IBA",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 1"
+      },
+      {
+        "name": "National University of Sciences and Technology - NUST",
+        "city": "Islamabad,+[13]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 1"
+      },
+      {
+        "name": "Lahore University of Management Sciences - LUMS",
+        "city": "Lahore",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 1"
+      },
+      {
+        "name": "Bahria University - BU",
+        "city": "Islamabad,+[3]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Institute of Management Sciences - IMSciences",
+        "city": "Peshawar",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "University of Karachi - UoK",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Government College University Lahore - GCU",
+        "city": "Lahore",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "University of Punjab - PU",
+        "city": "Lahore,+[23]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Dawood University of Engineering & Technology - DUET",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Fatima Jinnah Women University - FJWU",
+        "city": "Rawalpindi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Shah Abdul Latif University - SALU",
+        "city": "Khairpur",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Institute of Business Management - IoBM",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Lahore School of Economics - LSE",
+        "city": "Lahore",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Shaheed Zulfikar Ali Bhutto Institute of Science & Technology - SZABIST",
+        "city": "Karachi,+[15]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Abdul Wali Khan University Mardan - AWKUM",
+        "city": "Mardan",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Government College for Women University, Sialkot - GCWUS",
+        "city": "Sialkot",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Government Post Graduate College - GPGC",
+        "city": "Multiple locations in Pakistan",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Information Technology University (ITU) - ITU",
+        "city": "Lahore",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "International Islamic University Islamabad - IIUI",
+        "city": "Islamabad",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Iqra National University - INU",
+        "city": "Peshawar",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "The Islamia University of Bahawalpur - IUB",
+        "city": "Bahawalpur,+[18]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Namal Institute Mianwali - NIM",
+        "city": "Mianwali",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Pir Mehr Ali Shah Arid Agriculture University - PMAS- AAUR",
+        "city": "Rawalpindi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Rawalpindi Women University - RWU",
+        "city": "Rawalpindi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Sindh Madressatul Islam University - SMIU",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Chakwal - UoC",
+        "city": "Chakwal",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Education - UE",
+        "city": "Lahore,+[20]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Government College University, Faisalabad - GCUF",
+        "city": "Faisalabad,+[7]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Mianwali - UMW",
+        "city": "Mianwali",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Sargodha - UOS",
+        "city": "Sargodha",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Sindh - UoS",
+        "city": "Jamshoro",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Sufism and Modern Sciences, Bhitshah Sindh - USMS",
+        "city": "Bhitshah",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Women University Mardan - WUM",
+        "city": "Mardan",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Government College for Women University, Faisalabad - GCWUF",
+        "city": "Faisalabad",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Bahauddin Zakariya University - BZU",
+        "city": "Multan,+[2]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Balochistan University of Information Technology, Engineering & Management Sciences - BUITEMS",
+        "city": "Quetta",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Mehran University of Engineering & Technology, Jamshoro - MUET",
+        "city": "Jamshoro",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Sukkur IBA University - Sukkur IBA",
+        "city": "Sukkur,+[17]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Foundation University - FU",
+        "city": "Islamabad",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Sardar Bahadur Khan Women's University - SBKWU",
+        "city": "Quetta",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Kinnaird College for Women - KCW",
+        "city": "Lahore",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Agriculture Faisalabad - UAF",
+        "city": "Faisalabad,+[19]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "COMSATS University Islamabad - CUI",
+        "city": "Islamabad,+[5]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "National University of Modern Languages - NUML",
+        "city": "Islamabad,+[12]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Institute of Southern Punjab - ISP",
+        "city": "Multan",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Iqra University - IU",
+        "city": "Karachi,+[8]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Jinnah University for Women - JUW",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Northern University - NU",
+        "city": "Nowshera",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Salim Habib University - SHU",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Ziauddin University - ZU",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Karachi School of Business & Leadership - KSBL",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "National University of Computer & Emerging Sciences - NUCES (FAST)",
+        "city": "Islamabad,+[11]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Forman Christian College - FCC",
+        "city": "Lahore",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Lahore - UOL",
+        "city": "Lahore,+[22]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Muhammad Ali Jinnah University - MAJU",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Riphah International University - RIU",
+        "city": "Islamabad,+[24]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "The University of Faisalabad - TUF",
+        "city": "Faisalabad",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Lahore Garrison University - LGU",
+        "city": "Lahore",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Management & Technology - UMT",
+        "city": "Lahore",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Federal Urdu University of Arts, Sciences & Technology - FUUAST",
+        "city": "Karachi,+[6]",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "The Begum Nusrat Bhutto Women University - BNBWU",
+        "city": "Rohri",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "University of Gujrat - UOG",
+        "city": "Gujrat",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Government College University - GCUH*",
+        "city": "Hyderabad",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "University of Sufism and Modern Sciences - USMS*",
+        "city": "Bhitshah",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Shaheed Benazir Bhutto University of Veterinary and Animal Sciences - SBBUVAS*",
+        "city": "Sakrand",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "The Shaikh Ayaz University, Shikarpur - TSAU*",
+        "city": "Shikarpur",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Virtual University of Pakistan - VU",
+        "city": "Islamabad (with more than 200 campuses in Pakistan)",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Greenwich University - GU",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Lasbela University of Agriculture, Water & Marine Sciences - LUAWMS",
+        "city": "Lasbela",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Khadim Ali Shah Bukhari Institute of Technology - KASBIT",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Shaheed Benazir Bhutto Dewan University - SBBDU",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "University of Central Punjab - UCP",
+        "city": "Lahore",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Textile Institute of Pakistan - TIP",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "DHA Suffa University - DSU",
+        "city": "Karachi",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "The University Of Modern Sciences - TUMS*",
+        "city": "Tando Muhammad Khan",
+        "program": "Business Administration & Management (Business Information Systems, Commerce, Digital Marketing, Management and Technology, Management Sciences, Project Management, Supply Chain Management, Healthcare Management, Entrepreneurship)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      }
+    ],
+    "admission_requirements": "Minimum 50% marks in Intermediate (HSSC) or equivalent at most institutions; strong Mathematics scores are an advantage.",
+    "entry_tests": "University-specific admission tests (often testing English, Math, and general aptitude), or NTS-NAT (Business) depending on the institution.",
+    "merit_criteria": "Typically a combination of entry test score, intermediate marks, and Matric marks — weighting varies by institution.",
+    "career_scope": [
+      "Operations Analyst",
+      "Supply Chain Coordinator",
+      "Project Manager",
+      "Corporate Strategy Analyst",
+      "Management Consultant",
+      "Business Systems Analyst"
+    ],
+    "faqs": [
+      {
+        "question": "Do I need to be strong at Math for this field?",
+        "answer": "It genuinely helps — Management Sciences involves more quantitative and analytical work than general Business Administration, including statistics, operations research, and data-driven decision models."
+      },
+      {
+        "question": "Is this the same as an MBA?",
+        "answer": "No — this is typically an undergraduate degree. An MBA is a postgraduate qualification that many Management Sciences graduates pursue later for career advancement, often after gaining some work experience."
+      }
+    ],
+    "step_by_step_guidance": [
+      "Complete intermediate studies, ideally with solid Mathematics performance.",
+      "Research universities' Management Sciences programs and their specific admission requirements.",
+      "Prepare for the relevant entry test if required.",
+      "Apply within standard admission windows.",
+      "Build comfort with data analysis tools (Excel, and later statistical software) early — they're used throughout this degree."
+    ],
+    "universities_source": "TCF Verified (Tertiary Support Program - University Guidance Framework 2025)"
+  },
+  {
+    "field_name": "Artificial Intelligence",
+    "overview": "Artificial Intelligence focuses on building systems that can learn, reason, and make decisions — covering machine learning, neural networks, natural language processing, and computer vision. It's part of the same TCF discipline group as Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences), and is one of the fastest-growing specializations globally, with rapidly increasing demand in Pakistan's tech sector.",
+    "required_skills": [
+      "Mathematics (linear algebra, calculus, probability)",
+      "Programming (Python especially)",
+      "Machine learning and neural network concepts",
+      "Statistical reasoning",
+      "Problem-solving and algorithmic thinking",
+      "Continuous learning (the field evolves very fast)"
+    ],
+    "personality_fit": "Suited to students who enjoy deep technical problem-solving, are comfortable with heavy mathematics alongside programming, and are genuinely curious about how machines can be made to learn and reason.",
+    "academic_stream": "FSc Pre-Engineering or ICS, with strong Mathematics performance — AI relies heavily on linear algebra, calculus, probability, and statistics, more so than general Computer Science.",
+    "universities": [
+      {
+        "name": "Institute of Business Administration - IBA",
+        "city": "Karachi",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 1"
+      },
+      {
+        "name": "University of Engineering and Technology Lahore - UET Lahore",
+        "city": "Lahore,+[21]",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 1"
+      },
+      {
+        "name": "National University of Sciences and Technology - NUST",
+        "city": "Islamabad,+[13]",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 1"
+      },
+      {
+        "name": "Pakistan Institute of Engineering and Applied Sciences - PIEAS",
+        "city": "Islamabad",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 1"
+      },
+      {
+        "name": "University of Punjab - PU",
+        "city": "Lahore,+[23]",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 1"
+      },
+      {
+        "name": "NED University of Engineering and Technology - NEDUET",
+        "city": "Karachi",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 1"
+      },
+      {
+        "name": "National University of Computer & Emerging Sciences - NUCES (FAST)",
+        "city": "Islamabad,+[11]",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Private",
+        "tier": "Tier 1"
+      },
+      {
+        "name": "Ghulam Ishaq Khan Institute of Engineering Sciences and Technology - GIKI",
+        "city": "Swabi",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Private",
+        "tier": "Tier 1"
+      },
+      {
+        "name": "Habib University - HU",
+        "city": "Karachi",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Private",
+        "tier": "Tier 1"
+      },
+      {
+        "name": "Lahore University of Management Sciences - LUMS",
+        "city": "Lahore",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Private",
+        "tier": "Tier 1"
+      },
+      {
+        "name": "University of Karachi - UoK",
+        "city": "Karachi",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "COMSATS University Islamabad - CUI",
+        "city": "Islamabad,+[5]",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Information Technology University (ITU) - ITU",
+        "city": "Lahore",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Quaid-i-Azam University - QAU",
+        "city": "Islamabad",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Sir Syed University of Engineering & Technology - SSUET",
+        "city": "Karachi",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Private",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Beaconhouse National University - BNU",
+        "city": "Lahore",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Private",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Institute of Business Management - IoBM",
+        "city": "Karachi",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Private",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Shaheed Zulfikar Ali Bhutto Institute of Science & Technology - SZABIST",
+        "city": "Karachi,+[15]",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Private",
+        "tier": "Tier 2"
+      },
+      {
+        "name": "Dawood University of Engineering & Technology - DUET",
+        "city": "Karachi",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Government College for Women University, Sialkot - GCWUS",
+        "city": "Sialkot",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Chakwal - UoC",
+        "city": "Chakwal",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Balochistan University of Engineering and Technology Khuzdar - BUETK",
+        "city": "Khuzdar",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Kinnaird College for Women - KCW",
+        "city": "Lahore",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Mehran University of Engineering & Technology, Jamshoro - MUET",
+        "city": "Jamshoro",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Namal Institute Mianwali - NIM",
+        "city": "Mianwali",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Abbottabad University of Science & Technology - AUST",
+        "city": "Abbottabad",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Government College University Lahore - GCU",
+        "city": "Lahore",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Abdul Wali Khan University Mardan - AWKUM",
+        "city": "Mardan",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Air University - AU",
+        "city": "Islamabad,+[1]",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Bahauddin Zakariya University - BZU",
+        "city": "Multan,+[2]",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Balochistan University of Information Technology, Engineering & Management Sciences - BUITEMS",
+        "city": "Quetta",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Fatima Jinnah Women University - FJWU",
+        "city": "Rawalpindi",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Foundation University - FU",
+        "city": "Islamabad",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Iqra National University - INU",
+        "city": "Peshawar",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Sukkur IBA University - Sukkur IBA",
+        "city": "Sukkur,+[17]",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Government Post Graduate College - GPGC",
+        "city": "Multiple locations in Pakistan",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Hazara University - HU",
+        "city": "Mansehra",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Government College for Women University, Faisalabad - GCWUF",
+        "city": "Faisalabad",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "International Islamic University Islamabad - IIUI",
+        "city": "Islamabad",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "The Islamia University of Bahawalpur - IUB",
+        "city": "Bahawalpur,+[18]",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Khwaja Fareed University of Engineering & Information Technology - KFUEIT",
+        "city": "Rahim Yar Khan",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Lahore College for Women University - LCWU",
+        "city": "Lahore",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "NFC Institute of Engineering & Technology - NFC-IET",
+        "city": "Multan",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Pir Mehr Ali Shah Arid Agriculture University - PMAS- AAUR",
+        "city": "Rawalpindi",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Rawalpindi Women University - RWU",
+        "city": "Rawalpindi",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Shah Abdul Latif University - SALU",
+        "city": "Khairpur",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Women University Swabi - WUS",
+        "city": "Sawabi",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Quaid-e-Awam University of Engineering, Sciences & Technology - QUEST",
+        "city": "Nawabshah",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "The Women University Multan - WUM",
+        "city": "Multan",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Azad Jammu and Kashmir - UAJK",
+        "city": "Muzaffarabad",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Education - UE",
+        "city": "Lahore,+[20]",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Mianwali - UMW",
+        "city": "Mianwali",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Peshawar - UOP",
+        "city": "Peshawar",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Sargodha - UOS",
+        "city": "Sargodha",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Sindh - UoS",
+        "city": "Jamshoro",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Sardar Bahadur Khan Women's University - SBKWU",
+        "city": "Quetta",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Wah - UoW",
+        "city": "Wah Cantt",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Government College University, Faisalabad - GCUF",
+        "city": "Faisalabad,+[7]",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "National Textile University - NTU",
+        "city": "Faisalabad",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Women University Mardan - WUM",
+        "city": "Mardan",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Forman Christian College - FCC",
+        "city": "Lahore",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "DHA Suffa University - DSU",
+        "city": "Karachi",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Lahore Garrison University - LGU",
+        "city": "Lahore",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Lasbela University of Agriculture, Water & Marine Sciences - LUAWMS",
+        "city": "Lasbela",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Central Punjab - UCP",
+        "city": "Lahore",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Lahore - UOL",
+        "city": "Lahore",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "University of Management & Technology - UMT",
+        "city": "Lahore",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Private",
+        "tier": "Tier 3"
+      },
+      {
+        "name": "Sindh Madressatul Islam University - SMIU",
+        "city": "Karachi",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Institute of Management Sciences - IMSciences",
+        "city": "Peshawar",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "University of Narowal - UoN",
+        "city": "Narowal",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "University of Gujrat - UOG",
+        "city": "Gujrat",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Bahria University - BU",
+        "city": "Islamabad,+[3]",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "National University of Modern Languages - NUML",
+        "city": "Islamabad,+[12]",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Government Graduate College - GCUMC*",
+        "city": "Mian Channu",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "The Benazir Bhutto Shaheed University of Technology and Skills Development Khairpur Mirs - BBSUTSD*",
+        "city": "Khairpur Mirs",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Government College University - GCUH*",
+        "city": "Hyderabad",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "University of Sufism and Modern Sciences - USMS*",
+        "city": "Bhitshah",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Sindh Agriculture University - SAU*",
+        "city": "Tandojam",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "The Shaikh Ayaz University - TSAU*",
+        "city": "Shikarpur",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "The Begum Nusrat Bhutto Women University - BNBWU",
+        "city": "Rohri",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Allama Iqbal Open University - AIOU",
+        "city": "Islamabad (with campuses in Karachi)",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Virtual University of Pakistan - VU",
+        "city": "Islamabad (with more than 200 campuses in Pakistan)",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Ghazi University, Dera Ghazi Khan - GU DGK",
+        "city": "Dera Ghazi Khan",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "University of Agriculture Faisalabad - UAF",
+        "city": "Faisalabad,+[19]",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Public",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Isra University - IU",
+        "city": "Hyderabad,+[9]",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Institute of Southern Punjab - ISP",
+        "city": "Multan",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      },
+      {
+        "name": "Northern University - NU",
+        "city": "Nowshera",
+        "program": "Computer Science (Artificial Intelligence, Business Analytics & Programming, Business Data Analytics, Computing & Data Sciences)",
+        "sector": "Private",
+        "tier": "Tier 4 & Below"
+      }
+    ],
+    "admission_requirements": "Same admission pathway as Computer Science at most universities — minimum 60%+ in FSc Pre-Engineering or ICS at top-tier institutions, since AI is usually offered as a specialization/track within the Computer Science degree rather than a fully separate program, though a growing number of universities now offer dedicated AI degrees.",
+    "entry_tests": "Same as Computer Science: NUST-NET, ECAT, GIKI Entrance Exam, NTS-NAT, or university-specific tests, depending on the institution.",
+    "merit_criteria": "Where AI is a specialization within Computer Science, the same merit formula as the CS program applies. Where a university offers a dedicated AI degree, merit criteria are typically very similar to Computer Science's own formula.",
+    "career_scope": [
+      "Machine Learning Engineer",
+      "AI Research Engineer",
+      "Computer Vision Engineer",
+      "Natural Language Processing (NLP) Engineer",
+      "AI Product Manager",
+      "Data Scientist (AI-focused roles)"
+    ],
+    "faqs": [
+      {
+        "question": "Is AI a separate degree from Computer Science in Pakistan?",
+        "answer": "At most universities, it's currently a specialization or set of electives within the Computer Science degree, similar to Data Science. A growing number of newer programs are beginning to offer AI as a named degree — check each university specifically for their current offering."
+      },
+      {
+        "question": "How is this different from Data Science?",
+        "answer": "There's real overlap, but AI focuses more on building systems that make autonomous decisions or predictions (like a chatbot, an image recognition system, or a recommendation engine), while Data Science focuses more broadly on extracting insight and analysis from data. Many AI systems are built using data science techniques."
+      },
+      {
+        "question": "How much math do I really need?",
+        "answer": "More than most other Computer Science specializations. A solid grip on linear algebra, calculus, and probability/statistics makes learning the underlying algorithms far easier — weak math makes this specialization genuinely difficult."
+      }
+    ],
+    "step_by_step_guidance": [
+      "Complete FSc Pre-Engineering or ICS with strong Mathematics performance — this matters more here than in most other CS tracks.",
+      "Apply to Computer Science programs at universities known for a genuine AI/Machine Learning track or electives.",
+      "Prepare for the relevant CS entry test for your target university.",
+      "Once admitted, prioritize linear algebra, probability/statistics, and Python early — they're the foundation for everything else in this field.",
+      "Build a portfolio of small AI/ML projects (Kaggle competitions, personal projects) — this matters significantly in AI hiring, arguably more than in most other tech fields."
     ],
     "universities_source": "TCF Verified (Tertiary Support Program - University Guidance Framework 2025)"
   }
