@@ -85,6 +85,7 @@ FIELD_CATEGORIES = {
     ],
     "Computer Studies": [
         "Computer Science", "Computer Engineering", "Information Technology", "Software Engineering",
+        "Data Science", "Cyber Security",
     ],
     "Health Sciences": [
         "Bachelor of Medicine, Bachelor of Surgery (MBBS)", "Bachelor of Dental Surgery (BDS)",
@@ -93,8 +94,8 @@ FIELD_CATEGORIES = {
         "Biotechnology & Biomedical Engineering",
     ],
     "Management Sciences": [
-        "Business Administration & Management", "Finance & Economics",
-        "Chartered Accountancy (CA)", "Tourism & Hospitality",
+        "Business Administration & Management", "Finance", "Economics",
+        "Chartered Accountancy (CA/ACCA/ICMA)", "Tourism & Hospitality",
     ],
     "Natural Sciences": [
         "Biological Sciences", "Chemistry, Physics & Marine Science", "Statistics & Mathematics",
