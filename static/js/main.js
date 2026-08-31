@@ -115,9 +115,13 @@ async function loadQuestions(savedPdtiOrder) {
   ];
 }
 
+document.getElementById("student-roll").addEventListener("input", (e) => {
+  e.target.value = e.target.value.replace(/[^0-9]/g, "");
+});
+
 document.getElementById("btn-start").addEventListener("click", async () => {
   studentName = document.getElementById("student-name").value.trim() || "Student";
-  studentRoll = document.getElementById("student-roll").value.trim();
+  studentRoll = document.getElementById("student-roll").value.trim().replace(/[^0-9]/g, "");
   studentClass = document.getElementById("student-class").value.trim();
   if (!QUESTIONS) await loadQuestions();
   currentIndex = 0;
