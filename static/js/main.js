@@ -15,6 +15,7 @@ const STORAGE_KEY = "tcf_discovery_progress_v1";
 
 const screens = {
   welcome: document.getElementById("screen-welcome"),
+  guide: document.getElementById("screen-guide"),
   questions: document.getElementById("screen-questions"),
   skills: document.getElementById("screen-skills"),
   academic: document.getElementById("screen-academic"),
@@ -123,6 +124,10 @@ document.getElementById("btn-start").addEventListener("click", async () => {
   studentName = document.getElementById("student-name").value.trim() || "Student";
   studentRoll = document.getElementById("student-roll").value.trim().replace(/[^0-9]/g, "");
   studentClass = document.getElementById("student-class").value.trim();
+  showScreen("guide");
+});
+
+document.getElementById("btn-guide-start").addEventListener("click", async () => {
   if (!QUESTIONS) await loadQuestions();
   currentIndex = 0;
   showScreen("questions");
@@ -362,7 +367,7 @@ function renderRadarChart(riasecScores) {
       ${points.map(p => `<circle cx="${p.x}" cy="${p.y}" r="3.5" fill="#16233F"/>`).join("")}
       ${labelTexts}
     </svg>
-    <p style="text-align:center; font-size:12px; color:#6B7280; margin-top:8px;">Each point shows how strongly your answers leaned toward that category (out of 30).</p>
+    <p style="text-align:center; font-size:12px; color:#6B7280; margin-top:8px;">Each point shows how strongly your answers leaned toward that category.</p>
   `;
 }
 
