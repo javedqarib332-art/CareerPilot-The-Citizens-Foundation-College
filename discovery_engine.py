@@ -323,7 +323,7 @@ FIELD_SUBJECT_REQUIREMENTS = {
     "Statistics & Mathematics": ["Mathematics"],
     "Finance": ["Mathematics"],
     "Economics": ["Mathematics"],
-    "Chartered Accountancy (CA/ACCA/ICMA)": ["Mathematics"],
+    "Accountancy CA/ACCA/ICMA": ["Mathematics"],
     "Law & Criminal Studies": ["EnglishLanguage"],
 }
 
@@ -338,13 +338,13 @@ FIELD_MAPPING_BY_PAIR = {
     frozenset(("I", "A")): ["Architecture", "Biological Sciences", "Art & Design"],
     frozenset(("I", "S")): ["Bachelor of Medicine, Bachelor of Surgery (MBBS)", "Bachelor of Dental Surgery (BDS)", "Pharmaceutical & Nutritional Sciences", "Political & Social Sciences", "Clinical & Medical"],
     frozenset(("I", "E")): ["Finance", "Economics", "Biotechnology & Biomedical Engineering"],
-    frozenset(("I", "C")): ["Computer Science", "Computer Engineering", "Software Engineering", "Data Science", "Cyber Security", "Statistics & Mathematics", "Chartered Accountancy (CA/ACCA/ICMA)", "Chemistry, Physics & Marine Science"],
+    frozenset(("I", "C")): ["Computer Science", "Computer Engineering", "Software Engineering", "Data Science", "Artificial Intelligence", "Cyber Security", "Statistics & Mathematics", "Accountancy CA/ACCA/ICMA", "Chemistry, Physics & Marine Science"],
     frozenset(("A", "S")): ["Political & Social Sciences", "Education", "Media Sciences & Communication", "Language & Literature"],
     frozenset(("A", "E")): ["Fashion & Textile", "Media Sciences & Communication"],
     frozenset(("A", "C")): ["Art & Design", "Language & Literature"],
-    frozenset(("S", "E")): ["Business Administration & Management", "Tourism & Hospitality", "Education", "Law & Criminal Studies"],
+    frozenset(("S", "E")): ["Business Administration", "Management Sciences", "Tourism & Hospitality", "Education", "Law & Criminal Studies"],
     frozenset(("S", "C")): ["Allied Health", "Bachelor of Science in Nursing (BSN)", "Education"],
-    frozenset(("E", "C")): ["Business Administration & Management", "Finance", "Chartered Accountancy (CA/ACCA/ICMA)", "Law & Criminal Studies", "Information Technology"],
+    frozenset(("E", "C")): ["Business Administration", "Management Sciences", "Finance", "Accountancy CA/ACCA/ICMA", "Law & Criminal Studies", "Information Technology"],
 }
 
 # Single-category fallback (used only if a clean top-2 pair isn't found)
@@ -353,8 +353,8 @@ FIELD_MAPPING_SINGLE = {
     "I": ["Computer Science", "Biological Sciences", "Chemistry, Physics & Marine Science"],
     "A": ["Art & Design", "Media Sciences & Communication", "Architecture"],
     "S": ["Political & Social Sciences", "Education", "Allied Health"],
-    "E": ["Business Administration & Management", "Tourism & Hospitality"],
-    "C": ["Finance", "Economics", "Chartered Accountancy (CA/ACCA/ICMA)"],
+    "E": ["Business Administration", "Management Sciences", "Tourism & Hospitality"],
+    "C": ["Finance", "Economics", "Accountancy CA/ACCA/ICMA"],
 }
 
 
@@ -644,7 +644,7 @@ MEDICAL_TRACK_SUBSPLIT = {
     "R": ["Bachelor of Medicine, Bachelor of Surgery (MBBS)", "Bachelor of Dental Surgery (BDS)", "Clinical & Medical"],           # hands-on, clinical
     "C": ["Pharmaceutical & Nutritional Sciences", "Vision Care, Diagnostic & Technical"],       # structured, precision, lab-based
     "A": ["Political & Social Sciences", "Media Sciences & Communication"],                 # expressive, human-focused
-    "E": ["Business Administration & Management", "Bachelor of Medicine, Bachelor of Surgery (MBBS)"],  # leadership-facing
+    "E": ["Business Administration", "Management Sciences", "Bachelor of Medicine, Bachelor of Surgery (MBBS)"],  # leadership-facing
 }
 
 
