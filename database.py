@@ -52,6 +52,7 @@ def init_db():
                 academic_ratings TEXT NOT NULL DEFAULT '{}',
                 contradiction_flags TEXT NOT NULL,
                 suggested_fields TEXT NOT NULL,
+                suggested_domains TEXT NOT NULL DEFAULT '[]',
                 valid_response INTEGER NOT NULL,
                 student_report TEXT NOT NULL,
                 counsellor_report TEXT NOT NULL
@@ -63,6 +64,7 @@ def init_db():
             "ALTER TABLE submissions ADD COLUMN roll_number TEXT NOT NULL DEFAULT ''",
             "ALTER TABLE submissions ADD COLUMN student_class TEXT NOT NULL DEFAULT ''",
             "ALTER TABLE submissions ADD COLUMN pdti_scores TEXT NOT NULL DEFAULT '{}'",
+            "ALTER TABLE submissions ADD COLUMN suggested_domains TEXT NOT NULL DEFAULT '[]'",
         ]:
             try:
                 conn.execute(migration)
@@ -79,9 +81,9 @@ def save_submission(
         cursor = conn.execute("""
             INSERT INTO submissions (
                 student_name, roll_number, student_class, created_at, riasec_scores, pdti_scores, big_five_scores,
-                skills_ratings, academic_ratings, contradiction_flags, suggested_fields,
+                skills_ratings, academic_ratings, contradiction_flags, suggested_fields, suggested_domains,
                 valid_response, student_report, counsellor_report
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             student_name,
             roll_number,
@@ -94,6 +96,7 @@ def save_submission(
             json.dumps(academic_ratings or {}),
             json.dumps(result.get("contradiction_flags", [])),
             json.dumps(result.get("suggested_fields", [])),
+            json.dumps(result.get("suggested_domains", [])),
             1 if result.get("valid_response", True) else 0,
             result.get("student_report", ""),
             result.get("counsellor_report", ""),
@@ -105,7 +108,7 @@ def get_all_submissions() -> list:
     """Returns all submissions, most recent first (summary fields only, for the list view)."""
     with get_connection() as conn:
         rows = conn.execute("""
-            SELECT id, student_name, roll_number, student_class, created_at, suggested_fields, valid_response
+            SELECT id, student_name, roll_number, student_class, created_at, suggested_fields, suggested_domains, valid_response
             FROM submissions ORDER BY created_at DESC
         """).fetchall()
         return [
@@ -116,6 +119,7 @@ def get_all_submissions() -> list:
                 "student_class": r["student_class"] or "",
                 "created_at": r["created_at"],
                 "suggested_fields": json.loads(r["suggested_fields"]),
+                "suggested_domains": json.loads(r["suggested_domains"]) if r["suggested_domains"] else [],
                 "valid_response": bool(r["valid_response"]),
             }
             for r in rows
@@ -125,7 +129,7 @@ def get_all_submissions() -> list:
 def get_all_submissions_full() -> list:
     """Returns full data for every submission (used for the Excel export)."""
     with get_connection() as conn:
-        rows = conn.execute("SELECT * FROM submissions ORDER BY created_at DESC").fetchall()
+        rows = conn.execute("SELECT * FROM submissions ORDER BY id ASC").fetchall()
         results = []
         for row in rows:
             results.append({
@@ -138,6 +142,7 @@ def get_all_submissions_full() -> list:
                 "pdti_scores": json.loads(row["pdti_scores"]) if row["pdti_scores"] else {},
                 "big_five_scores": json.loads(row["big_five_scores"]),
                 "suggested_fields": json.loads(row["suggested_fields"]),
+                "suggested_domains": json.loads(row["suggested_domains"]) if row["suggested_domains"] else [],
                 "valid_response": bool(row["valid_response"]),
                 "contradiction_flags": json.loads(row["contradiction_flags"]),
             })
@@ -163,6 +168,7 @@ def get_submission_by_id(submission_id: int):
             "academic_ratings": json.loads(row["academic_ratings"]) if row["academic_ratings"] else {},
             "contradiction_flags": json.loads(row["contradiction_flags"]),
             "suggested_fields": json.loads(row["suggested_fields"]),
+            "suggested_domains": json.loads(row["suggested_domains"]) if row["suggested_domains"] else [],
             "valid_response": bool(row["valid_response"]),
             "student_report": row["student_report"],
             "counsellor_report": row["counsellor_report"],
