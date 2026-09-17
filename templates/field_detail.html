@@ -41,6 +41,14 @@
   .sector-public { background: #E6F0E9; color: #3D6B4C; }
   .sector-private { background: #EFE6F0; color: #6B3D6B; }
 
+  .tier-filter-btn {
+    font-family: 'Inter', sans-serif; font-size: 12.5px; font-weight: 600; color: var(--navy);
+    background: #fff; border: 1px solid var(--border); padding: 7px 14px; border-radius: 20px;
+    cursor: pointer; transition: all 0.15s ease;
+  }
+  .tier-filter-btn:hover { border-color: var(--gold); }
+  .tier-filter-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+
   .faq-item { margin-bottom: 18px; }
   .faq-item:last-child { margin-bottom: 0; }
   .faq-item .q { font-weight: 600; color: var(--navy); margin-bottom: 6px; font-size: 14.5px; }
@@ -119,11 +127,19 @@
     {% elif f.universities_source %}
     <p style="font-size:12px; color:var(--grey); font-style:italic; margin:-8px 0 14px;">AI-researched — not yet verified against TCF's official framework. Please confirm with your counsellor before relying on this list.</p>
     {% endif %}
-    <table class="uni-table">
+    {% if f.universities and f.universities[0].tier %}
+    <div id="tier-filter" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;">
+      <button class="tier-filter-btn active" data-tier="all">All Tiers</button>
+      {% for t in f.universities | map(attribute='tier') | unique | list %}
+      <button class="tier-filter-btn" data-tier="{{ t }}">{{ t }}</button>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <table class="uni-table" id="uni-table">
       <thead><tr><th>University</th><th>City</th>{% if f.universities and f.universities[0].tier %}<th>Tier</th>{% endif %}<th>Sector</th></tr></thead>
       <tbody>
         {% for u in f.universities %}
-        <tr>
+        <tr data-tier="{{ u.tier or '' }}">
           <td>{{ u.name }}</td>
           <td>{{ u.city }}</td>
           {% if u.tier %}<td>{{ u.tier }}</td>{% endif %}
@@ -132,6 +148,7 @@
         {% endfor %}
       </tbody>
     </table>
+    <p id="tier-no-results" style="display:none; font-size:13px; color:var(--grey); text-align:center; padding:20px 0;">No universities in this tier for this field.</p>
   </div>
 
   <div class="card">
@@ -174,5 +191,27 @@
   TCF College &middot; Career Guidance &mdash; Field Guide<br>
   <span class="credit">Developed by Qarib Javed</span>
 </footer>
+
+<script>
+  const tierButtons = document.querySelectorAll(".tier-filter-btn");
+  const uniRows = document.querySelectorAll("#uni-table tbody tr");
+  const noResults = document.getElementById("tier-no-results");
+
+  tierButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      tierButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      const selectedTier = btn.dataset.tier;
+
+      let visibleCount = 0;
+      uniRows.forEach(row => {
+        const show = selectedTier === "all" || row.dataset.tier === selectedTier;
+        row.style.display = show ? "" : "none";
+        if (show) visibleCount++;
+      });
+      noResults.style.display = visibleCount === 0 ? "block" : "none";
+    });
+  });
+</script>
 </body>
 </html>
