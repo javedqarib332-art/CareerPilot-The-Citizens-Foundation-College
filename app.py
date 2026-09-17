@@ -117,7 +117,7 @@ def dashboard_export():
         "ID", "Student Name", "Roll Number", "Class", "Submitted At",
         "People", "Data", "Things", "Ideas",
         "Realistic", "Investigative", "Artistic", "Social", "Enterprising", "Conventional",
-        "Suggested Fields", "Valid Response", "Contradictions Flagged",
+        "Suggested Domains", "Valid Response", "Contradictions Flagged",
     ]
     ws.append(headers)
 
@@ -138,7 +138,7 @@ def dashboard_export():
             s["created_at"][:16].replace("T", " "),
             p.get("People", ""), p.get("Data", ""), p.get("Things", ""), p.get("Ideas", ""),
             r.get("R", ""), r.get("I", ""), r.get("A", ""), r.get("S", ""), r.get("E", ""), r.get("C", ""),
-            ", ".join(s["suggested_fields"]),
+            ", ".join(s.get("suggested_domains", [])),
             "Yes" if s["valid_response"] else "No",
             len(s["contradiction_flags"]),
         ])
