@@ -88,10 +88,10 @@
   </div>
   {% endif %}
 
-  {% if s.suggested_fields %}
+  {% if s.suggested_domains %}
   <div class="card">
-    <h3>Suggested Field Directions</h3>
-    {% for f in s.suggested_fields %}<span class="field-tag">{{ f }}</span>{% endfor %}
+    <h3>Suggested Domains</h3>
+    {% for d in s.suggested_domains %}<span class="field-tag">{{ d }}</span>{% endfor %}
   </div>
   {% endif %}
 
