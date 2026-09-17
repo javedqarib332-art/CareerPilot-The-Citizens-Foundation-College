@@ -917,7 +917,7 @@ def generate_counsellor_report(
     riasec_scores: Dict[str, int],
     big_five_scores: Dict[str, float],
     flags: List[ContradictionFlag],
-    fields: List[str],
+    domains: List[str],
 ) -> str:
     lines = []
     lines.append(f"COUNSELLOR REPORT — {student.student_name}")
@@ -952,7 +952,7 @@ def generate_counsellor_report(
             if f.student_response:
                 lines.append(f"    Student's answer: \"{f.student_response}\"")
 
-    lines.append(f"\nSuggested Field Directions: {', '.join(fields)}")
+    lines.append(f"\nSuggested Domains: {', '.join(domains)}")
     confidence = assess_confidence(riasec_scores)
     lines.append(f"Confidence level: {confidence['level'].upper()}")
     if confidence["note"]:
@@ -1068,7 +1068,7 @@ def run_discovery_assessment(student: StudentResponse) -> Dict:
     tcf_domains = suggest_tcf_domains(riasec_scores)
 
     student_report = generate_student_report(student.student_name, riasec_scores, big_five_scores, confidence)
-    counsellor_report = generate_counsellor_report(student, riasec_scores, big_five_scores, flags, fields)
+    counsellor_report = generate_counsellor_report(student, riasec_scores, big_five_scores, flags, tcf_domains)
 
     return {
         "pdti_scores": pdti_scores,
