@@ -18,12 +18,14 @@ DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "discovery_ag
 def get_connection():
     conn = sqlite3.connect(DB_PATH, timeout=30)
     conn.row_factory = sqlite3.Row
-    # WAL mode lets reads proceed while a write is happening, and the busy
-    # timeout makes concurrent writers wait briefly instead of immediately
-    # failing with "database is locked" — both matter when many students
-    # submit within the same few seconds.
-    conn.execute("PRAGMA journal_mode=WAL")
+    # NOTE: WAL mode is intentionally NOT used here — PythonAnywhere's disk
+    # storage is network-backed and does not support the memory-mapped files
+    # WAL mode needs, which caused "OSError: write error" and broke the app
+    # entirely. The busy_timeout alone still helps: concurrent writers wait
+    # briefly instead of immediately failing with "database is locked" when
+    # many students submit within the same few seconds.
     conn.execute("PRAGMA busy_timeout=30000")
+    conn.execute("PRAGMA journal_mode=DELETE")
     try:
         yield conn
         conn.commit()
